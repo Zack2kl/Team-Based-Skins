@@ -1,86 +1,85 @@
-weapon_deagle,Desert Eagle
-weapon_elite,Dual Berettas
-weapon_fiveseven,Five-Seven
-weapon_glock,Glock-18
-weapon_ak47,AK-47
-weapon_aug,AUG
-weapon_awp,AWP
-weapon_famas,Famas
-weapon_g3sg1,G3SG1
-weapon_galilar,Galil AR
-weapon_m249,M249
-weapon_m4a1,M4A4
-weapon_mac10,MAC-10
-weapon_p90,P90
-weapon_zone_repulsor,Repulsor Device
-weapon_mp5sd,MP5-SD
-weapon_ump45,UMP-45
-weapon_xm1014,XM1014
-weapon_bizon,PP-Bizon
-weapon_mag7,Mag-7
-weapon_negev,Negev
-weapon_sawedoff,Sawed-Off
-weapon_tec9,Tec-9
-weapon_hkp2000,P2000
-weapon_mp7,MP7
-weapon_mp9,MP9
-weapon_nova,Nova
-weapon_p250,P250
-weapon_scar20,SCAR-20
-weapon_sg556,SG556
-weapon_ssg08,SSG 08
-weapon_m4a1_silencer,M4A1-S
-weapon_usp_silencer,USP-S
-weapon_cz75a,CZ75-Auto
-weapon_revolver,R8 Revolver
-weapon_bayonet,Bayonet
-weapon_knife_css,Classic Knife
-weapon_knife_flip,Flip Knife
-weapon_knife_gut,Gut Knife
-weapon_knife_karambit,Karambit
-weapon_knife_m9_bayonet,M9 Bayonet
-weapon_knife_tactical,Huntsman Knife
-weapon_knife_falchion,Falchion Knife
-weapon_knife_survival_bowie,Bowie Knife
-weapon_knife_butterfly,Butterfly Knife
-weapon_knife_push,Shadow Daggers
-weapon_knife_cord,Paracord Knife
-weapon_knife_canis,Survival Knife
-weapon_knife_ursus,Ursus Knife
-weapon_knife_gypsy_jackknife,Navaja knife
-weapon_knife_outdoor,Nomad Knife
-weapon_knife_stiletto,Stiletto Knife
-weapon_knife_widowmaker,Talon Knife
-weapon_knife_skeleton,Skeleton Knife
-studded_bloodhound_gloves,Bloodhound Gloves
-sporty_gloves,Sport Gloves
-slick_gloves,Driver Gloves
-leather_handwraps,Hand Wraps
-motorcycle_gloves,Moto Gloves
-specialist_gloves,Specialist Gloves
-studded_hydra_gloves,Hydra Gloves
-customplayer_t_map_based,Local T Agent
-customplayer_ct_map_based,Local CT Agent
-customplayer_tm_leet_variantg,Ground Rebel | Elite Crew
-customplayer_tm_leet_varianth,Osiris | Elite Crew
-customplayer_tm_leet_varianti,Prof. Shahmat | Elite Crew
-customplayer_tm_leet_variantf,The Elite Mr. Muhlik | Elite Crew
-customplayer_tm_phoenix_varianth,Soldier | Phoenix
-customplayer_tm_phoenix_variantf,Enforcer | Phoenix
-customplayer_tm_phoenix_variantg,Slingshot | Phoenix
-customplayer_ctm_fbi_variantf,Operator | FBI SWAT
-customplayer_ctm_fbi_variantg,Markus Delrow  | FBI HRT
-customplayer_ctm_fbi_varianth,Michael Syfers | FBI Sniper
-customplayer_ctm_fbi_variantb,Special Agent Ava | FBI
-customplayer_ctm_st6_variantk,3rd Commando Company | KSK
-customplayer_ctm_st6_variante,Seal Team 6 Soldier | NSWC SEAL
-customplayer_ctm_st6_variantg,Buckshot | NSWC SEAL
-customplayer_ctm_st6_variantm,'Two Times' McCoy | USAF TACP
-customplayer_ctm_st6_varianti,Lt. Commander Ricksaw | NSWC SEAL
-customplayer_tm_balkan_variantf,Dragomir | Sabre
-customplayer_tm_balkan_varianti,Maximus | Sabre
-customplayer_tm_balkan_variantg,Rezan The Ready | Sabre
-customplayer_tm_balkan_variantj,Blackwolf | Sabre
-customplayer_tm_balkan_varianth,'The Doctor' Romanov | Sabre
-customplayer_ctm_sas_variantf,B Squadron Officer | SAS
--
+Desert Eagle,weapon_deagle
+Dual Berettas,weapon_elite
+Five-Seven,weapon_fiveseven
+Glock-18,weapon_glock
+AK-47,weapon_ak47
+AUG,weapon_aug
+AWP,weapon_awp
+Famas,weapon_famas
+G3SG1,weapon_g3sg1
+Galil AR,weapon_galilar
+M249,weapon_m249
+M4A4,weapon_m4a1
+MAC-10,weapon_mac10
+P90,weapon_p90
+Repulsor Device,weapon_zone_repulsor
+MP5-SD,weapon_mp5sd
+UMP-45,weapon_ump45
+XM1014,weapon_xm1014
+PP-Bizon,weapon_bizon
+Mag-7,weapon_mag7
+Negev,weapon_negev
+Sawed-Off,weapon_sawedoff
+Tec-9,weapon_tec9
+P2000,weapon_hkp2000
+MP7,weapon_mp7
+MP9,weapon_mp9
+Nova,weapon_nova
+P250,weapon_p250
+SCAR-20,weapon_scar20
+SG556,weapon_sg556
+SSG 08,weapon_ssg08
+M4A1-S,weapon_m4a1_silencer
+USP-S,weapon_usp_silencer
+CZ75-Auto,weapon_cz75a
+R8 Revolver,weapon_revolver
+Bayonet,weapon_bayonet
+Classic Knife,weapon_knife_css
+Flip Knife,weapon_knife_flip
+Gut Knife,weapon_knife_gut
+Karambit,weapon_knife_karambit
+M9 Bayonet,weapon_knife_m9_bayonet
+Huntsman Knife,weapon_knife_tactical
+Falchion Knife,weapon_knife_falchion
+Bowie Knife,weapon_knife_survival_bowie
+Butterfly Knife,weapon_knife_butterfly
+Shadow Daggers,weapon_knife_push
+Paracord Knife,weapon_knife_cord
+Survival Knife,weapon_knife_canis
+Ursus Knife,weapon_knife_ursus
+Navaja knife,weapon_knife_gypsy_jackknife
+Nomad Knife,weapon_knife_outdoor
+Stiletto Knife,weapon_knife_stiletto
+Talon Knife,weapon_knife_widowmaker
+Skeleton Knife,weapon_knife_skeleton
+Bloodhound Gloves,studded_bloodhound_gloves
+Sport Gloves,sporty_gloves
+Driver Gloves,slick_gloves
+Hand Wraps,leather_handwraps
+Moto Gloves,motorcycle_gloves
+Specialist Gloves,specialist_gloves
+Hydra Gloves,studded_hydra_gloves
+Local T Agent,customplayer_t_map_based
+Local CT Agent,customplayer_ct_map_based
+Ground Rebel | Elite Crew,customplayer_tm_leet_variantg
+Osiris | Elite Crew,customplayer_tm_leet_varianth
+Prof. Shahmat | Elite Crew,customplayer_tm_leet_varianti
+The Elite Mr. Muhlik | Elite Crew,customplayer_tm_leet_variantf
+Soldier | Phoenix,customplayer_tm_phoenix_varianth
+Enforcer | Phoenix,customplayer_tm_phoenix_variantf
+Slingshot | Phoenix,customplayer_tm_phoenix_variantg
+Operator | FBI SWAT,customplayer_ctm_fbi_variantf
+Markus Delrow  | FBI HRT,customplayer_ctm_fbi_variantg
+Michael Syfers | FBI Sniper,customplayer_ctm_fbi_varianth
+Special Agent Ava | FBI,customplayer_ctm_fbi_variantb
+3rd Commando Company | KSK,customplayer_ctm_st6_variantk
+Seal Team 6 Soldier | NSWC SEAL,customplayer_ctm_st6_variante
+Buckshot | NSWC SEAL,customplayer_ctm_st6_variantg
+'Two Times' McCoy | USAF TACP,customplayer_ctm_st6_variantm
+Lt. Commander Ricksaw | NSWC SEAL,customplayer_ctm_st6_varianti
+Dragomir | Sabre,customplayer_tm_balkan_variantf
+Maximus | Sabre,customplayer_tm_balkan_varianti
+Rezan The Ready | Sabre,customplayer_tm_balkan_variantg
+Blackwolf | Sabre,customplayer_tm_balkan_variantj
+'The Doctor' Romanov | Sabre,customplayer_tm_balkan_varianth
+B Squadron Officer | SAS,customplayer_ctm_sas_variantf
