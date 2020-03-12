@@ -702,4 +702,5 @@ Spitfire,sp_spitfire_famas_bravo
 Photic Zone,cu_bizon_citizen
 Oxide Blaze,cu_glock18_corroden
 High Roller,cu_bizon_all_in
+Fade,aa_fade
 -
