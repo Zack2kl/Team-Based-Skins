@@ -1,0 +1,85 @@
+weapon_deagle,Urban DDPAT,Blaze,Night,Hypnotic,Mudder,Golden Koi,Cobalt Disruption,Crimson Web,Urban Rubble,Heirloom,Meteorite,Hand Cannon,Pilot,Conspiracy,Naga,Bronze Deco,Midnight Storm,Sunset Storm 1,Sunset Storm 2,Corinthian,Kumicho Dragon,Directive,Oxide Blaze,Code Red,Emerald Jörmungandr,Mecha Industries,Light Rail
+weapon_elite,Anodized Navy,Stained,Contractor,Colony,Demolition,Black Limba,Hemoglobin,Cobalt Quartz,Marina,Panther,Retribution,Briar,Urban Shock,Duelist,Moon in Libra,Emerald,Dualing Dragons,Cartel,Ventilators,Royal Consorts,Cobra Strike,Shred,Twin Turbo,Pyre,Balance,Elite 1.6
+weapon_fiveseven,Candy Apple,Case Hardened,Contractor,Forest Night,Orange Peel,Jungle,Anodized Gunmetal,Nightshade,Silver Quartz,Nitro,Kami,Copper Galaxy,Fowl Play,Hot Shot,Urban Hazard,Monkey Business,Neon Kimono,Retrobution,Triumvirate,Violet Daimyo,Scumbria,Capillary,Hyper Beast,Flame Test,Crimson Blossom,Coolant,Angry Mob,Buddy
+weapon_glock,Groundwater,Candy Apple,Fade,Night,Dragon Tattoo,Brass,Sand Dude,Steel Disruption,Blue Fissure,Death Rattle,Water Elemental,Reactor,Grinder,Catacombs,Twilight Galaxy,Bunsen Burner,Wraiths,Royal Legion,Wasteland Rebel,Weasel,Ironwork,Off World,Moonrise,Warhawk,Synth Leaf,Nuclear Garden,High Beam,Oxide Blaze,Sacrifice
+weapon_ak47,Red Laminate,Case Hardened,Safari Mesh,Jungle Spray,Predator,Black Laminate,Fire Serpent,Blue Laminate,Redline,Emerald Pinstripe,Vulcan,Jaguar,Jet Set,First Class,Wasteland Rebel,Cartel,Elite Build,Hydroponic,Aquamarine Revenge,Frontside Misty,Point Disarray,Fuel Injector,Neon Revolution,Bloodsport,Orbit Mk01,The Empress,Neon Ride,Wild Lotus,Baroque Purple,Safety Net,Asiimov,Uncharted,Rat Rod
+weapon_aug,Bengal Tiger,Copperhead,Hot Rod,Contractor,Colony,Wings,Storm,Condemned,Anodized Navy,Chameleon,Torque,Radiation Hazard,Daedalus,Akihabara Accept,Ricochet,Fleet Flock,Aristocrat,Syd Mead,Triqua,Stymphalian,Amber Slipstream,Midnight Lily,Navy Murano,Flame Jörmungandr,Random Access,Sweeper,Momentum,Arctic Wolf,Death by Puppy
+weapon_awp,Snake Camo,Lightning Strike,Safari Mesh,Pink DDPAT,BOOM,Corticera,Graphite,Electric Hive,Pit Viper,Redline,Asiimov,Dragon Lore,Man-o'-war,Worm God,Medusa,Sun in Leo,Hyper Beast,Elite Build,Phobos,Fever Dream,Oni Taiji,Mortis,PAW,The Prince,Gungnir,Acheron,Neo-Noir,Atheris,Containment Breach,Wildfire
+weapon_famas,Contrast Spray,Colony,Cyanospatter,Afterimage,Doomkitty,Spitfire,Hexane,Teardown,Pulse,Sergeant,Styx,Djinn,Neural Net,Survivor Z,Valence,Roll Cage,Mecha Industries,Macabre,Eye of Athena,Crypsis,Decommissioned
+weapon_g3sg1,Arctic Camo,Desert Storm,Contractor,Safari Mesh,Polar Camo,Jungle Dashed,Demeter,Azure Zebra,VariCamo,Green Apple,Murky,Chronos,Orange Kimono,Flux,The Executioner,Orange Crash,Ventilator,Stinger,Hunter,High Seas,Violet Murano,Scavenger,Black Sand
+weapon_galilar,Winter Forest,Orange DDPAT,Tornado,Sage Spray,Shattered,Blue Titanium,VariCamo,Urban Rubble,Hunting Blind,Sandstorm,Tuxedo,Kami,Cerberus,Chatterbox,Eco,Aqua Terrace,Rocket Pop,Stone Cold,Firefight,Black Sand,Crimson Tsunami,Sugar Rush,Cold Fusion,Signal,Akoben
+weapon_m249,Contrast Spray,Blizzard Marbleized,Jungle,Jungle DDPAT,Gator Mesh,Magma,System Lock,Shipping Forecast,Impact Drill,Nebula Crusader,Spectre,Emerald Poison Dart,Warbird,Aztec
+weapon_m4a1,Desert Storm,Jungle Tiger,Urban DDPAT,Tornado,Bullet Rain,Modern Hunter,Radiation Hazard,Faded Zebra,Zirka,X-Ray,Asiimov,Howl,Desert-Strike,Griffin,Dragon King,Poseidon,Daybreak,Evil Daimyo,Royal Paladin,The Battlestar,Desolate Space,Buzz Kill,Hellfire,Neo-Noir,Dark Blossom,Mainframe,Converter,Magnesium,The Emperor
+weapon_mac10,Candy Apple,Urban DDPAT,Silver,Fade,Ultraviolet,Tornado,Palm,Graven,Amber Fade,Heat,Curse,Indigo,Tatter,Commuter,Nuclear Garden,Malachite,Neon Rider,Rangeen,Lapis Gator,Carnivore,Last Dive,Aloha,Oceanic,Red Filigree,Calf Skin,Copper Borre,Pipe Down,Whitefish,Surfwood,Stalker,Classic Crate
+weapon_p90,Virus,Cold Blooded,Storm,Glacier Mesh,Sand Spray,Death by Kitty,Fallout Warning,Scorched,Emerald Dragon,Blind Spot,Ash Wood,Teardown,Trigon,Desert Warfare,Module,Leather,Asiimov,Elite Build,Shapewood,Chopper,Grim,Shallow Grave,Death Grip,Traction,Sunset Lily,Baroque Red,Astral Jörmungandr,Facility Negative,Off World,Nostalgia
+weapon_mp5sd,Dirt Drop,Co-Processor,Lab Rate,Phosphor,Gauss,Bamboo Garden,Acid Wash,Agent
+weapon_ump45,Gunsmoke,Urban DDPAT,Blaze,Carbon Fiber,Mudder,Caramel,Fallout Warning,Scorched,Bone Pile,Corporal,Indigo,Labyrinth,Delusion,Grand Prix,Minotaur's Labyrinth,Riot,Primal Saber,Briefing,Scaffold,Metal Flowers,Exposure,Arctic Wolf,Day Lily,Facility Dark,Momentum,Moonrise,Plastique
+weapon_xm1014,Blue Steel,Grassland,Blue Spruce,Urban Perforated,Blaze Orange,Fallout Warning,Jungle,VariCamo Blue,CaliCamo,Heaven Guard,Red Python,Red Leather,Bone Machine,Tranquility,Quicksilver,Scumbria,Teclu Burner,Black Tie,Slipstream,Seasons,Ziggy,Oxide Blaze,Banana Leaf,Frost Borre,Incinegator
+weapon_bizon,Candy Apple,Blue Streak,Forest Leaves,Carbon Fiber,Sand Dashed,Urban Dashed,Brass,Modern Hunter,Irradiated Alert,Rust Coat,Water Sigil,Night Ops,Cobalt Halftone,Antique,Osiris,Chemical Green,Bamboo Print,Fuel Rod,Photic Zone,Judgement of Anubis,Harvester,Jungle Slipstream,High Roller,Night Riot,Facility Sketch,Seabird,Embargo
+weapon_mag7,Silver,Metallic DDPAT,Bulldozer,Sand Dune,Storm,Irradiated Alert,Memento,Hazard,Heaven Guard,Chainmail,Firestarter,Heat,Counter Terrace,Seabird,Cobalt Core,Praetorian,Petroglyph,Sonar,Hard Water,SWAG-7,Cinquedea,Rust Coat,Core Breach,Popdog
+weapon_negev,Anodized Navy,Palm,CaliCamo,Terrain,Army Sheen,Bratatat,Desert-Strike,Nuclear Waste,Man-o'-war,Loudmouth,Power Loader,Dazzle,Lionfish,Mjölnir,Bulkhead,Boroque Sand
+weapon_sawedoff,Forest DDPAT,Snake Camo,Copper,Orange DDPAT,Sage Spray,Irradiated Alert,Mosaico,Amber Fade,Full Stop,The Kraken,Rust Coat,First Class,Highwayman,Serenity,Origami,Bamboo Shadow,Yorick,Fubar,Limelight,Wasteland Princess,Zander,Morris,Devourer,Brake Light,Black Sand,Jungle Thicket
+weapon_tec9,Groundwater,Urban DDPAT,Ossified,Brass,Nuclear Threat,Tornado,Blue Titanium,VariCamo,Army Mesh,Red Quartz,Titanium Bit,Sandstorm,Isaac,Toxic,Hades,Bamboo Forest,Terrace,Avalanche,Jambiya,Re-Entry,Ice Cap,Fuel Injector,Cut Out,Cracked Opal,Snek-9,Rust Leaf,Orange Murano,Remote Control,Fubar,Bamboozle,Decimator,Flash Out
+weapon_hkp2000,Granite Marbleized,Silver,Scorpion,Grassland,Grassland Leaves,Corticera,Ocean Foam,Amber Fade,Red FragCam,Chainmail,Pulse,Coach Class,Ivory,Fire Elemental,Pathfinder,Handgun,Imperial,Oceanic,Imperial Dragon,Turf,Woodsman,Urban Hazard,Obsidian
+weapon_mp7,Forest DDPAT,Skulls,Gunsmoke,Anodized Navy,Whiteout,Orange Peel,Scorched,Groundwater,Ocean Foam,Army Recon,Full Stop,Urban Hazard,Olive Plaid,Armor Core,Asteroin,Nemesis,Special Delivery,Impire,Cirrus,Akoben,Bloodsport,Powercore,Teal Blossom,Fade,Motherboard,Mischief,Neon Ply
+weapon_mp9,Hot Rod,Bulldozer,Hypnotic,Storm,Orange Peel,Sand Dashed,Dry Season,Rose Iron,Dark Age,Green Plaid,Setting Sun,Dart,Deadly Poison,Pandora's Box,Ruby Poison Dart,Bioleak,Airlock,Sand Scale,Goo,Black Sand,Capillary,Wild Lily,Slide,Modest Threat,Stained Glass,Hydra
+weapon_nova,Candy Apple,Forest Leaves,Bloomstick,Sand Dune,Polar Mesh,Walnut,Modern Hunter,Blaze Orange,Predator,Tempest,Graphite,Ghost Camo,Rising Skull,Antique,Green Apple,Caged Steel,Koi,Moon in Libra,Ranger,Hyper Beast,Exo,Gila,Wild Six,Toy Soldier,Baroque Orange,Mandrel,Wood Fired,Plume
+weapon_p250,Gunsmoke,Bone Mask,Metallic DDPAT,Boreal Forest,Sand Dune,Whiteout,X-Ray,Splash,Modern Hunter,Nuclear Threat,Facets,Hive,Steal Disruption,Mehndi,Undertow,Franklin,Supernova,Contamination,Cartel,Muertos,Valence,Crimson Kimono,Mint Kimono,Wingshot,Asiimov,Iron Clad,Ripple,Red Rock,See Ya Later,Dark Filigree,Vino Primo,Facility Draft,Exchanger,Nevermore,Verdigris,Inferno
+weapon_scar20,Contractor,Carbon Fiber,Storm,Sand Mesh,Palm,Brass,Splash Jam,Emerald,Crimson Web,Army Sheen,Cyrex,Cardiac,Grotto,Green Marine,Outbreak,Bloodsport,Powercore,Blueprint,Jungle Slipstream,Stone Mosaico,Torn,Assault
+weapon_sg556,Anodized Navy,Bulldozer,Ultraviolet,Tornado,Waves Perforated,Wave Spray,Gator Mesh,Damascus Steel,Pulse,Army Sheen,Traveler,Fallout Warning,Cyrex,Tiger Moth,Atlas,Aerial,Triarch,Phantom,Aloha,Integrale,Danger Close,Barricade,Candy Apple,Colony IV
+weapon_ssg08,Lichen Dashed,Dark Water,Blue Spruce,Sand Dune,Mayan Dreams,Blood in the Water,Tropical Storm,Acid Fade,Slashed,Detour,Abyss,Big Iron,Necropos,Ghost Crusader,Dragonfire,Death's Head,Orange Filigree,Hand Brake,Red Stone,Sea Calico,Bloodshot
+weapon_m4a1_silencer,Dark Water,Boreal Forest,Bright Water,Blood Tiger,VariCamo,Nitro,Guardian,Atomic Alloy,Master Piece,Knight,Cyrex,Basilisk,Hyper Beast,Icarus Fell,Hot Rod,Golden Coil,Chantico's Fire,Mecha Industries,Flashback,Decimator,Briefing,Leaded Glass,Nightmare,Control Panel,Moss Quartz
+weapon_usp_silencer,Forest Leaves,Dark Water,Overgrowth,Blood Tiger,Serum,Night Ops,Stainless,Guardian,Orion,Road Rash,Royal Blue,Caiman,Business Class,Pathfinder,Para Green,Torque,Kill Confirmed,Lead Conduit,Cyrex,Neo-Noir,Blueprint,Cortex,Check Engine,Flashback
+weapon_cz75a,Crimson Web,Hexane,Tread Plate,The Fuschia is Now,Victoria,Tuxedo,Army Sheen,Poison Dart,Nitro,Chalice,Twist,Tigris,Green Plaid,Pole Position,Emerald,Yellow Jacket,Red Astor,Imprint,Polymer,Xiangliu,Tacticat,Eco,Emerald Quartz
+weapon_revolver,Crimson Web,Bone Mask,Fade,Amber Fade,Reboot,Llama Cannon,Grip,Survivalist,Nitro,Skull Crusher,Canal Spray,Memento
+weapon_bayonet,Forest DDPAT,Crimson Web,Fade,Night,Blue Steel,Stained,Case Hardened,Slaughter,Safari Mesh,Boreal Forest,Ultraviolet,Urban Masked,Scorched,Tiger Tooth,Damascus Steel,Marble Fade,Rust Coat,Doppler 1,Doppler 2,Doppler 3,Doppler 4,Doppler 5,Doppler 6,Doppler 7,Lore,Black Laminate,Gamma Doppler 1,Gamma Doppler 2,Gamma Doppler 3,Gamma Doppler 4,Gamma Doppler 5,Autotronic,Bright Water,Freehand
+weapon_knife_css,Forest DDPAT,Crimson Web,Fade,Blue Steel,Stained,Case Hardened,Slaughter,Safari Mesh,Boreal Forest,Urban Masked,Scorched,Night Stripe
+weapon_knife_flip,Forest DDPAT,Crimson Web,Fade,Night,Blue Steel,Stained,Case Hardened,Slaughter,Safari Mesh,Boreal Forest,Ultraviolet,Urban Masked,Scorched,Tiger Tooth,Damascus Steel,Marble Fade,Rust Coat,Doppler 1,Doppler 2,Doppler 3,Doppler 4,Doppler 5,Doppler 6,Doppler 7,Lore,Black Laminate,Gamma Doppler 1,Gamma Doppler 2,Gamma Doppler 3,Gamma Doppler 4,Gamma Doppler 5,Autotronic,Bright Water,Freehand
+weapon_knife_gut,Forest DDPAT,Crimson Web,Fade,Night,Blue Steel,Stained,Case Hardened,Slaughter,Safari Mesh,Boreal Forest,Ultraviolet,Urban Masked,Scorched,Tiger Tooth,Damascus Steel,Marble Fade,Rust Coat,Doppler 1,Doppler 2,Doppler 3,Doppler 4,Doppler 5,Doppler 6,Doppler 7,Lore,Black Laminate,Gamma Doppler 1,Gamma Doppler 2,Gamma Doppler 3,Gamma Doppler 4,Gamma Doppler 5,Autotronic,Bright Water,Freehand
+weapon_knife_karambit,Forest DDPAT,Crimson Web,Fade,Night,Blue Steel,Stained,Case Hardened,Slaughter,Safari Mesh,Boreal Forest,Ultraviolet,Urban Masked,Scorched,Tiger Tooth,Damascus Steel,Marble Fade,Rust Coat,Doppler 1,Doppler 2,Doppler 3,Doppler 4,Doppler 5,Doppler 6,Doppler 7,Lore,Black Laminate,Gamma Doppler 1,Gamma Doppler 2,Gamma Doppler 3,Gamma Doppler 4,Gamma Doppler 5,Autotronic,Bright Water,Freehand
+weapon_knife_m9_bayonet,Forest DDPAT,Crimson Web,Fade,Night,Blue Steel,Stained,Case Hardened,Slaughter,Safari Mesh,Boreal Forest,Ultraviolet,Urban Masked,Scorched,Tiger Tooth,Damascus Steel,Marble Fade,Rust Coat,Doppler 1,Doppler 2,Doppler 3,Doppler 4,Doppler 5,Doppler 6,Doppler 7,Lore,Black Laminate,Gamma Doppler 1,Gamma Doppler 2,Gamma Doppler 3,Gamma Doppler 4,Gamma Doppler 5,Autotronic,Bright Water,Freehand
+weapon_knife_tactical,Forest DDPAT,Crimson Web,Fade,Night,Blue Steel,Stained,Case Hardened,Slaughter,Safari Mesh,Boreal Forest,Urban Masked,Scorched,Tiger Tooth,Damascus Steel,Marble Fade,Rust Coat,Doppler 1,Doppler 2,Doppler 3,Doppler 4,Doppler 5,Doppler 6,Doppler 7,Ultraviolet
+weapon_knife_falchion,Forest DDPAT,Crimson Web,Fade,Night,Blue Steel,Stained,Case Hardened,Slaughter,Safari Mesh,Boreal Forest,Urban Masked,Scorched,Tiger Tooth,Damascus Steel,Marble Fade,Rust Coat,Doppler 1,Doppler 2,Doppler 3,Doppler 4,Doppler 5,Doppler 6,Doppler 7,Ultraviolet
+weapon_knife_survival_bowie,Forest DDPAT,Crimson Web,Fade,Night,Blue Steel,Stained,Case Hardened,Slaughter,Safari Mesh,Boreal Forest,Ultraviolet,Urban Masked,Scorched,Tiger Tooth,Damascus Steel,Marble Fade,Rust Coat,Doppler 1,Doppler 2,Doppler 3,Doppler 4,Doppler 5,Doppler 6,Doppler 7
+weapon_knife_butterfly,Forest DDPAT,Crimson Web,Fade,Night,Blue Steel,Stained,Case Hardened,Slaughter,Safari Mesh,Boreal Forest,Ultraviolet,Urban Masked,Scorched,Tiger Tooth,Damascus Steel,Marble Fade,Rust Coat,Doppler 1,Doppler 2,Doppler 3,Doppler 4,Doppler 5,Doppler 6,Doppler 7
+weapon_knife_push,Forest DDPAT,Crimson Web,Fade,Night,Blue Steel,Stained,Case Hardened,Slaughter,Safari Mesh,Boreal Forest,Ultraviolet,Urban Masked,Scorched,Tiger Tooth,Damascus Steel,Marble Fade,Rust Coat,Doppler 1,Doppler 2,Doppler 3,Doppler 4,Doppler 5,Doppler 6,Doppler 7
+weapon_knife_cord,Forest DDPAT,Crimson Web,Fade,Blue Steel,Stained,Case Hardened,Slaughter,Safari Mesh,Boreal Forest,Urban Masked,Scorched,Night Stripe
+weapon_knife_canis,Forest DDPAT,Crimson Web,Fade,Blue Steel,Stained,Case Hardened,Slaughter,Safari Mesh,Boreal Forest,Urban Masked,Scorched,Night Stripe
+weapon_knife_ursus,Forest DDPAT,Crimson Web,Fade,Blue Steel,Stained,Case Hardened,Slaughter,Safari Mesh,Boreal Forest,Ultraviolet,Urban Masked,Scorched,Tiger Tooth,Marble Fade,Rust Coat,Doppler 1,Doppler 2,Doppler 3,Doppler 4,Doppler 5,Doppler 6,Doppler 7,Night Stripe,Damascus Steel
+weapon_knife_gypsy_jackknife,Forest DDPAT,Crimson Web,Fade,Blue Steel,Stained,Case Hardened,Slaughter,Safari Mesh,Boreal Forest,Ultraviolet,Urban Masked,Scorched,Tiger Tooth,Marble Fade,Rust Coat,Doppler 1,Doppler 2,Doppler 3,Doppler 4,Doppler 5,Doppler 6,Doppler 7,Night Stripe,Damascus Steel
+weapon_knife_outdoor,Forest DDPAT,Crimson Web,Fade,Blue Steel,Stained,Case Hardened,Slaughter,Safari Mesh,Boreal Forest,Ultraviolet,Urban Masked,Scorched,Tiger Tooth,Marble Fade,Rust Coat,Doppler 1,Doppler 2,Doppler 3,Doppler 4,Doppler 5,Doppler 6,Doppler 7,Night Stripe,Damascus Steel
+weapon_knife_stiletto,Forest DDPAT,Crimson Web,Fade,Blue Steel,Stained,Case Hardened,Slaughter,Safari Mesh,Boreal Forest,Ultraviolet,Urban Masked,Scorched,Tiger Tooth,Marble Fade,Rust Coat,Doppler 1,Doppler 2,Doppler 3,Doppler 4,Doppler 5,Doppler 6,Doppler 7,Night Stripe,Damascus Steel
+weapon_knife_widowmaker,Forest DDPAT,Crimson Web,Fade,Blue Steel,Stained,Case Hardened,Slaughter,Safari Mesh,Boreal Forest,Ultraviolet,Urban Masked,Scorched,Tiger Tooth,Rust Coat,Doppler 1,Doppler 2,Doppler 3,Night Stripe,Doppler 1,Doppler 2,Doppler 3,Doppler 4,Marble Fade,Damascus Steel
+weapon_knife_skeleton,Forest DDPAT,Crimson Web,Fade,Blue Steel,Stained,Case Hardened,Slaughter,Safari Mesh,Boreal Forest,Ultraviolet,Urban Masked,Scorched,Tiger Tooth,Marble Fade,Rust Coat,Doppler 1,Doppler 2,Doppler 3,Doppler 4,Doppler 5,Doppler 6,Doppler 7,Night Stripe,Damascus Steel
+studded_bloodhound_gloves,Charred,Snakebite,Bronzed,Guerrilla
+sporty_gloves,Superconductor,Arid,Pandora's Box,Hedge Maze,Amphibious,Bronze Morph,Omega,Vice
+slick_gloves,Lunar Weave,Convoy,Crimson Weave,Diamondback,King Snake,Imperial Plaid,Overtake,Racing Green
+leather_handwraps,Leather,Spruce DDPAT,Slaughter,Badlands,Cobalt Skulls,Overprint,Duct Tape,Arboreal
+motorcycle_gloves,Eclipse,Spearmint,Boom!,Cool Mint,POW!,Turtle,Transport,Polygon
+specialist_gloves,Forest DDPAT,Crimson Kimono,Emerald Web,Foundation,Crimson Web,Buckshot,Fade,Mogul
+studded_hydra_gloves,Emerald,Mangrove,Rattler,Case Hardened
+customplayer_t_map_based,
+customplayer_ct_map_based,
+customplayer_tm_leet_variantg,
+customplayer_tm_leet_varianth,
+customplayer_tm_leet_varianti,
+customplayer_tm_leet_variantf,
+customplayer_tm_phoenix_varianth,
+customplayer_tm_phoenix_variantf,
+customplayer_tm_phoenix_variantg,
+customplayer_ctm_fbi_variantf,
+customplayer_ctm_fbi_variantg,
+customplayer_ctm_fbi_varianth,
+customplayer_ctm_fbi_variantb,
+customplayer_ctm_st6_variantk,
+customplayer_ctm_st6_variante,
+customplayer_ctm_st6_variantg,
+customplayer_ctm_st6_variantm,
+customplayer_ctm_st6_varianti,
+customplayer_tm_balkan_variantf,
+customplayer_tm_balkan_varianti,
+customplayer_tm_balkan_variantg,
+customplayer_tm_balkan_variantj,
+customplayer_tm_balkan_varianth,
+customplayer_ctm_sas_variantf,
+END OF SKINS
