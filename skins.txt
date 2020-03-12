@@ -12,6 +12,7 @@ weapon_m249,Contrast Spray,Blizzard Marbleized,Jungle,Jungle DDPAT,Gator Mesh,Ma
 weapon_m4a1,Desert Storm,Jungle Tiger,Urban DDPAT,Tornado,Bullet Rain,Modern Hunter,Radiation Hazard,Faded Zebra,Zirka,X-Ray,Asiimov,Howl,Desert-Strike,Griffin,Dragon King,Poseidon,Daybreak,Evil Daimyo,Royal Paladin,The Battlestar,Desolate Space,Buzz Kill,Hellfire,Neo-Noir,Dark Blossom,Mainframe,Converter,Magnesium,The Emperor
 weapon_mac10,Candy Apple,Urban DDPAT,Silver,Fade,Ultraviolet,Tornado,Palm,Graven,Amber Fade,Heat,Curse,Indigo,Tatter,Commuter,Nuclear Garden,Malachite,Neon Rider,Rangeen,Lapis Gator,Carnivore,Last Dive,Aloha,Oceanic,Red Filigree,Calf Skin,Copper Borre,Pipe Down,Whitefish,Surfwood,Stalker,Classic Crate
 weapon_p90,Virus,Cold Blooded,Storm,Glacier Mesh,Sand Spray,Death by Kitty,Fallout Warning,Scorched,Emerald Dragon,Blind Spot,Ash Wood,Teardown,Trigon,Desert Warfare,Module,Leather,Asiimov,Elite Build,Shapewood,Chopper,Grim,Shallow Grave,Death Grip,Traction,Sunset Lily,Baroque Red,Astral Jörmungandr,Facility Negative,Off World,Nostalgia
+weapon_zone_repulsor,
 weapon_mp5sd,Dirt Drop,Co-Processor,Lab Rate,Phosphor,Gauss,Bamboo Garden,Acid Wash,Agent
 weapon_ump45,Gunsmoke,Urban DDPAT,Blaze,Carbon Fiber,Mudder,Caramel,Fallout Warning,Scorched,Bone Pile,Corporal,Indigo,Labyrinth,Delusion,Grand Prix,Minotaur's Labyrinth,Riot,Primal Saber,Briefing,Scaffold,Metal Flowers,Exposure,Arctic Wolf,Day Lily,Facility Dark,Momentum,Moonrise,Plastique
 weapon_xm1014,Blue Steel,Grassland,Blue Spruce,Urban Perforated,Blaze Orange,Fallout Warning,Jungle,VariCamo Blue,CaliCamo,Heaven Guard,Red Python,Red Leather,Bone Machine,Tranquility,Quicksilver,Scumbria,Teclu Burner,Black Tie,Slipstream,Seasons,Ziggy,Oxide Blaze,Banana Leaf,Frost Borre,Incinegator
@@ -58,7 +59,6 @@ leather_handwraps,Leather,Spruce DDPAT,Slaughter,Badlands,Cobalt Skulls,Overprin
 motorcycle_gloves,Eclipse,Spearmint,Boom!,Cool Mint,POW!,Turtle,Transport,Polygon
 specialist_gloves,Forest DDPAT,Crimson Kimono,Emerald Web,Foundation,Crimson Web,Buckshot,Fade,Mogul
 studded_hydra_gloves,Emerald,Mangrove,Rattler,Case Hardened
-weapon_zone_repulsor,
 customplayer_t_map_based,
 customplayer_ct_map_based,
 customplayer_tm_leet_variantg,
