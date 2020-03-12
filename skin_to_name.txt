@@ -33,7 +33,6 @@ weapon_m4a1_silencer=M4A1-S
 weapon_usp_silencer=USP-S
 weapon_cz75a=CZ75-Auto
 weapon_revolver=R8 Revolver
-
 weapon_bayonet=Bayonet
 weapon_knife_css=Classic Knife
 weapon_knife_flip=Flip Knife
@@ -53,7 +52,6 @@ weapon_knife_outdoor=Nomad Knife
 weapon_knife_stiletto=Stiletto Knife
 weapon_knife_widowmaker=Talon Knife
 weapon_knife_skeleton=Skeleton Knife
-
 studded_bloodhound_gloves=Bloodhound Gloves
 sporty_gloves=Sport Gloves
 slick_gloves=Driver Gloves
@@ -61,7 +59,6 @@ leather_handwraps=Hand Wraps
 motorcycle_gloves=Moto Gloves
 specialist_gloves=Specialist Gloves
 studded_hydra_gloves=Hydra Gloves
-
 customplayer_t_map_based=Local T Agent
 customplayer_ct_map_based=Local CT Agent
 customplayer_tm_leet_variantg=Ground Rebel | Elite Crew
@@ -86,3 +83,4 @@ customplayer_tm_balkan_variantg=Rezan The Ready | Sabre
 customplayer_tm_balkan_variantj=Blackwolf | Sabre
 customplayer_tm_balkan_varianth='The Doctor' Romanov | Sabre
 customplayer_ctm_sas_variantf=B Squadron Officer | SAS
+End of Skins
