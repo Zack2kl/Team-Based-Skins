@@ -58,6 +58,7 @@ leather_handwraps,Leather,Spruce DDPAT,Slaughter,Badlands,Cobalt Skulls,Overprin
 motorcycle_gloves,Eclipse,Spearmint,Boom!,Cool Mint,POW!,Turtle,Transport,Polygon
 specialist_gloves,Forest DDPAT,Crimson Kimono,Emerald Web,Foundation,Crimson Web,Buckshot,Fade,Mogul
 studded_hydra_gloves,Emerald,Mangrove,Rattler,Case Hardened
+weapon_zone_repulsor,
 customplayer_t_map_based,
 customplayer_ct_map_based,
 customplayer_tm_leet_variantg,
