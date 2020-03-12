@@ -83,4 +83,3 @@ customplayer_tm_balkan_variantg=Rezan The Ready | Sabre
 customplayer_tm_balkan_variantj=Blackwolf | Sabre
 customplayer_tm_balkan_varianth='The Doctor' Romanov | Sabre
 customplayer_ctm_sas_variantf=B Squadron Officer | SAS
-
