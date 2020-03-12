@@ -1,419 +1,705 @@
-Scorpion,am_scorpion_p2000
-Nuclear Garden,am_nuclear_skulls3_mac10
-Blaze Orange,hy_hunter_blaze_orange
-Overgrowth,hy_siege_bravo
-Atomic Alloy,am_m4a1-s_alloy_orange
-Isaac,cu_tec9_asiimov
-Impact Drill,so_keycolors
-Dualing Dragons,cu_dualberretta_dragons
-Mudder,hy_mottled_sand
-Victoria,aq_etched_cz75
-Poison Dart,am_nitrogen
-Vulcan,cu_ak47_rubber
-Cobalt Disruption,am_ddpatdense_peacock
-Tornado,so_tornado
-Kumicho Dragon,aq_deserteagle_kumichodragon
-Orion,cu_usp_spitfire
-Grinder,aq_glock_coiled
-Flux,gs_g3sg1_flux_purple
-Chatterbox,cu_galil_abrasion
-Necropos,cu_ssg08_necropos
-The Fuschia Is Now,am_fuschia
-Power Loader,cu_negev_impact
-Bengal Tiger,hy_tiger
-Loudmouth,cu_negev_annihilator
-Hypnotic,aa_vertigo
-Neural Net,am_famas_dots
-Royal Blue,hy_indigo_usp
-CaliCamo,hy_varicamo_desert
-Acid Fade,aa_fade_grassland
-Teclu Burner,aq_xm1014_hot_rod
-Pink DDPAT,hy_ddpat_pink
-Bunsen Burner,aq_glock18_flames_blue
-Pilot,aq_pilot_deagle
-Splash,sp_splash_p250
-Bullet Rain,cu_bullet_rain_m4a1
-Skulls,hy_skulls
-Marina,hy_marina_sunrise
-Wasteland Rebel,cu_tribute_ak47
-Rocket Pop,cu_galilar_particles
-Eco,cu_galil_eco
-Ash Wood,sp_twigs
-Granite Marbleized,hy_granite
-Judgement of Anubis,cu_bizon_Curse
-Electric Hive,hy_hive
-Chantico's Fire,cu_m4a1s_soultaker
-Asterion,sp_labyrinth
-Hades,hy_hades
-Red Laminate,hy_ak47lam
-Osiris,cu_bizon-osiris
-Contamination,hy_nuclear_skulls4_p250
-Jungle DDPAT,hy_ddpat_jungle_bravo
-Survivor Z,cu_famas_lenta
-Road Rash,cu_usp_sandpapered
-Abyss,aq_leviathan
-Evil Daimyo,cu_m4a4_evil_daimyo
-Army Mesh,sp_mesh_army
-Green Apple,so_green
-Ricochet,am_aug_jumble
-Panther,so_panther
-Kami,hy_kami
-Red Leather,cu_leather_xm1014
-Tread Plate,am_diamond_plate
-Guardian,cu_usp_elegant
-Magma,aq_obsidian
-Chemical Green,so_grey_nuclear_green_bizon
-Orange Crash,sp_g3sg1_militiaorange
-Sunset Storm 弐,am_seastorm_shojo
-Bioleak,am_mp9_bioleak
-Contrast Spray,sp_spray
-Highwayman,aq_sawedoff_blackgold
-Stainless,aq_usp_stainless
-Wings,hy_feathers_aug
-Handgun,aq_p2000_boom
-Worm God,aq_awp_twine
-Sand Dune,so_sand
-Glacier Mesh,sp_mesh_glacier
-Hand Cannon,aq_handcannon
-Neon Rider,cu_mac10_neonrider
-Fallout Warning,sp_nukestripe_maroon
-VariCamo,hy_varicamo
-Master Piece,cu_m4a1-s_silence
-Crimson Kimono,hy_kimono_diamonds_red
-Hexane,hy_bluehex
-Black Limba,cu_season_elites_bravo
-Brass,aq_brass
-Blaze,aa_flames
-Safari Mesh,sp_mesh_tan
-Counter Terrace,hy_geometric_steps_green
-Serenity,cu_sawedoff_deva
-Sergeant,an_famas_sgt
-Slaughter,am_zebra
-Elite Build,cu_ak47_mastery
-Muertos,cu_p250_mandala
-Djinn,aq_famas_jinn
-Lead Conduit,gs_usp_voltage
-Big Iron,cu_ssg08_technicality
-Rose Iron,am_thorny_rose_mp9
-Wraiths,gs_glock18_wrathys
-Gator Mesh,sp_mesh_python
-Mayan Dreams,hy_mayan_dreams_bravo
-Death by Kitty,cu_catskulls_p90
-Pulse,cu_p2000_pulse
-Copper Galaxy,am_copper_flecks
-Indigo,so_indigo_and_grey
-Sandstorm,cu_tec9_sandstorm
-Red Python,hy_snakeskin_red
-Detour,hy_ssg08_marker
-Chameleon,cu_aug_chameleonaire
-Riot,cu_ump45_uproar
-Bloomstick,cu_spring_nova
-Golden Koi,am_scales_bravo
-Blood in the Water,cu_shark
-Aqua Terrace,am_geometric_steps
-Shipping Forecast,hy_zodiac3
-Sun in Leo,hy_zodiac2
-Leather,cu_brown_leather_p90
-X-Ray,cu_xray_m4
-The Executioner,cu_g3sg1_executioner
-Fowl Play,aq_57_feathers
-The Kraken,cu_sawedoff_octopump
-Ghost Crusader,gs_ssg08_armacore
-Spitfire,sp_spitfire_famas_bravo
-Cardiac,cu_scar20_intervention
-Bronze Deco,am_bronze_sparkle
-Emerald Dragon,cu_dragon_p90_bravo
-Mint Kimono,sp_kimono_diamonds
-Ossified,am_ossify
-Army Sheen,am_army_shine
-Deadly Poison,cu_mp9_deadly_poison
-Fubar,gs_sawedoff_fubar
-Bamboo Forest,hy_bamboo_jungle
-Neon Kimono,hy_kimono_diamonds
-Nightshade,hy_flowers
-Mosaico,hy_ali_tile_bravo
-Malachite,am_mac10_malachite
-Corporal,cu_ump_corporal
-Orange DDPAT,hy_ddpat_orange
-Hive,hy_redhex
-Zirka,sp_star_bravo
-Splash Jam,hy_hunter_blaze_pink
-Shattered,hy_crumple_bravo
-Meteorite,am_crystallized_dark
-Heaven Guard,cu_xm1014_heaven_guard
-Titanium Bit,am_fluted_tec9
-Scorched,sp_dapple
-Cobalt Halftone,am_turqoise_halftone
-Moon in Libra,hy_zodiac1
-Bamboo Shadow,hy_bamboo_jungle_black
-Stone Cold,gs_galil_nightwing
-Daybreak,am_kimono_sunrise
-Urban DDPAT,hy_ddpat_urb
-Dark Water,am_zebra_dark
-Naga,aq_deagle_naga
-Grand Prix,am_ump_racer
-Cerberus,cu_cerbrus_galil
-Blood Tiger,hy_redtiger
-Winter Forest,hy_forest_winter
-Hazard,sp_hazard_bravo
-Modern Hunter,hy_hunter_modern
-Sage Spray,sp_spray_desert_sage
-Waves Perforated,sp_tape_dots_waves
-Whiteout,so_whiteout
-Cyanospatter,hy_reef
-Tatter,cu_korupt
-Atlas,cu_sg553_atlas
-Fade,aa_fade
-First Class,cu_green_leather_ak47
-Traveler,cu_luggage_sg553
-Aquamarine Revenge,cu_ak47_courage_alt
-Urban Dashed,sp_tape_short_urban
-Poseidon,cu_poseidon
-Blue Streak,hy_splatter
-Pit Viper,hy_snakeskin
-Orange Kimono,hy_kimono_diamonds_orange
-Chalice,am_royal
-Tigris,cu_c75a-tiger
-Urban Masked,sp_tape_urban
-Case Hardened,aq_oiled
-Dragon Tattoo,am_dragon_glock
-Para Green,so_khaki_green
-Jet Set,cu_well_traveled_ak47
-Nuclear Waste,sp_nuclear_pattern3_negev
-Cyrex,cu_m4a1s_cyrex
-Shapewood,cu_p90_shapewood
-Commuter,cu_luggage_mac10
-Blind Spot,hy_modspots
-Hunting Blind,sp_mesh_slashes
-Green Plaid,hy_plaid2
-Forest Leaves,sp_leaves
-Doomkitty,hy_doomkitty
-Wave Spray,sp_spray_waves_bravo
-Fuel Rod,cu_bizon_noxious
-Serum,am_electric_red
-Bone Machine,am_nuclear_skulls1_xm1014
-Metallic DDPAT,am_urban
-Forest DDPAT,hy_ddpat
-Setting Sun,hy_nuclear_pattern2_mp9
-Faded Zebra,sp_zebracam_bw
-Delusion,sp_ump45_d-visions
-Silver,an_silver
-Snake Camo,sp_snake
-Colony,so_space_marine
-Chainmail,am_chainmail
-Polar Camo,hy_arctic_contrast
-Minotaur's Labyrinth,cu_labyrinth
-Royal Paladin,gs_m4a4_royal_squire
-Copper,aq_copper
-Emerald Pinstripe,cu_pinstripe_ak47
-Daedalus,sp_labyrinth3
-Akihabara Accept,cu_anime_aug
-Retribution,cu_retribution
-Man-o'-war,am_awp_glory
-Sand Mesh,sp_mesh_sand
-Orange Peel,sp_tape_orange
-Bright Water,hy_ocean_bravo
-Sand Spray,sp_spray_sand
-Sunset Storm 壱,am_seastorm_blood
-Demeter,hy_bluepolygon_bravo
-Armor Core,aq_mp7_ultramodern
-Torque,cu_usp_progressiv
-Tropical Storm,sp_palm_shadow
-Quicksilver,aq_xm1014_sigla
-Marble Fade,am_marble_fade
-Lightning Strike,am_lightning_awp
-Tranquility,cu_xm1014_caritas
-Mehndi,cu_p250_refined
-Rust Coat,aq_steel
-Black Tie,cu_xm1014_spectrum
-Briar,hy_vines
-Death Rattle,hy_nerodia
-Wingshot,hy_p250_crackshot
-Grassland,so_grassland
-Yellow Jacket,cu_cz75a_chastizer
-Predator,sp_zebracam
-Afterimage,cu_broken_path_famas
-Emerald,an_emerald
-Supernova,cu_bittersweet
-Monkey Business,cu_fiveseven_banana
-Rangeen,cu_mac10_alekhya_duo
-Labyrinth,hy_lines_orange
-Origami,cu_sawedoff_origami
-Cobalt Quartz,am_crystallized_blue
-Blue Titanium,an_titanium30v
-Toxic,hy_nuclear_skulls5_tec9
-Murky,am_g3sg1_murky
-Special Delivery,cu_mp7_classified
-Pandora's Box,aa_pandora
-Royal Legion,gs_glock18_award
-Radiation Hazard,sp_nukestripe_orange
-Nemesis,cu_mp7_nemsis
-Facets,hy_crumple_dark_bravo
-Caged Steel,am_oval_hex
-Heat,cu_mac10_redhot
-Water Sigil,hy_water_crest
-Medusa,cu_medusa_awp
-Hot Rod,an_red_m4a1s
-Curse,cu_mac10_decay
-Fuel Injector,gs_ak47_supercharged
-Jungle,so_jungle_bravo
-Cobalt Core,cu_mag7_myrcene
-Tiger Moth,gs_sg553_tiger_moth
-Jungle Dashed,sp_tape_short_jungle
-龍王 (Dragon King),cu_m4a4_ancestral
-Candy Apple,so_red
-Seabird,so_aqua
-Dark Age,am_metal_inlay
-Ranger,cu_nova_ranger
-Bulldozer,so_yellow
-Imperial,am_p2000_imperial_red
-Water Elemental,cu_glock-liquescent
-Groundwater,so_olive_bravo
-Desert Warfare,cu_p90_scorpius
-Urban Shock,cu_elites_urbanstorm
-Praetorian,gs_mag7_praetorian
-Terrain,sp_negev_turq_terrain
-Urban Perforated,sp_tape_dots_urban
-Graphite,am_crumple
-Howl,cu_m4a1_howling
-Frontside Misty,cu_ak47_winter_sport
-Doppler,am_doppler_phase1
-Firefight,gs_galilar_incenerator
-Chronos,cu_chronos_g3sg1
-Forest Night,hy_forest_night
-Olive Plaid,hy_plaid1
-VariCamo Blue,hy_varicamo_blue
-Impire,sp_mp7_impire
-Midnight Storm,am_seastorm
-Twist,am_gyrate
+Signal,hy_galil_signal_red
 Boreal Forest,hy_forest_boreal
-Full Stop,hy_varicamo_red
-Lapis Gator,am_mac10_electricity
-Red Quartz,am_crystallized
-Tempest,hy_seaside_bravo
-Re-Entry,am_tec9_redblast
-Fleet Flock,cu_aug_swallows
-Tuxedo,so_orca
-Hyper Beast,cu_nova_hyperbeast
-Trigon,cu_p90_trigon
-Griffin,cu_m4a4_griffin
-Fire Serpent,cu_fireserpent_ak47_bravo
-Jambiya,gs_tec9_jambiya
-Spectre,cu_m249_spectre
-Steel Disruption,am_ddpatdense_silver
-Contractor,so_pmc
-Walnut,cu_walnut_nova
-Ultraviolet,so_purple
-Virus,hy_zombie
-Blue Steel,aq_blued
-Memento,hy_icosahedron
-Blue Laminate,hy_ak47lam_blue
-Fire Elemental,cu_p2000_fire_elemental
-Irradiated Alert,sp_nukestripe_brown
-Oceanic,hy_p2000_oceani
-Triumvirate,cu_fiveseven_augmented
-Jaguar,cu_panther_ak47
-Arctic Camo,hy_arctic
-Caramel,so_caramel
-Crimson Web,hy_webs_darker
-Blue Fissure,hy_craquelure
-Sand Dashed,sp_tape_short_sand
-Anodized Gunmetal,an_gunmetal_bravo
-System Lock,cu_m249_sektor
-Bamboo Print,hy_bamboo_jungle_ink
-Primal Saber,cu_ump45_primalsaber
-Red FragCam,hy_poly_camo
-Styx,am_nuclear_skulls2_famas
-The Battlestar,gs_m4a4_pioneer
-Asiimov,cu_awp_asimov
-Twilight Galaxy,am_aqua_flecks
-Catacombs,cu_glock_deathtoll
-Dart,cu_mp9_chevron
-Photic Zone,cu_bizon_citizen
-Azure Zebra,sp_zebracam_blue
-Coach Class,cu_luggage_p2000
-Hemoglobin,am_ossify_red
-Retrobution,cu_fiveseven_retrobution
-Rising Skull,cu_skull_nova
-Pole Position,cu_cz75_precision
-Reactor,am_nuclear_pattern1_glock
-Night,so_night
-Dragon Lore,cu_medieval_dragon_awp
-Slashed,cu_ssg08_immortal
-Conspiracy,cu_deagle_aureus
-Polar Mesh,sp_mesh_arctic_contrast
-Ventilators,gs_dualberettas_ventilators
-Anodized Navy,an_navy_bravo
-Duelist,gs_mother_of_pearl_elite
-Ocean Foam,am_ossify_blue_p2000_bravo
-Bratatat,cu_bratatat_negev
-BOOM,hy_blam_simple
-Demolition,so_tangerine
-Knight,am_metals
-Avalanche,cu_tec9_avalanche
-Urban Hazard,cu_mp7-commander
-Condemned,sp_mesh_forest_fire
-Damascus Steel,aq_damascus_sg553
-Corinthian,aq_deagle_corinthian
-Jungle Tiger,hy_v_tiger
-Golden Coil,gs_m4a1s_snakebite_gold
-Business Class,cu_luggage_usp-s
-Black Laminate,hy_ak47lam_bw
-Stained,aq_forced
-Desert-Strike,cu_negev_titanstorm
-Army Recon,sp_spray_army
-Grassland Leaves,sp_leaves_grassland
+Asterion,sp_labyrinth
+Stainless,aq_usp_stainless
+Wave Spray,sp_spray_waves_bravo
+Syd Mead,gs_aug_syd_mead
 Point Disarray,cu_ak47_point_disarray
-Pathfinder,sp_labyrinth2
-Blizzard Marbleized,hy_blizzard
-Copperhead,hy_copperhead
-Kill Confirmed,cu_usp_kill_confirmed
-Hydroponic,am_bamboo_jungle
-Silver Quartz,am_crystallized_silver
-Jungle Spray,sp_spray_jungle
-Scumbria,aq_xm1014_scumbria
-Nitro,so_orange_accents
-Grotto,aq_scar20_leak
-Bone Pile,sp_skull_diagram_bravo
-Heirloom,aq_engraved_deagle
-Ghost Camo,sp_camo_wood_blue
-Undertow,am_p250_beaded_paint
-Module,an_royalbleed
-Dry Season,sp_tape_dots_bravo
-Redline,cu_ak47_cobra
-Koi,cu_nova_koi
-Nuclear Threat,sp_nukestripe_green
-Firestarter,sp_mag7_firebitten
-Cold Blooded,am_slither_p90
-Basilisk,aq_m4a1s_basilisk
-Desert Storm,hy_desert
-Palm,sp_palm_bravo
-Carbon Fiber,am_carbon_fiber
-Amber Fade,aa_fade_metallic
-Red Astor,gs_cz75a_redastor
-Graven,aq_etched_mac10_bravo
-Gunsmoke,hy_gelpen
-Bone Mask,sp_tape
-Night Ops,hy_varicamo_night
-Green Marine,gs_scar20_peacemaker03
-Icarus Fell,hy_icarus
-Outbreak,hy_scar20_jungler
-Teardown,sp_mesh_hot_and_cold
-Corticera,cu_favela_p2000
-Yorick,gs_sawedoff_necromancer
-Terrace,hy_geometric_steps_yellow
-Lichen Dashed,sp_short_tape
-Valence,aq_famas_contour
-Caiman,cu_kaiman
-Storm,so_stormfront
-Ruby Poison Dart,am_mp9_nitrogen
-Tiger Tooth,an_tiger_orange
-Franklin,cu_money
-Cartel,aq_ak47_cartel
-Antique,cu_bizon_antique
+Oceanic,am_mac10_oceani
+Synth Leaf,hy_leaf_blue
+Jungle Slipstream,hy_scar20_jungle_slipstream
+Triarch,cu_sg556_triarch
+Lapis Gator,am_mac10_electricity
+Forest Night,hy_forest_night
+Chantico's Fire,cu_m4a1s_soultaker
+Chalice,am_royal
+Shattered,hy_crumple_bravo
 Hot Shot,so_grey_nuclear_orange_five_seven
-Urban Rubble,hy_varicamo_urban
-Blue Spruce,so_moss
+Orbit Mk01,gs_ak_colony01_red
+Buzz Kill,gs_m4a4_sector
+Retribution,cu_retribution
+Urban Hazard,cu_p2000_urban_hazard
+Tigris,cu_c75a-tiger
+Barricade,sp_asgard_wall
+Cyanospatter,hy_reef
+Blaze,aa_flames
+Hydra,cu_mp9_hydra
+Carnivore,aq_mac_10_alien_camo
+Survivor Z,cu_famas_lenta
+Electric Hive,hy_hive
+Wild Lily,cu_mp9_island_floral
+Superconductor,sporty_light_blue
+Forest Leaves,sp_leaves
+Flame Test,gs_fiveseven_hot_rod_violet
+Crimson Blossom,hy_bud_red
+Reboot,cu_r8_cybersport
+Cobalt Quartz,am_crystallized_blue
+Chemical Green,so_grey_nuclear_green_bizon
+The Empress,gs_ak47_empress
+Grassland,so_grassland
+龍王 (Dragon King),cu_m4a4_ancestral
+Blizzard Marbleized,hy_blizzard
+Light Rail,gs_deagle_exo
 Nebula Crusader,gs_m249_nebula_crusader
+Safari Mesh,sp_mesh_tan
+Ghost Camo,sp_camo_wood_blue
+Wild Six,gs_nova_anchorite
+Lightning Strike,am_lightning_awp
+System Lock,cu_m249_sektor
+Palm,sp_palm_bravo
+Sand Dune,so_sand_bravo
+Incinegator,cu_xm1014_incinerator
+Minotaur's Labyrinth,cu_labyrinth
+Black Laminate,cu_m9_bay_stonewash
+Winter Forest,hy_forest_winter
+Twin Turbo,cu_dual_elites_rally
+Navy Murano,hy_murano_blue
+Lichen Dashed,sp_short_tape
+Rising Skull,cu_skull_nova
+Brass,aq_brass
+Elite 1.6,gs_dual_elites_classic
+Stained,aq_forced
+Dragon Lore,cu_medieval_dragon_awp
+Hive,hy_redhex
+Cyrex,cu_usp_cyrex
+Lore,cu_m9_bay_lore
+Dark Blossom,sp_bud_blue
+Bratatat,cu_bratatat_negev
+Cold Blooded,am_slither_p90
+Magnesium,gs_m4a4_chopper_ghost
+Chainmail,am_chainmail
+Day Lily,hy_bloom_red
+Arctic Wolf,cu_aug_whitefang
+Daedalus,sp_labyrinth3
+Pilot,aq_pilot_deagle
+Loudmouth,cu_negev_annihilator
+Lunar Weave,slick_black
+Man-o'-war,am_negev_glory
+Gator Mesh,sp_mesh_python
+Reactor,am_nuclear_pattern1_glock
+Shipping Forecast,hy_zodiac3
+Colony,so_space_marine
+Eco,cu_cz75_eco
+Freehand,am_marked_up_fine
+The Fuschia Is Now,am_fuschia
+Caramel,so_caramel
+Turf,gs_p2000-sport
+Guardian,cu_usp_elegant
+Emerald Poison Dart,sp_m249_frog_original
+Traction,gs_p90_tread
+Full Stop,hy_varicamo_red
+Neon Ply,cu_mp7_replica
+Twist,am_gyrate
+Twilight Galaxy,am_aqua_flecks
+Amphibious,sporty_poison_frog_blue_white
+Blue Titanium,an_titanium30v
+Silver Quartz,am_crystallized_silver
+Abyss,aq_leviathan
+Impire,sp_mp7_impire
+Sunset Storm 弐,am_seastorm_shojo
+Chronos,cu_chronos_g3sg1
+Jet Set,cu_well_traveled_ak47
+Armor Core,aq_mp7_ultramodern
+Phantom,gs_sg553_phantom
+Avalanche,cu_tec9_avalanche
+Undertow,am_p250_beaded_paint
+Leaded Glass,gs_m4a1_shatter
+Traveler,cu_luggage_sg553
+Kami,hy_galil_kami
+Magma,aq_obsidian
+Bronzed,bloodhound_metallic
+Trigon,cu_p90_trigon
+Blood in the Water,cu_shark
+Mehndi,cu_p250_refined
+Fuel Rod,cu_bizon_noxious
+Dualing Dragons,cu_dualberretta_dragons
+The Kraken,cu_sawedoff_octopump
+Highwayman,aq_sawedoff_blackgold
+Pink DDPAT,hy_ddpat_pink
+Icarus Fell,hy_icarus
+Red Stone,so_rune_stone
+Neon Revolution,cu_ak47_anarchy
+Commuter,cu_luggage_mac10
+Skull Crusher,cu_revolver_oppressor
+Grassland Leaves,sp_leaves_grassland
+Banana Leaf,hy_leaf_green
+Hard Water,am_mag7_caustic
+Red FragCam,hy_poly_camo
+Candy Apple,so_red_sg553
+Airlock,cu_mp9_narcis
+Module,an_royalbleed
+Woodsman,cu_p2000_hunter
+Supernova,cu_bittersweet
+Primal Saber,cu_ump45_primalsaber
+Off World,cu_p90_offworld
+Snake Camo,sp_snake
+Vino Primo,gs_p250_checker
+Orange Filigree,hy_ren_orange
+Mangrove,bloodhound_hydra_green_leather_mesh_brass
+Red Filigree,am_ren_red
+Blue Spruce,so_moss
+Contrast Spray,sp_spray
+Death by Puppy,am_aug_death_by_doggy
+Tornado,so_tornado_bravo
+Zirka,sp_star_bravo
+Crimson Tsunami,sp_galil_wave
+Urban Rubble,hy_varicamo_urban
+Night Borre,sp_knots_blue
+Wild Lotus,cu_ak_island_floral
+Victoria,aq_etched_cz75
+Orange Peel,sp_tape_orange
+Handgun,aq_p2000_boom
+Sergeant,an_famas_sgt
+Violet Murano,am_murano_violet
+Facility Draft,hy_blueprint_red
+Business Class,cu_luggage_usp-s
+Jungle,so_jungle_bravo
+Skulls,hy_skulls
+Fever Dream,cu_awp_psychopath
+Pole Position,cu_cz75_precision
+Cut Out,aq_tec9_chalk_pattern
+Hydroponic,am_bamboo_jungle
+Harvester,gs_pp_bizon_harvester
+Nevermore,aa_p250_gravediggers
+Army Mesh,sp_mesh_army
+Jungle Dashed,sp_tape_short_jungle
+Polygon,motorcycle_trigrid_blue
+Urban Shock,cu_elites_urbanstorm
+Groundwater,so_olive_bravo
+Blueprint,cu_usps_blueprint
+Muertos,cu_p250_mandala
+VariCamo Blue,hy_varicamo_blue
+Big Iron,cu_ssg08_technicality
+Radiation Hazard,sp_nukestripe_orange_aug
+Astral Jörmungandr,am_jorm_blue
+Crypsis,sp_famas_ghost_insects
+Night Ops,hy_varicamo_night
+Morris,aq_sawed-off_flower
+Poseidon,cu_poseidon
+Praetorian,gs_mag7_praetorian
+Wildfire,cu_awp_wildfire
+Black Limba,cu_season_elites_bravo
+Indigo,so_indigo_and_grey
+Plume,cu_nova_featherswing
+Wasteland Princess,cu_wp_sawedoff
+Agent,gs_mp5_fbi
+Pipe Down,gs_mac10_exo_pipes
+Colony IV,cu_sg553_reactor
+Jungle Tiger,hy_v_tiger
+Fire Elemental,cu_p2000_fire_elemental
+Tuxedo,so_orca
+Arboreal,handwrap_leathery_fabric_green_camo
+Steel Disruption,am_ddpatdense_silver
+Powercore,gs_powercore_mp7
+Master Piece,cu_m4a1-s_silence
+Hyper Beast,cu_fiveseven_hyperbeast
+Grinder,aq_glock_coiled
+See Ya Later,cu_p250_cybercroc
+Stone Mosaico,hy_canals_tile
+Bunsen Burner,aq_glock18_flames_blue
+Sweeper,sp_mesh_safetyblack
+Cobalt Halftone,am_turqoise_halftone
+Caged Steel,am_oval_hex
+Teal Blossom,sp_bud_green
+Cinquedea,gs_mag7_glass
+Fowl Play,aq_57_feathers
+Lionfish,sp_negev_lionfish
+Slipstream,hy_xm1014_fractal_blue
+Bulkhead,hy_ducts_yellow
+Verdigris,aq_p250_verdigris
+Toxic,hy_nuclear_skulls5_tec9
+Power Loader,cu_negev_impact
+Imperial,am_p2000_imperial_red
+Amber Slipstream,hy_aug_torn_orange
+Torque,cu_usp_progressiv
+Bone Mask,sp_tape
+Road Rash,cu_usp_sandpapered
+Setting Sun,hy_nuclear_pattern2_mp9
+Seabird,so_aqua_stmarc
+Death's Head,cu_ssg08_deathshead
+Osiris,cu_bizon-osiris
+Hunter,gs_g3sg1_cetme_redux
+Cold Fusion,hy_nuclear_skulls_aqua
+Doomkitty,hy_doomkitty
+Army Sheen,am_army_shine
+Imprint,gs_cz75_tread
+Dart,cu_mp9_chevron
+Cracked Opal,cu_tec9_cracked_opal
+Nuclear Threat,sp_nukestripe_green_tec9
+Green Apple,so_green
+Nightmare,cu_m4a1s_nightmare
+Co-Processor,am_circuitboard_aqua
+Shred,sp_elites_winter_raider
+Sunset Storm 壱,am_seastorm_blood
+Splash Jam,hy_hunter_blaze_pink
+Aztec,aq_m249_aztec
+Charred,bloodhound_black_silver
+Corporal,cu_ump_corporal
+High Beam,aa_vertigo_blue
+Neon Kimono,hy_kimono_diamonds
+Shallow Grave,gs_p90_shallow_grave
+Remote Control,gs_tec9_envoy
+Ocean Foam,am_ossify_blue
+Crimson Kimono,specialist_kimono_diamonds_red
+Death Rattle,hy_nerodia
+Koi,cu_nova_koi
+Fallout Warning,sp_nukestripe_maroon_sg553
+Hexane,hy_bluehex
+Midnight Lily,am_bloom_blue
+Decommissioned,cu_famas_nuke_tension
+Control Panel,gs_m4a1s_operator
+Arid,sporty_military
+Exo,aq_nova_sci_fi
+Mint Kimono,sp_kimono_diamonds
+Night Stripe,sp_nightstripe
+Frost Borre,am_knots_silver
+Styx,am_nuclear_skulls2_famas
+Aquamarine Revenge,cu_ak47_courage_alt
+Urban DDPAT,hy_ddpat_urb
+Triqua,cu_aug_orange_triangle
+Stinger,gs_g3sg1_viper_yellow
+Aerial,cu_sg553_aerial
+Faded Zebra,sp_zebracam_bw
+Poison Dart,am_nitrogen
+Carbon Fiber,am_carbon_fiber
+Baroque Red,am_veneto_red
+Malachite,am_mac10_malachite
+Midnight Storm,am_seastorm
+Eye of Athena,cu_famas_owl_orange
+Seasons,aq_xm_leaf_fade
+Cirrus,gs_final_pooldeadv2
+Neo-Noir,cu_awp_neonoir
+Graphite,am_crumple
+Doppler,am_doppler_phase4_widow
+Jaguar,cu_panther_ak47
+Necropos,cu_ssg08_necropos
+Mosaico,hy_ali_tile_bravo
+Directive,aq_desert_eagle_constable
+Daybreak,am_kimono_sunrise
+Random Access,am_circuitboard_orange
+Golden Coil,gs_m4a1s_snakebite_gold
+Demeter,hy_bluepolygon_bravo
+Boom!,motorcycle_mono_boom
+Warhawk,gs_glock_thunder_dust
+Blood Tiger,hy_redtiger
+BOOM,hy_blam_simple
+Virus,hy_zombie
+Dragon Tattoo,am_dragon_glock
+Shapewood,cu_p90_shapewood
+Predator,sp_zebracam
+Special Delivery,cu_mp7_classified
+Black Sand,cu_g3sg1_blacksand
+Mecha Industries,gs_deagle_mecha
+Sundown,sp_palm_sunset
+Water Elemental,cu_glock-liquescent
+Core Breach,hy_nuclear_hotorange
+Caiman,cu_kaiman
+Aloha,sp_sg533_aloha
+Overtake,slick_stitched_black_orange
+Nuclear Garden,am_nuclear_skulls_green
+The Battlestar,gs_m4a4_pioneer
+Ranger,cu_nova_ranger
+Red Rock,cu_p250_axiom
+Ventilator,gs_g3sg1_ventilator
+Hemoglobin,am_ossify_red
+Ice Cap,am_tec_9_sea_salt
+Transport,motorcycle_yellow_camo
+Elite Build,cu_awp_mastery
+Flash Out,cu_tec9_flash
+Toy Soldier,cu_nova_toy_soldier
+Orange Kimono,hy_kimono_diamonds_orange
+Howl,cu_m4a1_howling
+Tacticat,gs_cz75_tacticat
+Dark Water,am_zebra_dark
+Rust Leaf,sp_leaf_orange
+Goo,cu_mp9_goo
+Panther,so_panther
+Hades,hy_hades
+Safety Net,hy_mesh_safetyorange
+Atomic Alloy,am_m4a1-s_alloy_orange
+Sand Scale,aa_hide-mp9
+Hellfire,cu_m4a4_hellfire
+Spearmint,motorcycle_mint_triangle
+Facets,hy_crumple_dark_bravo
+Walnut,cu_walnut_nova
+Curse,cu_mac10_decay
+Llama Cannon,gs_r8_llamacannon
+Cobalt Core,cu_mag7_myrcene
+Sunset Lily,sp_bloom_orange
+Bronze Morph,sporty_poison_frog_red_green
+Case Hardened,bloodhound_hydra_case_hardened
+Rattler,bloodhound_hydra_snakeskin_brass
+Mudder,hy_mottled_sand
+Hand Cannon,aq_handcannon
+Briar,hy_vines
+Obsidian,cu_p2000_obsidian
+Hot Rod,an_red_m4a1s
+Re-Entry,am_tec9_redblast
+Firefight,gs_galilar_incenerator
+Fade,aa_fade_mp7
+Plastique,cu_ump_bomb
+Cobalt Skulls,handwrap_leathery_fabric_blue_skulls
+Macabre,sp_famas_macabre
+Turtle,motorcycle_basic_green_orange
+POW!,motorcycle_choco_boom
+Vice,sporty_blue_pink
+Contractor,so_pmc
+Akoben,sp_galil_akoben
+SWAG-7,aq_mag7_swag7
+Omega,sporty_black_webbing_yellow
+Buckshot,specialist_forest_brown
+Racing Green,slick_stitched_green_grey
+Imperial Plaid,slick_plaid_purple
+King Snake,slick_snakeskin_white
+Diamondback,slick_snakeskin_yellow
+Baroque Purple,hy_veneto_purple
+Capillary,cu_mp9_vein
+Grip,gs_revolver_tread
+Guerrilla,bloodhound_guerrilla
+Hedge Maze,sporty_green
+Coolant,hy_ducts_green
+Chopper,gs_p90_full_throttle
+Badlands,handwrap_fabric_orange_camo
+Slide,hy_splatter3
+Mandrel,hy_ducts_grey
+Cool Mint,motorcycle_triangle_blue
+Irradiated Alert,sp_nukestripe_brown
+Condemned,sp_mesh_forest_fire
+X-Ray,cu_xray_m4
+Ghost Crusader,gs_ssg08_armacore
+Convoy,slick_military
+Scavenger,gs_g3sg1_savage
+Firestarter,sp_mag7_firebitten
+Boroque Sand,hy_veneto_tan
+Calf Skin,gs_mac10_checker
+Commemoration,gs_famas_legacy_gold
+Sacrifice,cu_glock_hero
+Royal Paladin,gs_m4a4_royal_squire
+Overprint,handwrap_leathery_fabric_geometric_blue
+Stone Cold,gs_galil_nightwing
+Dry Season,sp_tape_dots_bravo
+Assault,cu_scar_assault
+Nostalgia,cu_p90_nostalgia
+Snek-9,cu_tec9_snake
+Urban Dashed,sp_tape_short_urban
+Popdog,gs_mag7_popdog
+Classic Crate,gs_mac10_dust_crate
+Antique,cu_bizon_antique
+Green Plaid,hy_plaid2
+VariCamo,hy_varicamo
+Inferno,gs_p250_inferno
+Buddy,cu_fiveseven_gsg9
+Warbird,gs_m249_warbird_veteran
+Bloodshot,cu_ssg08_tickler
+High Seas,gs_g3sg1_buccaneer
+Torn,sp_scar20_striker_dust
+Terrain,sp_negev_turq_terrain
+Silver,an_silver
+Tread Plate,am_diamond_plate
+Emerald Dragon,cu_dragon_p90_bravo
+Balance,gs_dual_elites_rose
+Crimson Web,specialist_webs_red
+Duct Tape,handwrap_leathery_ducttape
+Acid Wash,gs_mp5_etch
+Bronze Deco,am_bronze_sparkle
+Containment Breach,cu_awp_virus
+Emerald,bloodhound_hydra_black_green
+Detour,hy_ssg08_marker
+Rat Rod,gs_ak47_nibbler
+Zander,aq_sawedoff_zander2
+Tranquility,cu_xm1014_caritas
+Phobos,gs_awp_phobos
+Bloodsport,gs_mp7_bloodsport
+Royal Blue,hy_indigo_usp
+Bamboo Garden,hy_bamboo_stmarc
+Surfwood,sp_twigs_beach
+Terrace,hy_geometric_steps_yellow
+Jungle Thicket,sp_palm_green
+Labyrinth,hy_lines_orange
+Last Dive,aa_mac10_the_last_dive
+Sea Calico,hy_flowers_stmarc
+Stained Glass,am_stained_glass
+Canal Spray,sp_spray_water
+Fubar,gs_tec9_fubar
+Neon Rider,cu_ak_neon_rider
+Sand Mesh,sp_mesh_sand
+Red Quartz,am_crystallized
+Moss Quartz,am_crystallized_dark_green
+Pyre,hy_gelpen_dark
+Cerberus,cu_cerbrus_galil
+Emerald Quartz,am_crystallized_green
+Metallic DDPAT,am_urban
+Overgrowth,hy_siege_bravo
+Briefing,cu_m4a1s_metritera
+Angry Mob,cu_five_seven_angry
+Gunsmoke,hy_gelpen
+Afterimage,cu_broken_path_famas
+Jungle DDPAT,hy_ddpat_jungle_bravo
+Gungnir,gs_awp_gungnir
+Ash Wood,sp_twigs
+Urban Perforated,sp_tape_dots_urban
+Whitefish,gs_mac10_fish_bait
+Bamboozle,cu_tec9_bamboo
+Atheris,cu_awp_viper
+Cobra Strike,gs_dualberettas_cobra
+Uncharted,cu_ak47_aztec
+Danger Close,gs_sg553_over_heated
+Mischief,cu_mp7_racketeer
+Monkey Business,cu_fiveseven_banana
+Black Tie,cu_xm1014_spectrum
+Marble Fade,am_marble_fade_widow
+Yellow Jacket,cu_cz75a_chastizer
+PAW,am_awp_pawpaw
+Spruce DDPAT,handwrap_camo_grey
+Eclipse,motorcycle_basic_black
+Momentum,cu_aug_momentum
+Nuclear Waste,sp_nuclear_pattern3_negev
+Lab Rats,hy_labrat_mp5
+Bloomstick,cu_spring_nova
+Glacier Mesh,sp_mesh_glacier
+Azure Zebra,sp_zebracam_blue
+Polymer,am_czv2_mf
+Pandora's Box,sporty_purple
+Check Engine,sp_mesh_safetyred
+Urban Masked,sp_tape_urban
+Converter,hy_red_hex
+Wings,hy_feathers_aug
+Arctic Camo,hy_arctic
+Fuel Injector,gs_tec9_supercharged
+Bengal Tiger,hy_tiger
+Sugar Rush,cu_galil_candychaos
+Acheron,hy_nuclear_skulls_redblue
+Rust Coat,aq_steel_inferno
+Ultraviolet,so_purple_falchion
+Flashback,cu_usp_flashback
+Exchanger,hy_ducts_blue
+Chameleon,cu_aug_chameleonaire
+Quicksilver,aq_xm1014_sigla
+Red Laminate,hy_ak47lam
+Emerald Web,specialist_emerald_web
+Teardown,sp_mesh_hot_and_cold
+Murky,am_g3sg1_murky
+Ventilators,gs_dualberettas_ventilators
+Roll Cage,gs_famas_rally
+Scorched,sp_dapple
+Aristocrat,gs_aug_aristocrat
+Facility Negative,hy_blueprint_aqua
+Bamboo Print,hy_bamboo_jungle_ink
+Facility Sketch,hy_blueprint_white
+Fire Serpent,cu_fireserpent_ak47_bravo
+Triumvirate,cu_fiveseven_augmented
+Weasel,cu_glock18_weasel
+Cartel,aq_dualberettas_cartel
+Mjölnir,gs_negev_thor
+Copper Borre,am_knots_brown
+Flame Jörmungandr,am_jorm_orange
+Evil Daimyo,cu_m4a4_evil_daimyo
+Emerald Jörmungandr,am_jorm_green
+Tiger Moth,gs_sg553_tiger_moth
+Foundation,specialist_orange_white
 Ivory,cu_p2000_ivory
+Ziggy,aq_xm1014_ziggy_anarchy
+Chatterbox,cu_galil_abrasion
+Kumicho Dragon,aq_deserteagle_kumichodragon
+Sandstorm,cu_tec9_sandstorm
+Hand Brake,gs_ssg08_checker
+Scumbria,aq_five_seven_scumbria
+Imperial Dragon,gs_p2000_imperial_dragon
+Forest DDPAT,specialist_ddpat_green_camo
+Blue Streak,hy_splatter
+Dark Filigree,am_ren_dark
+Orange Murano,hy_murano_orange
+The Prince,gs_awp_enamel
+Night Riot,cu_bizon_riot
+Judgement of Anubis,cu_bizon_Curse
+Franklin,cu_money
+Devourer,cu_sawedoff_devourer
+Stalker,gs_mac10_stalker
+Code Red,gs_deagle_aggressor
+Cortex,cu_usp_cut
+Emerald Pinstripe,cu_pinstripe_ak47
+Mortis,gs_awp_death
+Memento,gs_r8_memento
+Dirt Drop,sp_tape_short_rally
+Red Leather,cu_leather_xm1014
+Copper,aq_copper
+Desert-Strike,cu_negev_titanstorm
+Sand Spray,sp_spray_sand
+Whiteout,so_whiteout
+Polar Camo,hy_arctic_contrast
+Wingshot,hy_p250_crackshot
+Scaffold,gs_ump_abyss
+Blind Spot,hy_modspots
+Dark Age,am_metal_inlay
+Outbreak,hy_scar20_jungler
+Embargo,cu_bizon_road_warrior
+Water Sigil,hy_water_crest
+Akihabara Accept,cu_anime_aug
+Night,so_night
+Anodized Navy,an_navy_bravo
+Copper Galaxy,am_copper_flecks
+Serum,am_electric_red
+CaliCamo,hy_varicamo_desert
+Pit Viper,hy_snakeskin
+Titanium Bit,am_fluted_tec9
+Blaze Orange,hy_hunter_blaze_orange
+Delusion,sp_ump45_d-visions
+Sage Spray,sp_spray_desert_sage
+Marina,hy_marina_sunrise
+Asiimov,cu_ak47_asiimov
+Bright Water,hy_ocean_knife_90
+Naga,aq_deagle_naga
+Leather,handwrap_leathery
+Fleet Flock,cu_aug_swallows
+Nitro,so_orange_accents3
+Hunting Blind,sp_mesh_slashes
+Baroque Orange,am_veneto2
+Tiger Tooth,an_tiger_orange
+Xiangliu,gs_cz_snakes_purple
+Olive Plaid,hy_plaid1
+Moonrise,aa_ump45_moonrise_sunset
+Bullet Rain,cu_bullet_rain_m4a1
+Atlas,cu_sg553_atlas
+Bone Machine,am_nuclear_skulls1_xm1014
+The Emperor,gs_m4a4_emperor
+Gauss,gs_mp5sd_astromatic
+Bone Pile,sp_skull_diagram_bravo
+Storm,so_stormfront
+Decimator,gs_tec9_decimator
+Jambiya,gs_tec9_jambiya
+Ironwork,aq_glock_dark-fall
+Royal Consorts,gs_dual_berettas_golden_venice
+Cobalt Disruption,am_ddpatdense_peacock
+First Class,cu_green_leather_sawedoff
+Blue Fissure,hy_craquelure
+Royal Legion,gs_glock18_award
+Heirloom,aq_engraved_deagle
+Corticera,cu_favela_p2000
+Orange DDPAT,hy_ddpat_orange
+Damascus Steel,aq_damascus_widow
+Hazard,sp_hazard_bravo
+Red Python,hy_snakeskin_red
+Desolate Space,cu_m4a4_desolate_space
+Splash,sp_splash_p250
+Kill Confirmed,cu_usp_kill_confirmed
+Basilisk,aq_m4a1s_basilisk
+Limelight,cu_sawed_off_lime
+Duelist,gs_mother_of_pearl_elite
+Autotronic,gs_m9_bay_autotronic
+Violent Daimyo,cu_five_seven_daimyo
+Moon in Libra,hy_zodiac1
+Ossified,am_ossify
+Crimson Weave,slick_red
+Corinthian,aq_deagle_corinthian
+Motherboard,am_circuitboard_green
+Blue Laminate,hy_ak47lam_blue
+Red Astor,gs_cz75a_redastor
+Acid Fade,aa_fade_grassland
+Polar Mesh,sp_mesh_arctic_contrast
+Cardiac,cu_scar20_intervention
+Granite Marbleized,hy_granite
+Knight,am_metals
+Modern Hunter,hy_hunter_modern
+Worm God,aq_awp_twine
+Flux,gs_g3sg1_flux_purple
+Bamboo Forest,hy_bamboo_jungle
+Jungle Spray,sp_spray_jungle
+Medusa,cu_medusa_awp
+Stymphalian,gs_aug_stymphalian_birds
+Wood Fired,gs_nova_hunter_brute
+Tempest,hy_seaside_bravo
+Valence,aq_famas_contour
+Coach Class,cu_luggage_p2000
+Waves Perforated,sp_tape_dots_waves
+Wasteland Rebel,cu_glock_wasteland_rebel
+Army Recon,sp_spray_army
+Redline,cu_ak47_cobra
+Griffin,cu_m4a4_griffin
+Snakebite,bloodhound_snakeskin_brass
+Orion,cu_usp_spitfire
+Isaac,cu_tec9_asiimov
+Gamma Doppler,am_gamma_doppler_phase4
+Mayan Dreams,hy_mayan_dreams_bravo
+Catacombs,cu_glock_deathtoll
+Deadly Poison,cu_mp9_deadly_poison
+Serenity,cu_sawedoff_deva
+Rose Iron,am_thorny_rose_mp9
+Phosphor,gs_mp5_festival_drip
+Hypnotic,aa_vertigo
+Djinn,aq_famas_jinn
+Origami,cu_sawedoff_origami
+Grand Prix,am_ump_racer
+Grotto,aq_scar20_leak
+Metal Flowers,aq_ump45_flameflower
+Slashed,cu_ssg08_immortal
+Heaven Guard,cu_xm1014_heaven_guard
+Impact Drill,so_keycolors
+Pulse,cu_p2000_pulse
+Aqua Terrace,am_geometric_steps
+Meteorite,am_crystallized_dark
+Ripple,am_p250_sputnik
+Tatter,cu_korupt
+Anodized Gunmetal,an_gunmetal_bravo
+Contamination,hy_nuclear_skulls4_p250
+Rocket Pop,cu_galilar_particles
+Nemesis,cu_mp7_nemsis
+Ruby Poison Dart,am_mp9_nitrogen
+Riot,cu_ump45_uproar
+Frontside Misty,cu_ak47_winter_sport
+Tropical Storm,sp_palm_shadow
+Green Marine,gs_scar20_peacemaker03
+Blue Steel,aq_blued
+Desert Warfare,cu_p90_scorpius
+Iron Clad,gs_p250_metal_panels
+Orange Crash,sp_g3sg1_militiaorange
+Brake Light,aa_vertigo_red
+Integrale,cu_sg553_rally
+Spectre,cu_m249_spectre
+Graven,aq_etched_mac10_bravo
+Retrobution,cu_fiveseven_retrobution
+Rangeen,cu_mac10_alekhya_duo
+Desert Storm,hy_desert
+The Executioner,cu_g3sg1_executioner
+Yorick,gs_sawedoff_necromancer
+Golden Koi,am_scales_bravo
+Teclu Burner,aq_xm1014_hot_rod
+Para Green,so_khaki_green
+Vulcan,cu_ak47_rubber
+Slaughter,handwrap_red_slaughter
+Death by Kitty,cu_catskulls_p90
+Pathfinder,sp_labyrinth2
+Exposure,cu_ump45_x-ray_machine
+Amber Fade,aa_fade_metallic_revolver
+Ricochet,am_aug_jumble
+Bulldozer,so_yellow
+Mainframe,am_circuitboard_silver
+Demolition,so_tangerine
+Sun in Leo,hy_zodiac2
+Lead Conduit,gs_usp_voltage
+Bioleak,am_mp9_bioleak
+Scorpion,am_scorpion_p2000
+Oni Taiji,cu_awp_hannya
+Bamboo Shadow,hy_bamboo_jungle_black
+Death Grip,hy_p90_barebones_blue
+Heat,cu_mag7_redhot
+Modest Threat,gs_mp9_colony01
+Counter Terrace,hy_geometric_steps_green
+Conspiracy,cu_deagle_aureus
+Petroglyph,cu_mag7_tribal
+Facility Dark,hy_blueprint_bluered
+Dazzle,hy_negev_dazzle
+Grim,cu_p90_grimm
+Sand Dashed,sp_tape_short_sand
+Dragonfire,cu_ssg08_dragonfire_scope
+Copperhead,hy_copperhead
+Survivalist,cu_r8_survivalist
+Neural Net,am_famas_dots
+Nightshade,hy_flowers
+Sonar,am_mag7_malform
+Gila,am_nova_sand
+Wraiths,gs_glock18_wrathys
+Spitfire,sp_spitfire_famas_bravo
+Photic Zone,cu_bizon_citizen
+Oxide Blaze,cu_glock18_corroden
+High Roller,cu_bizon_all_in
 -
