@@ -1,7 +1,4 @@
-weapon_knife_outdoor,Forest DDPAT,Crimson Web,Fade,Blue Steel,Stained,Case Hardened,Slaughter,Safari Mesh,Boreal Forest,Ultraviolet,Urban Masked,Scorched
-weapon_knife_stiletto,Forest DDPAT,Crimson Web,Fade,Blue Steel,Stained,Case Hardened,Slaughter,Safari Mesh,Boreal Forest,Ultraviolet,Urban Masked,Scorched,Tiger Tooth,Marble Fade,Rust Coat,Doppler Ruby,Doppler Sapphire,Doppler Blackpearl,Doppler Phase 1,Doppler Phase 2,Doppler Phase 3,Doppler Phase 4,Night Stripe,Damascus Steel
-weapon_knife_widowmaker,Forest DDPAT,Crimson Web,Fade,Blue Steel,Stained,Case Hardened,Slaughter,Safari Mesh,Boreal Forest,Ultraviolet,Urban Masked,Scorched,Tiger Tooth,Rust Coat,Doppler 1,Doppler 2,Doppler 3,Night Stripe,Doppler 1,Doppler 2,Doppler 3,Doppler 4,Marble Fade,Damascus Steel
-weapon_knife_skeleton,Forest DDPAT,Crimson Web,Fade,Blue Steel,Stained,Case Hardened,Slaughter,Safari Mesh,Boreal Forest,Ultraviolet,Urban Masked,Scorched,Tiger Tooth,Marble Fade,Rust Coat,Doppler Ruby,Doppler Sapphire,Doppler Blackpearl,Doppler Phase 1,Doppler Phase 2,Doppler Phase 3,Doppler Phase 4,Night Stripe,Damascus Steel
+weapon_knife_skeleton,Forest DDPAT,Crimson Web,Fade,Blue Steel,Stained,Case Hardened,Slaughter,Safari Mesh,Boreal Forest,Ultraviolet,Urban Masked,Scorched,Night Stripe
 studded_bloodhound_gloves,Charred,Snakebite,Bronzed,Guerrilla
 sporty_gloves,Superconductor,Arid,Pandora's Box,Hedge Maze,Amphibious,Bronze Morph,Omega,Vice
 slick_gloves,Lunar Weave,Convoy,Crimson Weave,Diamondback,King Snake,Imperial Plaid,Overtake,Racing Green
