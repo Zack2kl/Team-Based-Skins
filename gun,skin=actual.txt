@@ -1,0 +1,3 @@
+// make tomorrow
+// example:
+// weapon_deagle,Urban DDPAT=hy_ddpat_urb, etc
