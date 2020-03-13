@@ -1,4 +1,4 @@
-weapon_knife_skeleton,Forest DDPAT,Crimson Web,Fade,Blue Steel,Stained,Case Hardened,Slaughter,Safari Mesh,Boreal Forest,Ultraviolet,Urban Masked,Scorched,Night Stripe
+weapon_knife_skeleton,Forest DDPAT,Crimson Web,Fade,Blue Steel,Stained,Case Hardened,Slaughter,Safari Mesh,Boreal Forest,Urban Masked,Scorched,Night Stripe
 studded_bloodhound_gloves,Charred,Snakebite,Bronzed,Guerrilla
 sporty_gloves,Superconductor,Arid,Pandora's Box,Hedge Maze,Amphibious,Bronze Morph,Omega,Vice
 slick_gloves,Lunar Weave,Convoy,Crimson Weave,Diamondback,King Snake,Imperial Plaid,Overtake,Racing Green
