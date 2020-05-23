@@ -12,7 +12,6 @@ M249=weapon_m249
 M4A4=weapon_m4a1
 MAC-10=weapon_mac10
 P90=weapon_p90
-Repulsor Device=weapon_zone_repulsor
 MP5-SD=weapon_mp5sd
 UMP-45=weapon_ump45
 XM1014=weapon_xm1014
