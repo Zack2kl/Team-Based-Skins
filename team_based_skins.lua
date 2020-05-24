@@ -90,7 +90,7 @@ local function changer_update(team)
 	gui.Command('skin.clear')
 
 	for i=1, #team_skins[team] do
-		gui.Command( string.format('skin.add "%s" "%s" "%s" "%s" "%s" "%s"', unpack( team_skins[team][i] )) )
+		gui.Command( string.format('skin.add "%s" "%s" "%s" "%s" "%s" "%s"', unpack(team_skins[team][i])) )
 	end
 
 	client.Command('cl_fullupdate', true)
@@ -136,11 +136,13 @@ local function remove_from_list(team)
 end
 
 local function confirmation(f, t)
-	MENU:SetActive(0)
+	local x, y = MENU:GetValue()
 	local X, Y = draw.GetScreenSize()
+	MENU:SetValue(X, Y)
 
 	local window = gui.Window('temp_window', 'Confirmation', (X * 0.5) - 80, (Y * 0.5) - 75, 162, 140)
-	local function back() MENU:SetActive(1) window:Remove() end
+		window:SetActive(1)
+	local function back() MENU:SetValue(x, y) window:Remove() end
 	local co = gui.Button(window, 'Confirm'..t, function() back() f() end)
 		co:SetPosX(17) co:SetPosY(16)
 	local ca = gui.Button(window, 'Cancel'..t, back) 
