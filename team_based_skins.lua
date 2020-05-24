@@ -96,12 +96,12 @@ local function changer_update(team)
 	client.Command('cl_fullupdate', true)
 end
 
-local function add_to_list(loaded, team)
-	local team = team or TEAMS[team:GetValue() + 1]
+local function add_to_list(_load, _team)
+	local team = _team and _team or TEAMS[team:GetValue() + 1]
 	local list = team == 'T' and list or list2
 	local options = {}
 
-	if not loaded then
+	if not _load then
 		local item = item:GetValue()
 		local skin = skin:GetValue() + 1
 
@@ -131,16 +131,8 @@ end
 
 local function remove_from_list(team)
 	local list = team == 'T' and list or list2
-	local options = {}
-
 	table.remove(team_skins[team], list:GetValue())
-
-	for i=1, #team_skins[team] do
-		local v = team_skins[team][i]
-		options[#options + 1] = string.format('%s - %s', _weapons[v[1]], _skins[v[2]])
-	end
-
-	list:SetOptions( space, unpack(options) )
+	add_to_list(true, team)
 end
 
 local function confirmation(f, t)
@@ -175,6 +167,10 @@ local function load_from_file()
 		local f = file.Open(core..team..'.dat', 'r')
 		local N = 1
 
+		if not f then
+			goto skip
+		end
+
 		for line in f:Read():gmatch('([^\n]*)\n') do
 			local A = 1
 			for var in line:gmatch('("[^ ]*)') do
@@ -190,19 +186,12 @@ local function load_from_file()
 		end
 
 		add_to_list(true, team)
-		local list = team == 'T' and list or list2
-		local opts = {}
-
-		for i=1, #team_skins[team] do
-			local v = team_skins[team][i]
-			opts[i] = string.format('%s - %s', _weapons[v[1]], _skins[v[2]])
-		end
-
-		list:SetOptions( space, unpack(opts) )
-
 		f:Close()
+		::skip::
 	end
 end
+
+load_from_file()
 
 local add = gui.Button(group, 'Add', add_to_list)
 	add:SetPosX(296) add:SetPosY(426) add:SetWidth(280) add:SetHeight(20)
