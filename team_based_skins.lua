@@ -1,6 +1,6 @@
 local core = 'Team-Based-Skins/'
 local file_exists = function(n)local n,e=core..n file.Enumerate(function(c)if c==n then e=1 return end end)return e end
-local function download_file(name)http.Get('https://raw.githubusercontent.com/Zack2kl/Team-Based-Skins/master/'..name,function(c)file.Open(core..name,'w'):Write(c):Close()end)end
+local function download_file(name)http.Get('https://raw.githubusercontent.com/Zack2kl/Team-Based-Skins/master/'..name,function(c)local f=file.Open(core..name,'w')f:Write(c)f:Close()end)end
 
 local MENU = gui.Reference('MENU')
 local tab = gui.Tab(gui.Reference('Visuals'), 'team_based', 'Team Based Skins')
