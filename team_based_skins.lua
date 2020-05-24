@@ -1,12 +1,8 @@
---[[
-	todo: 
-		add save/load
-]]
-
 local core = 'Team-Based-Skins/'
 local file_exists = function(n)local n,e=core..n file.Enumerate(function(c)if c==n then e=1 return end end)return e end
 local function download_file(name)http.Get('https://raw.githubusercontent.com/Zack2kl/Team-Based-Skins/master/'..name,function(c)file.Open(core..name,'w'):Write(c):Close()end)end
 
+local MENU = gui.Reference('MENU')
 local tab = gui.Tab(gui.Reference('Visuals'), 'team_based', 'Team Based Skins')
 local group = gui.Groupbox(tab, 'Change visual items', 16, 16)
 
@@ -100,23 +96,26 @@ local function changer_update(team)
 	client.Command('cl_fullupdate', true)
 end
 
-local function add_to_list()
-	local team = TEAMS[team:GetValue() + 1]
-	local item = item:GetValue()
-	local skin = skin:GetValue() + 1
+local function add_to_list(loaded, team)
+	local team = team or TEAMS[team:GetValue() + 1]
 	local list = team == 'T' and list or list2
 	local options = {}
 
-	local tbl = {
-		weapons[weapon_keys[item + 1]],
-		skins[item][skin][2],
-		wear:GetValue(),
-		seed:GetValue(),
-		stattrak:GetValue(),
-		name:GetValue()
-	}
+	if not loaded then
+		local item = item:GetValue()
+		local skin = skin:GetValue() + 1
 
-	table.insert(team_skins[team], tbl)
+		local tbl = {
+			weapons[weapon_keys[item + 1]],
+			skins[item][skin][2],
+			wear:GetValue(),
+			seed:GetValue(),
+			stattrak:GetValue(),
+			name:GetValue()
+		}
+
+		table.insert(team_skins[team], tbl)
+	end
 
 	for i=1, #team_skins[team] do
 		local v = team_skins[team][i]
@@ -124,24 +123,85 @@ local function add_to_list()
 	end
 
 	list:SetOptions( space, unpack(options) )
-	client.Command('cl_fullupdate', true)
+
+	if team == TEAMS[entities.GetLocalPlayer():GetTeamNumber() - 1] then
+		changer_update(team)
+	end
 end
 
 local function remove_from_list(team)
 	local list = team == 'T' and list or list2
-	local skip = list:GetValue()
 	local options = {}
+
+	table.remove(team_skins[team], list:GetValue())
 
 	for i=1, #team_skins[team] do
 		local v = team_skins[team][i]
-		if i ~= skip then
-			options[#options + 1] = string.format('%s - %s', _weapons[v[1]], _skins[v[2]])
-		else
-			team_skins[team][i] = nil
-		end
+		options[#options + 1] = string.format('%s - %s', _weapons[v[1]], _skins[v[2]])
 	end
 
 	list:SetOptions( space, unpack(options) )
+end
+
+local function confirmation(f, t)
+	MENU:SetActive(0)
+	local X, Y = draw.GetScreenSize()
+
+	local window = gui.Window('temp_window', 'Confirmation', (X * 0.5) - 80, (Y * 0.5) - 75, 162, 140)
+	local function back() MENU:SetActive(1) window:Remove() end
+	local co = gui.Button(window, 'Confirm'..t, function() back() f() end)
+		co:SetPosX(17) co:SetPosY(16)
+	local ca = gui.Button(window, 'Cancel'..t, back) 
+		ca:SetPosX(17) ca:SetPosY(64)
+end
+
+local function save_to_file()
+	for t=1, #TEAMS do
+		local opts = {}
+
+		for i=1, #team_skins[TEAMS[t]] do
+			opts[i] = string.format('"%s" "%s" "%s" "%s" "%s" "%s"', unpack( team_skins[TEAMS[t]][i] ))
+		end
+
+		local f = file.Open(core..TEAMS[t]..'.dat', 'w')
+		f:Write( table.concat(opts, '\n').. '\n' )
+		f:Close()
+	end
+end
+
+local function load_from_file()
+	for t=1, #TEAMS do
+		local team = TEAMS[t]
+		local f = file.Open(core..team..'.dat', 'r')
+		local N = 1
+
+		for line in f:Read():gmatch('([^\n]*)\n') do
+			local A = 1
+			for var in line:gmatch('("[^ ]*)') do
+				if not team_skins[team][N] then
+					team_skins[team][N] = {}
+				end
+
+				team_skins[team][N][A] = var:gsub('"', '')
+				A = A + 1
+			end
+
+			N = N + 1
+		end
+
+		add_to_list(true, team)
+		local list = team == 'T' and list or list2
+		local opts = {}
+
+		for i=1, #team_skins[team] do
+			local v = team_skins[team][i]
+			opts[i] = string.format('%s - %s', _weapons[v[1]], _skins[v[2]])
+		end
+
+		list:SetOptions( space, unpack(opts) )
+
+		f:Close()
+	end
 end
 
 local add = gui.Button(group, 'Add', add_to_list)
@@ -152,6 +212,12 @@ local rem = gui.Button(group, 'Remove from T', function() remove_from_list('T') 
 
 local rem2 = gui.Button(group, 'Remove from CT',  function() remove_from_list('CT') end)
 	rem2:SetPosY(426) rem2:SetWidth(280) rem2:SetHeight(20)
+
+local save = gui.Button(group, 'Save to File',  function() confirmation(save_to_file, ' Save') end)
+	save:SetPosY(462) save:SetWidth(576) save:SetHeight(20)
+
+local _load = gui.Button(group, 'Load from File',  function() confirmation(load_from_file, ' Load') end)
+	_load:SetPosY(498) _load:SetWidth(576) _load:SetHeight(20)
 
 local last_item = -1
 local function menu_update()
