@@ -96,7 +96,7 @@ local function changer_update(team)
 	client.Command('cl_fullupdate', true)
 end
 
-local function add_to_list(_load, _team)
+local function list_update(_load, _team)
 	local team = _team and _team or TEAMS[team:GetValue() + 1]
 	local list = team == 'T' and list or list2
 	local options = {}
@@ -132,7 +132,7 @@ end
 local function remove_from_list(team)
 	local list = team == 'T' and list or list2
 	table.remove(team_skins[team], list:GetValue())
-	add_to_list(true, team)
+	list_update(true, team)
 end
 
 local function confirmation(f, t)
@@ -187,15 +187,13 @@ local function load_from_file()
 			N = N + 1
 		end
 
-		add_to_list(true, team)
+		list_update(true, team)
 		f:Close()
 		::skip::
 	end
 end
 
-load_from_file()
-
-local add = gui.Button(group, 'Add', add_to_list)
+local add = gui.Button(group, 'Add', list_update)
 	add:SetPosX(296) add:SetPosY(426) add:SetWidth(280) add:SetHeight(20)
 
 local rem = gui.Button(group, 'Remove from T', function() remove_from_list('T') end)
