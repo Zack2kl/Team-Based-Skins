@@ -1,23 +1,13 @@
-local core = 'Team-Based-Skins/'
-local file_exists = function(n)local n,e=core..n file.Enumerate(function(c)if c==n then e=1 return end end)return e end
-local function download_file(name)http.Get('https://raw.githubusercontent.com/Zack2kl/Team-Based-Skins/master/'..name,function(c)local f=file.Open(core..name,'w')f:Write(c)f:Close()end)end
+local dir = 'Team-Based-Skins/'
+local file_exists = function(n)local n,e=dir..n file.Enumerate(function(c)if c==n then e=1 return end end)return e end
+local function download_file(name)http.Get('https://raw.githubusercontent.com/Zack2kl/Team-Based-Skins/master/'..name,function(c)local f=file.Open(dir..name,'w')f:Write(c)f:Close()end)end
 
 local MENU = gui.Reference('MENU')
 local tab = gui.Tab(gui.Reference('Visuals'), 'team_based', 'Team Based Skins')
 local group = gui.Groupbox(tab, 'Change visual items', 16, 16)
 
-local space = '-'
-local list = gui.Listbox(group, 'T.skins', 194, space)
-	list:SetWidth(280)
-local list2 = gui.Listbox(group, 'CT.skins', 194, space)
-	list2:SetWidth(280) list2:SetPosY(226)
-
-local TEAMS = { 'T', 'CT' }
-local team = gui.Combobox(group, 'team', 'Team', unpack(TEAMS))
-	team:SetDescription('Team you wish to have the skin on.') team:SetPosX(296) team:SetPosY(0) team:SetWidth(280)
-
+local space, TEAMS, team_skins = '-', { 'T', 'CT' }, {T = {}, CT = {}}
 local weapons, _weapons, weapon_keys, skins, _skins, skin_keys = {}, {}, {}, {}, {}, {}
-local team_skins = {T = {}, CT = {}}
 
 local weaponlist = file_exists('weapon_list.txt')
 local skinlist = file_exists('skin_list.txt')
@@ -31,7 +21,7 @@ if not skinlist then
 end
 
 if weaponlist then
-	local f = file.Open(core..'weapon_list.txt', 'r')
+	local f = file.Open(dir..'weapon_list.txt', 'r')
 
 	for line in f:Read():gmatch('([^\n]*)\n') do
 		weapons[ line:match('([^\n]*)=') ] = line:gsub('([^\n]*)=', '')
@@ -43,7 +33,7 @@ if weaponlist then
 end
 
 if skinlist then
-	local f = file.Open(core..'skin_list.txt', 'r')
+	local f = file.Open(dir..'skin_list.txt', 'r')
 	local N = 0
 
 	for line in f:Read():gmatch('([^\n]*)\n') do
@@ -59,7 +49,17 @@ if skinlist then
 	f:Close()
 end
 
-local item = gui.Combobox(group, 'item', 'Item', unpack(weapon_keys)) or gui.Text(group, 'If you see this message, reload the lua.')
+if #skins == 0 then gui.Text(group, 'If you see this message, reload the lua.') return end
+
+local team = gui.Combobox(group, 'team', 'Team', unpack(TEAMS))
+	team:SetDescription('Team you wish to have the skin on.') team:SetPosX(296) team:SetPosY(0) team:SetWidth(280)
+
+local list = gui.Listbox(group, 'T.skins', 194, space)
+	list:SetWidth(280) list:SetPosY(0)
+local list2 = gui.Listbox(group, 'CT.skins', 194, space)
+	list2:SetWidth(280) list2:SetPosY(226)
+
+local item = gui.Combobox(group, 'item', 'Item', unpack(weapon_keys))
 	item:SetDescription('Select weapon or model') item:SetPosX(296) item:SetPosY(70) item:SetWidth(280)
 
 local skin = gui.Combobox(group, 'skin', 'Paint Kits', '')
@@ -124,8 +124,10 @@ local function list_update(_load, _team)
 
 	list:SetOptions( space, unpack(options) )
 
-	if team == TEAMS[entities.GetLocalPlayer():GetTeamNumber() - 1] then
-		changer_update(team)
+	if entities.GetLocalPlayer() then
+		if team == TEAMS[entities.GetLocalPlayer():GetTeamNumber() - 1] then
+			changer_update(team)
+		end
 	end
 end
 
@@ -157,7 +159,7 @@ local function save_to_file()
 			opts[i] = string.format('"%s" "%s" "%s" "%s" "%s" "%s"', unpack( team_skins[TEAMS[t]][i] ))
 		end
 
-		local f = file.Open(core..TEAMS[t]..'.dat', 'w')
+		local f = file.Open(dir..TEAMS[t]..'.dat', 'w')
 		f:Write( table.concat(opts, '\n').. '\n' )
 		f:Close()
 	end
@@ -166,7 +168,7 @@ end
 local function load_from_file()
 	for t=1, #TEAMS do
 		local team = TEAMS[t]
-		local f = file.Open(core..team..'.dat', 'r')
+		local f = file.Open(dir..team..'.dat', 'r')
 		local N = 1
 
 		if not f then
@@ -193,6 +195,8 @@ local function load_from_file()
 	end
 end
 
+load_from_file()
+
 local add = gui.Button(group, 'Add', list_update)
 	add:SetPosX(296) add:SetPosY(426) add:SetWidth(280) add:SetHeight(20)
 
@@ -208,8 +212,8 @@ local save = gui.Button(group, 'Save to File',  function() confirmation(save_to_
 local _load = gui.Button(group, 'Load from File',  function() confirmation(load_from_file, ' Load') end)
 	_load:SetPosY(498) _load:SetWidth(576) _load:SetHeight(20)
 
-local last_item = -1
-local function menu_update()
+local last_item, last_team
+local function update()
 	local val = item:GetValue()
 	if last_item ~= val then
 		local skins = skin_keys[val]
@@ -219,25 +223,16 @@ local function menu_update()
 		skin:SetValue(0)
 		last_item = val
 	end
+
+	if not entities.GetLocalPlayer() then
+		return
+	end
+
+	local current_team = TEAMS[entities.GetLocalPlayer():GetTeamNumber() - 1]
+	if current_team and last_team ~= current_team then
+		changer_update( current_team )
+		last_team = current_team
+	end
 end
 
-local function on_events(e)
-	if e:GetName() ~= 'player_team' then
-		return
-	end
-
-	if client.GetPlayerIndexByUserID( e:GetInt('userid') ) ~= client.GetLocalPlayerIndex() then
-		return
-	end
-
-	local team = TEAMS[e:GetInt('team') - 1]
-	if not team then
-		return
-	end
-
-	changer_update(team)
-end
-
-client.AllowListener('player_team')
-callbacks.Register('FireGameEvent', on_events)
-callbacks.Register('Draw', menu_update)
+callbacks.Register('Draw', update)
