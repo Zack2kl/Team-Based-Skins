@@ -189,6 +189,7 @@ local function load_from_file(name)
 		local team = TEAMS[t]
 		team_skins[team] = {}
 		local f = file_Open(dir..name:lower()..'/'..team..'.dat', 'r')
+		if not f and name == 'default' then local a = file_Open(dir..'default/'..team..'.dat', 'w')a:Write('')a:Close() end
 		local N = 1
 
 		if not f then
