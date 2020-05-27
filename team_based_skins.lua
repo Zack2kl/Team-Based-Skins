@@ -148,22 +148,25 @@ local gather_configs = function()
 	return cfgs
 end
 
-local function confirmation(f, t)
+local function config_system(f, t)
 	local x, y = MENU:GetValue()
 	local X, Y = draw_GetScreenSize()
 	MENU:SetValue(X, Y)
 
-	local window = gui_Window('temp_window', 'Confirmation', (X * 0.5) - 80, (Y * 0.5) - 75, 162, 190)
+	local window = gui_Window('temp_window', 'Config System', (X * 0.5) - 80, (Y * 0.5) - 75, 162, 260)
 		window:SetActive(1)
 	local function back() MENU:SetValue(x, y) window:Remove() end
 
-	local cfgs = t == 'Load' and gather_configs()
-	local config = t == 'Load' and gui_Combobox(window, 'temp_combo', 'Configs', unpack(cfgs) or '') or gui_Editbox(window, 'temp_editbox', 'Save to Config')
+	local cfgs = gather_configs()
+	local config = gui_Combobox(window, 'temp_combo', 'Configs', unpack(cfgs)) 
+	local new = t == 'Save' and gui_Editbox(window, 'temp_editbox', 'New Config')
+	local d = t == 'Save' and new:SetDescription('Creates new config')
+	local p = t == 'Save' and 55 or 0
 
-	local co = gui_Button(window, 'Confirm '..t, function() back() f(t == 'Load' and cfgs[config:GetValue() + 1] or config:GetValue()) end)
-		co:SetPosX(17) co:SetPosY(66)
+	local co = gui_Button(window, 'Confirm '..t, function() back() f( t == 'Load' and cfgs[config:GetValue() + 1] or (new:GetValue():find('[a-zA-Z0-9]') and new:GetValue() or cfgs[config:GetValue() + 1])) end)
+		co:SetPosX(17) co:SetPosY(85 + p)
 	local ca = gui_Button(window, 'Cancel '..t, back) 
-		ca:SetPosX(17) ca:SetPosY(114)
+		ca:SetPosX(17) ca:SetPosY(130 + p)
 end
 
 local function save_to_file(name)
@@ -223,10 +226,10 @@ local rem = gui_Button(group, 'Remove from T', function() remove_from_list('T') 
 local rem2 = gui_Button(group, 'Remove from CT',  function() remove_from_list('CT') end)
 	rem2:SetPosY(426) rem2:SetWidth(280) rem2:SetHeight(20)
 
-local save = gui_Button(group, 'Save to File',  function() confirmation(save_to_file, 'Save') end)
+local save = gui_Button(group, 'Save to File',  function() config_system(save_to_file, 'Save') end)
 	save:SetPosY(462) save:SetWidth(576) save:SetHeight(20)
 
-local _load = gui_Button(group, 'Load from File',  function() confirmation(load_from_file, 'Load') end)
+local _load = gui_Button(group, 'Load from File',  function() config_system(load_from_file, 'Load') end)
 	_load:SetPosY(498) _load:SetWidth(576) _load:SetHeight(20)
 
 local last_item, last_team
