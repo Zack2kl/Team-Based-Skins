@@ -60,40 +60,39 @@ end
 
 if #skins == 0 then gui_Text(group, 'If you see this message, reload the lua.') return end
 
-local team = gui_Combobox(group, 'team', 'Team', unpack(TEAMS))
-	team:SetDescription('Team you wish to have the skin on.') team:SetPosX(296) team:SetPosY(0) team:SetWidth(280)
-
-local list = gui_Listbox(group, 'T.skins', 194, space)
+local list = gui_Listbox(group, 'T.skins', 194)
 	list:SetWidth(280) list:SetPosY(0)
-local list2 = gui_Listbox(group, 'CT.skins', 194, space)
-	list2:SetWidth(280) list2:SetPosY(226)
+local list2 = gui_Listbox(group, 'CT.skins', 194)
+	list2:SetWidth(280) list2:SetPosY(218)
 
-local item = gui_Combobox(group, 'item', 'Item', unpack(weapon_keys))
-	item:SetDescription('Select weapon or model') item:SetPosX(296) item:SetPosY(70) item:SetWidth(280)
+local menu_items = {
+	gui_Combobox(group, 'team', 'Team', unpack(TEAMS)),
+	gui_Combobox(group, 'item', 'Item', unpack(weapon_keys)),
+	gui_Combobox(group, 'skin', 'Paint Kits', ''),
+	gui_Slider(group, 'wear', 'Wear', 0, 0, 1, 0.01),
+	gui_Editbox(group, 'seed', 'Seed'),
+	gui_Editbox(group, 'stattrak', 'Stattrak'),
+	gui_Editbox(group, 'name', 'Name')
+}
 
-local skin = gui_Combobox(group, 'skin', 'Paint Kits', '')
-	skin:SetDescription('Select skin of model') skin:SetPosX(296) skin:SetPosY(140) skin:SetWidth(280)
+local s = 0
+for i=1, #menu_items do
+	local a = menu_items[i]
+	a:SetPosX(296)
+	a:SetPosY(s)
+	a:SetWidth(280)
+	a:SetHeight(35)
+	s = 60 + s
+end
 
-local wear = gui_Slider(group, 'wear', 'Wear', 0, 0, 1, 0.01)
-	wear:SetDescription('Quality of item texture.')	wear:SetPosX(296) wear:SetPosY(210) wear:SetWidth(280)
-
-local _seed = gui_Text(group, 'Seed')
-	_seed:SetPosX(296) _seed:SetPosY(274)
-
-local seed = gui_Editbox(group, 'seed', '')
-	seed:SetPosX(294) seed:SetPosY(294) seed:SetWidth(280) seed:SetHeight(16)
-
-local _stattrak = gui_Text(group, 'Stattrak')
-	_stattrak:SetPosX(296) _stattrak:SetPosY(326)
-
-local stattrak = gui_Editbox(group, 'stattrak', '')
-	stattrak:SetPosX(296) stattrak:SetPosY(346) stattrak:SetWidth(280) stattrak:SetHeight(16)
-
-local _name = gui_Text(group, 'Name')
-	_name:SetPosX(296) _name:SetPosY(378)
-
-local name = gui_Editbox(group, 'name', '')
-	name:SetPosX(296) name:SetPosY(398) name:SetWidth(280) name:SetHeight(16)
+local team, item, skin, wear, seed, stattrak, name = unpack(menu_items)
+	team:SetDescription('Team you wish to have the skin on.')
+	item:SetDescription('Select weapon or model')
+	skin:SetDescription('Select skin of model')
+	wear:SetDescription('Quality of item texture.')
+	seed:SetDescription('Seed of texture generation.')
+	stattrak:SetDescription('Kill counter of weapon.')
+	name:SetDescription('Custom name of item.')
 
 local function changer_update(team)
 	gui_Command('skin.clear')
@@ -115,7 +114,7 @@ local function list_update(_load, _team)
 
 		local tbl = {
 			weapons[weapon_keys[item + 1]],
-			skins[item][skin] and skins[item][skin][2] or '',
+			skins[item] and skins[item][skin] and skins[item][skin][2] or '',
 			string_format('%.2f', wear:GetValue()),
 			seed:GetValue() == '' and 0 or seed:GetValue(),
 			stattrak:GetValue() == '' and 0 or stattrak:GetValue(),
@@ -127,10 +126,10 @@ local function list_update(_load, _team)
 
 	for i=1, #team_skins[team] do
 		local v = team_skins[team][i]
-		options[1 + (#team_skins[team] - i)] = string_format('%s - %s', _weapons[v[1]], _skins[v[2]] or 'Vanilla')
+		options[1 + (#team_skins[team] - i)] = string_format('%s %s', _weapons[v[1]], v[2] == '' and '' or '- '.. _skins[v[2]] )
 	end
 
-	list:SetOptions( space, unpack(options) )
+	list:SetOptions( unpack(options) )
 
 	if entities_GetLocalPlayer() then
 		if team == TEAMS[entities_GetLocalPlayer():GetTeamNumber() - 1] then
@@ -141,7 +140,7 @@ end
 
 local function remove_from_list(team)
 	local list = team == 'T' and list or list2
-	table_remove(team_skins[team], 1 + (#team_skins[team] - list:GetValue()) )
+	table_remove(team_skins[team], 1 + (#team_skins[team] - ( list:GetValue() + 1)) )
 	list_update(true, team)
 end
 
@@ -221,19 +220,19 @@ local function load_from_file(name)
 end
 
 local add = gui_Button(group, 'Add', list_update)
-	add:SetPosX(296) add:SetPosY(426) add:SetWidth(280) add:SetHeight(20)
+	add:SetPosX(296) add:SetPosY(416) add:SetWidth(280) add:SetHeight(16)
 
 local rem = gui_Button(group, 'Remove from T', function() remove_from_list('T') end)
-	rem:SetPosY(200) rem:SetWidth(280) rem:SetHeight(20)
+	rem:SetPosY(198) rem:SetWidth(280) rem:SetHeight(16)
 
 local rem2 = gui_Button(group, 'Remove from CT',  function() remove_from_list('CT') end)
-	rem2:SetPosY(426) rem2:SetWidth(280) rem2:SetHeight(20)
+	rem2:SetPosY(416) rem2:SetWidth(280) rem2:SetHeight(16)
 
 local save = gui_Button(group, 'Save to File',  function() config_system(save_to_file, 'Save') end)
-	save:SetPosY(462) save:SetWidth(576) save:SetHeight(20)
+	save:SetPosX(360) save:SetPosY(-43) save:SetWidth(100) save:SetHeight(18)
 
 local _load = gui_Button(group, 'Load from File',  function() config_system(load_from_file, 'Load') end)
-	_load:SetPosY(498) _load:SetWidth(576) _load:SetHeight(20)
+	_load:SetPosX(476) _load:SetPosY(-43) _load:SetWidth(100) _load:SetHeight(18)
 
 local last_item, last_team
 local function update()
@@ -241,7 +240,7 @@ local function update()
 	if last_item ~= val then
 		local skins = skin_keys[val]
 		local a = not skins
-		skin:SetDisabled(a) wear:SetDisabled(a) seed:SetDisabled(a) stattrak:SetDisabled(a) name:SetDisabled(a) _seed:SetDisabled(a) _stattrak:SetDisabled(a) _name:SetDisabled(a)
+		skin:SetDisabled(a) wear:SetDisabled(a) seed:SetDisabled(a) stattrak:SetDisabled(a) name:SetDisabled(a)
 		if val > 33 and val < 53 then
 			skin:SetOptions( 'Vanilla', unpack(skins or {}) )
 		else
@@ -279,7 +278,7 @@ local function on_event(e)
 	end
 
 	local current_team = TEAMS[entities_GetLocalPlayer():GetTeamNumber() - 1]
-	if event == 'round_prestart' then
+	if event == 'round_prestart' and current_team then
 		changer_update( current_team )
 		return
 	end
