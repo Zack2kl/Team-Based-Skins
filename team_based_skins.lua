@@ -1,5 +1,5 @@
 -- local variables for API functions. any changes to the line below will be lost on re-generation
-local callbacks_Register, client_Command, draw_GetScreenSize, entities_GetLocalPlayer, file_Enumerate, file_Open, gui_Button, gui_Combobox, gui_Command, gui_Editbox, gui_Groupbox, gui_Listbox, gui_Reference, gui_Slider, gui_Tab, gui_Text, gui_Window, http_Get, string_format, table_concat, table_insert, table_remove, table_sort, unpack, pairs = callbacks.Register, client.Command, draw.GetScreenSize, entities.GetLocalPlayer, file.Enumerate, file.Open, gui.Button, gui.Combobox, gui.Command, gui.Editbox, gui.Groupbox, gui.Listbox, gui.Reference, gui.Slider, gui.Tab, gui.Text, gui.Window, http.Get, string.format, table.concat, table.insert, table.remove, table.sort, unpack, pairs
+local callbacks_Register, client_AllowListener, client_GetLocalPlayerIndex, client_GetPlayerIndexByUserID, draw_GetScreenSize, entities_GetLocalPlayer, file_Enumerate, file_Open, gui_Button, gui_Combobox, gui_Command, gui_Editbox, gui_Groupbox, gui_Listbox, gui_Reference, gui_Slider, gui_Tab, gui_Text, gui_Window, http_Get, string_format, table_concat, table_insert, table_remove, table_sort, unpack, pairs, tonumber = callbacks.Register, client.AllowListener, client.GetLocalPlayerIndex, client.GetPlayerIndexByUserID, draw.GetScreenSize, entities.GetLocalPlayer, file.Enumerate, file.Open, gui.Button, gui.Combobox, gui.Command, gui.Editbox, gui.Groupbox, gui.Listbox, gui.Reference, gui.Slider, gui.Tab, gui.Text, gui.Window, http.Get, string.format, table.concat, table.insert, table.remove, table.sort, unpack, pairs, tonumber
 
 local dir = 'Team-Based-Skins/'
 local file_exists = function(n)local n,e=dir..n file_Enumerate(function(c)if c==n then e=1 return end end)return e end
@@ -74,7 +74,7 @@ local item = gui_Combobox(group, 'item', 'Item', unpack(weapon_keys))
 local skin = gui_Combobox(group, 'skin', 'Paint Kits', '')
 	skin:SetDescription('Select skin of model') skin:SetPosX(296) skin:SetPosY(140) skin:SetWidth(280)
 
-local wear = gui_Slider(group, 'wear', 'Wear', 0, 0, 1, 0.0001)
+local wear = gui_Slider(group, 'wear', 'Wear', 0, 0, 1, 0.01)
 	wear:SetDescription('Quality of item texture.')	wear:SetPosX(296) wear:SetPosY(210) wear:SetWidth(280)
 
 local _seed = gui_Text(group, 'Seed')
@@ -98,11 +98,10 @@ local name = gui_Editbox(group, 'name', '')
 local function changer_update(team)
 	gui_Command('skin.clear')
 
-	for i=1, #team_skins[team] do
-		gui_Command( string_format('skin.add "%s" "%s" "%s" "%s" "%s" "%s"', unpack(team_skins[team][i])) )
+	local tbl = team_skins[team]
+	for i=1, #tbl do
+		gui_Command( string_format('skin.add "%s" "%s" "%s" "%s" "%s" "%s"', unpack(tbl[i])) )
 	end
-
-	client_Command('cl_fullupdate', true)
 end
 
 local function list_update(_load, _team)
@@ -112,14 +111,14 @@ local function list_update(_load, _team)
 
 	if not _load then
 		local item = item:GetValue()
-		local skin = skin:GetValue() + 1
+		local skin = (item > 33 and item < 53 and skin:GetValue()) or skin:GetValue() + 1
 
 		local tbl = {
 			weapons[weapon_keys[item + 1]],
-			skins[item][skin][2],
-			wear:GetValue(),
-			seed:GetValue(),
-			stattrak:GetValue(),
+			skins[item][skin] and skins[item][skin][2] or '',
+			string_format('%.2f', wear:GetValue()),
+			seed:GetValue() == '' and 0 or seed:GetValue(),
+			stattrak:GetValue() == '' and 0 or stattrak:GetValue(),
 			name:GetValue()
 		}
 
@@ -128,7 +127,7 @@ local function list_update(_load, _team)
 
 	for i=1, #team_skins[team] do
 		local v = team_skins[team][i]
-		options[#options + 1] = string_format('%s - %s', _weapons[v[1]], _skins[v[2]])
+		options[1 + (#team_skins[team] - i)] = string_format('%s - %s', _weapons[v[1]], _skins[v[2]] or 'Vanilla')
 	end
 
 	list:SetOptions( space, unpack(options) )
@@ -142,7 +141,7 @@ end
 
 local function remove_from_list(team)
 	local list = team == 'T' and list or list2
-	table_remove(team_skins[team], list:GetValue())
+	table_remove(team_skins[team], 1 + (#team_skins[team] - list:GetValue()) )
 	list_update(true, team)
 end
 
@@ -150,7 +149,7 @@ local gather_configs = function()
 	local cfgs, new = {}, {}
 	file_Enumerate(function(name) if name:find('.dat') then new[ name:sub(18):gsub('/CT.dat', ''):gsub('/T.dat', '') ] = '' end end)
 	for k in pairs(new) do cfgs[#cfgs + 1] = k end
-	table_sort(cfgs, function(a, b) return a =='default' end)
+	table_sort(cfgs, function(a, b)return a=='default'end)
 	return cfgs
 end
 
@@ -243,21 +242,71 @@ local function update()
 		local skins = skin_keys[val]
 		local a = not skins
 		skin:SetDisabled(a) wear:SetDisabled(a) seed:SetDisabled(a) stattrak:SetDisabled(a) name:SetDisabled(a) _seed:SetDisabled(a) _stattrak:SetDisabled(a) _name:SetDisabled(a)
-		skin:SetOptions( unpack(skins or {}) )
+		if val > 33 and val < 53 then
+			skin:SetOptions( 'Vanilla', unpack(skins or {}) )
+		else
+			skin:SetOptions( unpack(skins or {}) )
+		end
 		skin:SetValue(0)
 		last_item = val
 	end
 
-	if not entities_GetLocalPlayer() then
+	local local_player = entities_GetLocalPlayer()
+	if not local_player then
 		return
 	end
 
-	local current_team = TEAMS[entities_GetLocalPlayer():GetTeamNumber() - 1]
+	local current_team = TEAMS[local_player:GetTeamNumber() - 1]
 	if current_team and last_team ~= current_team then
 		changer_update( current_team )
 		last_team = current_team
 	end
 end
 
+local knife_name = function(a)
+	for i=1, #a do
+		local s = a[i]
+		if s[1]:find('knife') or s[1] == 'weapon_bayonet' then
+			return s[1]
+		end
+	end
+end
+
+local function on_event(e)
+	local event = e:GetName()
+	if event ~= 'round_prestart' and event ~= 'player_death' then
+		return
+	end
+
+	local current_team = TEAMS[entities_GetLocalPlayer():GetTeamNumber() - 1]
+	if event == 'round_prestart' then
+		changer_update( current_team )
+		return
+	end
+
+	local local_player = client_GetLocalPlayerIndex()
+	if client_GetPlayerIndexByUserID(e:GetInt('attacker')) ~= local_player or client_GetPlayerIndexByUserID(e:GetInt('userid')) == local_player then
+		return
+	end
+
+	local tbl = team_skins[current_team]
+	local weapon = e:GetString('weapon')
+	local weapon = (weapon:find('knife') and knife_name(tbl)) or ('weapon_'.. weapon)
+
+	for i=1, #tbl do
+		local s = tbl[i]
+		if s[1] == weapon then
+			local v = tonumber(s[5])
+			if v > 0 then
+				team_skins[current_team][i][5] = v + 1
+			end
+			break
+		end
+	end
+end
+
+client_AllowListener('player_death')
+callbacks_Register('FireGameEvent', on_event)
 callbacks_Register('Draw', update)
+
 load_from_file('default')
