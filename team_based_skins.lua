@@ -14,6 +14,12 @@ local weapons, _weapons, weapon_keys, skins, _skins, skin_keys = {}, {}, {}, {},
 
 local weaponlist = file_exists('weapon_list.txt')
 local skinlist = file_exists('skin_list.txt')
+local default_cfg = file_exists('default/T.dat')
+
+if not default_cfg then
+	local f = file_Open(dir..'default/T.dat', 'w')f:Write()f:Close()
+	local f = file_Open(dir..'default/CT.dat', 'w')f:Write()f:Close()
+end
 
 if not weaponlist then
 	download_file('weapon_list.txt')
@@ -215,10 +221,6 @@ local function load_from_file(name)
 	end
 end
 
-for i=1, #TEAMS do local file = 'default/'..TEAMS[i]..'.dat' if not file_exists(file) then local a = file_Open(dir..file, 'w')a:Write('')a:Close() end end
-
-load_from_file('default')
-
 local add = gui_Button(group, 'Add', list_update)
 	add:SetPosX(296) add:SetPosY(426) add:SetWidth(280) add:SetHeight(20)
 
@@ -258,3 +260,4 @@ local function update()
 end
 
 callbacks_Register('Draw', update)
+load_from_file('default')
