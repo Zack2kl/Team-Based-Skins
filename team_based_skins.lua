@@ -157,20 +157,24 @@ local function config_system(f, t)
 	local X, Y = draw_GetScreenSize()
 	MENU:SetValue(X, Y)
 
-	local window = gui_Window('temp_window', 'Config System', (X * 0.5) - 80, (Y * 0.5) - 75, 162, 260)
-		window:SetActive(1)
+	local window = gui_Window('temp_window', 'Config System', (X * 0.5) - 85, (Y * 0.5) - 130, 170, 260)
+	local group = gui_Groupbox(window, t, 16, 16)
 	local function back() MENU:SetValue(x, y) window:Remove() end
 
 	local cfgs = gather_configs()
-	local config = gui_Combobox(window, 'temp_combo', 'Configs', unpack(cfgs)) 
-	local new = t == 'Save' and gui_Editbox(window, 'temp_editbox', 'New Config')
-	local d = t == 'Save' and new:SetDescription('Creates new config')
-	local p = t == 'Save' and 55 or 0
+	local config = gui_Combobox(group, 'temp_combo', 'Configs', unpack(cfgs)) 
+	local new = t == 'Save' and gui_Editbox(group, 'temp_editbox', 'New Config')
 
-	local co = gui_Button(window, 'Confirm '..t, function() back() f( t == 'Load' and cfgs[config:GetValue() + 1] or (new:GetValue():find('[a-zA-Z0-9]') and new:GetValue() or cfgs[config:GetValue() + 1])) end)
-		co:SetPosX(17) co:SetPosY(85 + p)
-	local ca = gui_Button(window, 'Cancel '..t, back) 
-		ca:SetPosX(17) ca:SetPosY(130 + p)
+	if t == 'Save' then
+		new:SetDescription('Creates new config')
+		window:SetHeight(330)
+		window:SetPosY( (Y * 0.5) - 165 )
+	end
+
+	local co = gui_Button(group, 'Confirm', function() back() f( t == 'Load' and cfgs[config:GetValue() + 1] or (new:GetValue():find('[a-zA-Z0-9]') and new:GetValue() or cfgs[config:GetValue() + 1])) end)
+	local ca = gui_Button(group, 'Cancel', back) 
+		co:SetWidth(106)
+		ca:SetWidth(106)
 end
 
 local function save_to_file(name)
@@ -271,15 +275,19 @@ local knife_name = function(a)
 	end
 end
 
+local need_update
 local function on_event(e)
 	local event = e:GetName()
-	if event ~= 'round_prestart' and event ~= 'player_death' then
+	if event ~= 'round_start' and event ~= 'player_death' then
 		return
 	end
 
 	local current_team = TEAMS[entities_GetLocalPlayer():GetTeamNumber() - 1]
-	if event == 'round_prestart' and current_team then
-		changer_update( current_team )
+	if event == 'round_start' and current_team then
+		if need_update then
+			changer_update( current_team )
+			need_update = false
+		end
 		return
 	end
 
@@ -298,12 +306,14 @@ local function on_event(e)
 			local v = tonumber(s[5])
 			if v > 0 then
 				team_skins[current_team][i][5] = v + 1
+				need_update = true
 			end
 			break
 		end
 	end
 end
 
+client_AllowListener('round_start')
 client_AllowListener('player_death')
 callbacks_Register('FireGameEvent', on_event)
 callbacks_Register('Draw', update)
