@@ -31,21 +31,23 @@ end
 
 if weaponlist then
 	local f = file_Open(dir..'weapon_list.txt', 'r')
+	local info = f:Read()
+	f:Close()
 
-	for line in f:Read():gmatch('([^\n]*)\n') do
+	for line in info:gmatch('([^\n]*)\n') do
 		weapons[ line:match('([^\n]*)=') ] = line:gsub('([^\n]*)=', '')
 		_weapons[ line:gsub('([^\n]*)=', '') ] = line:match('([^\n]*)=')
 		weapon_keys[#weapon_keys + 1] = line:match('([^\n]*)=')
 	end
-
-	f:Close()
 end
 
 if skinlist then
 	local f = file_Open(dir..'skin_list.txt', 'r')
+	local info = f:Read()
+	f:Close()
 	local N = 0
 
-	for line in f:Read():gmatch('([^\n]*)\n') do
+	for line in info:gmatch('([^\n]*)\n') do
 		skin_keys[N], skins[N] = {}, {}
 		for skin in line:gmatch('([^,]*),') do
 			table_insert(skins[N], {skin:match('([^=]*)='), skin:gsub('([^=]*)=', '')})
@@ -54,8 +56,6 @@ if skinlist then
 		end
 		N = N + 1
 	end
-
-	f:Close()
 end
 
 if #skins == 0 then gui_Text(group, 'If you see this message, reload the lua.') return end
@@ -140,15 +140,15 @@ end
 
 local function remove_from_list(team)
 	local list = team == 'T' and list or list2
-	table_remove(team_skins[team], 1 + (#team_skins[team] - ( list:GetValue() + 1)) )
+	table_remove(team_skins[team], 1 + (#team_skins[team] - (list:GetValue() + 1)) )
 	list_update(true, team)
 end
 
 local gather_configs = function()
 	local cfgs, new = {}, {}
-	file_Enumerate(function(name) if name:find('.dat') then new[ name:sub(18):gsub('/CT.dat', ''):gsub('/T.dat', '') ] = '' end end)
+	file_Enumerate(function(name) if name:find('.dat$') then new[ name:sub(18):gsub('/CT.dat', ''):gsub('/T.dat', '') ] = '' end end)
 	for k in pairs(new) do cfgs[#cfgs + 1] = k end
-	table_sort(cfgs, function(a, b)return a=='default'end)
+	table_sort(cfgs, function(a)return a=='default'end)
 	return cfgs
 end
 
@@ -173,8 +173,7 @@ local function config_system(f, t)
 
 	local co = gui_Button(group, 'Confirm', function() back() f( t == 'Load' and cfgs[config:GetValue() + 1] or (new:GetValue():find('[a-zA-Z0-9]') and new:GetValue() or cfgs[config:GetValue() + 1])) end)
 	local ca = gui_Button(group, 'Cancel', back) 
-		co:SetWidth(106)
-		ca:SetWidth(106)
+		co:SetWidth(106) ca:SetWidth(106)
 end
 
 local function save_to_file(name)
@@ -197,13 +196,15 @@ local function load_from_file(name)
 		local team = TEAMS[t]
 		team_skins[team] = {}
 		local f = file_Open(dir..name:lower()..'/'..team..'.dat', 'r')
+		local info = f:Read()
+		f:Close()
 		local N = 1
 
 		if not f then
 			goto skip
 		end
 
-		for line in f:Read():gmatch('([^\n]*)\n') do
+		for line in info:gmatch('([^\n]*)\n') do
 			local A = 1
 			for var in line:gmatch('("[^ ]*)') do
 				if not team_skins[team][N] then
@@ -218,7 +219,6 @@ local function load_from_file(name)
 		end
 
 		list_update(true, team)
-		f:Close()
 		::skip::
 	end
 end
@@ -278,14 +278,14 @@ end
 local need_update
 local function on_event(e)
 	local event = e:GetName()
-	if event ~= 'round_start' and event ~= 'player_death' then
+	if event ~= 'round_prestart' and event ~= 'player_death' then
 		return
 	end
 
-	local current_team = TEAMS[entities_GetLocalPlayer():GetTeamNumber() - 1]
-	if event == 'round_start' and current_team then
+	local cur_team = TEAMS[entities_GetLocalPlayer():GetTeamNumber() - 1]
+	if event == 'round_prestart' and cur_team then
 		if need_update then
-			changer_update( current_team )
+			changer_update( cur_team )
 			need_update = false
 		end
 		return
@@ -296,7 +296,7 @@ local function on_event(e)
 		return
 	end
 
-	local tbl = team_skins[current_team]
+	local tbl = team_skins[cur_team]
 	local weapon = e:GetString('weapon')
 	local weapon = (weapon:find('knife') and knife_name(tbl)) or ('weapon_'.. weapon)
 
@@ -305,7 +305,7 @@ local function on_event(e)
 		if s[1] == weapon then
 			local v = tonumber(s[5])
 			if v > 0 then
-				team_skins[current_team][i][5] = v + 1
+				team_skins[cur_team][i][5] = v + 1
 				need_update = true
 			end
 			break
@@ -313,9 +313,11 @@ local function on_event(e)
 	end
 end
 
-client_AllowListener('round_start')
+client_AllowListener('round_prestart')
 client_AllowListener('player_death')
 callbacks_Register('FireGameEvent', on_event)
 callbacks_Register('Draw', update)
+callbacks_Register('Unload', function() save_to_file('temp') end)
+
 
 load_from_file('default')
