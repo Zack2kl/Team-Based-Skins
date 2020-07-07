@@ -1,5 +1,5 @@
 -- local variables for API functions. any changes to the line below will be lost on re-generation
-local callbacks_Register, client_AllowListener, client_GetLocalPlayerIndex, client_GetPlayerIndexByUserID, draw_GetScreenSize, entities_GetLocalPlayer, file_Enumerate, file_Open, gui_Button, gui_Combobox, gui_Command, gui_Editbox, gui_Groupbox, gui_Listbox, gui_Reference, gui_Slider, gui_Tab, gui_Window, http_Get, string_format, table_concat, table_insert, table_remove, table_sort, unpack, pairs, tonumber = callbacks.Register, client.AllowListener, client.GetLocalPlayerIndex, client.GetPlayerIndexByUserID, draw.GetScreenSize, entities.GetLocalPlayer, file.Enumerate, file.Open, gui.Button, gui.Combobox, gui.Command, gui.Editbox, gui.Groupbox, gui.Listbox, gui.Reference, gui.Slider, gui.Tab, gui.Window, http.Get, string.format, table.concat, table.insert, table.remove, table.sort, unpack, pairs, tonumber
+local callbacks_Register, client_AllowListener, client_GetLocalPlayerIndex, client_GetPlayerIndexByUserID, draw_GetScreenSize, entities_GetLocalPlayer, file_Enumerate, file_Read, file_Write, gui_Button, gui_Combobox, gui_Command, gui_Editbox, gui_Groupbox, gui_Listbox, gui_Reference, gui_Slider, gui_Tab, gui_Window, http_Get, json_parse, string_format, table_concat, table_insert, table_remove, table_sort, unpack, pairs, f, tonumber = callbacks.Register, client.AllowListener, client.GetLocalPlayerIndex, client.GetPlayerIndexByUserID, draw.GetScreenSize, entities.GetLocalPlayer, file.Enumerate, file.Read, file.Write, gui.Button, gui.Combobox, gui.Command, gui.Editbox, gui.Groupbox, gui.Listbox, gui.Reference, gui.Slider, gui.Tab, gui.Window, http.Get, json.parse, string.format, table.concat, table.insert, table.remove, table.sort, unpack, pairs, f, tonumber
 
 local allow_temp_file = false -- Setting this to true will save the skin cfg on lua unload. *This might crash you.
 local git, dir, files = 'https://raw.githubusercontent.com/Zack2kl/', 'Team-Based-Skins/', {}
@@ -9,7 +9,7 @@ local MENU = gui_Reference('MENU')
 local tab = gui_Tab(gui_Reference('Visuals'), 'team_based', 'Team Based Skins')
 local group = gui_Groupbox(tab, 'Change visual items', 16, 16)
 
-local TEAMS, team_skins = { 'T', 'CT' }, {T = {}, CT = {}}
+local TEAMS, team_skins = {'T', 'CT'}, {T = {}, CT = {}}
 local weapons, _weapons, weapon_keys, skins, _skins, skin_keys = {}, {}, {}, {}, {}, {}
 
 local function __init__()
@@ -139,9 +139,7 @@ local function __init__()
 				opts[i] = string_format('"%s" "%s" "%s" "%s" "%s" "%s"', unpack( team_skins[team][i] ))
 			end
 
-			local f = file_Open(dir..name:lower()..'/'..team..'.dat', 'w')
-			f:Write( table_concat(opts, '\n').. '\n' )
-			f:Close()
+			file_Write(dir..name:lower()..'/'..team..'.dat', table_concat(opts, '\n').. '\n')
 		end
 	end
 
@@ -149,9 +147,7 @@ local function __init__()
 		for t=1, #TEAMS do
 			local team, N = TEAMS[t], 1
 			team_skins[team] = {}
-			local f = file_Open(dir..name:lower()..'/'..team..'.dat', 'r')
-			local info = f:Read()
-			f:Close()
+			local info = file_Read(dir..name:lower()..'/'..team..'.dat')
 
 			for line in info:gmatch('([^\n]*)\n') do
 				local A = 1
@@ -273,53 +269,26 @@ local function __init__()
 	load_from_file('default')
 end
 
+-- minified json library
+local json={}local function b(c)if type(c)~='table'then return type(c)end;local d=1;for e in pairs(c)do if c[d]~=nil then d=d+1 else return'table'end end;if d==1 then return'table'else return'array'end end;local function f(g)local h={'\\','"','/','\b','\f','\n','\r','\t'}local i={'\\','"','/','b','f','n','r','t'}for d,j in ipairs(h)do g=g:gsub(j,'\\'..i[d])end;return g end;local function k(l,m,n,o)m=m+#l:match('^%s*',m)if l:sub(m,m)~=n then if o then error('Expected '..n..' near position '..m)end;return m,false end;return m+1,true end;local function p(l,m,q)q=q or''local r='End of input found while parsing string.'if m>#l then error(r)end;local j=l:sub(m,m)if j=='"'then return q,m+1 end;if j~='\\'then return p(l,m+1,q..j)end;local s={b='\b',f='\f',n='\n',r='\r',t='\t'}local t=l:sub(m+1,m+1)if not t then error(r)end;return p(l,m+2,q..(s[t]or t))end;local function u(l,m)local v=l:match('^-?%d+%.?%d*[eE]?[+-]?%d*',m)local q=tonumber(v)if not q then error('Error parsing number at position '..m..'.')end;return q,m+#v end;function json.stringify(c,w)local g={}local x=b(c)if x=='array'then if w then error('Can\'t encode array as key.')end;g[#g+1]='['for d,q in ipairs(c)do if d>1 then g[#g+1]=', 'end;g[#g+1]=json.stringify(q)end;g[#g+1]=']'elseif x=='table'then if w then error('Can\'t encode table as key.')end;g[#g+1]='{'for y,z in pairs(c)do if#g>1 then g[#g+1]=', 'end;g[#g+1]=json.stringify(y,true)g[#g+1]=':'g[#g+1]=json.stringify(z)end;g[#g+1]='}'elseif x=='string'then return'"'..f(c)..'"'elseif x=='number'then if w then return'"'..tostring(c)..'"'end;return tostring(c)elseif x=='boolean'then return tostring(c)elseif x=='nil'then return'null'else error('Unjsonifiable type: '..x..'.')end;return table.concat(g)end;json.null={}function json.parse(l,m,A)m=m or 1;if m>#l then error('Reached unexpected end of input.')end;local m=m+#l:match('^%s*',m)local B=l:sub(m,m)if B=='{'then local c,C,D={},true,true;m=m+1;while true do C,m=json.parse(l,m,'}')if C==nil then return c,m end;if not D then error('Comma missing between object items.')end;m=k(l,m,':',true)c[C],m=json.parse(l,m)m,D=k(l,m,',')end elseif B=='['then local E,q,D={},true,true;m=m+1;while true do q,m=json.parse(l,m,']')if q==nil then return E,m end;if not D then error('Comma missing between array items.')end;E[#E+1]=q;m,D=k(l,m,',')end elseif B=='"'then return p(l,m+1)elseif B=='-'or B:match('%d')then return u(l,m)elseif B==A then return nil,m+1 else local F={['true']=true,['false']=false,['null']=json.null}for G,H in pairs(F)do local I=m+#G-1;if l:sub(m,I)==G then return H,I+1 end end;local J='position '..m..': '..l:sub(m,m+10)error('Invalid json syntax starting at '..J)end end
+
 if not files['default/T.dat'] then
-	local f = file_Open(dir..'default/T.dat', 'w')f:Write()f:Close()
-	local f = file_Open(dir..'default/CT.dat', 'w')f:Write()f:Close()
+	file_Write(dir..'default/T.dat', '')
+	file_Write(dir..'default/CT.dat', '')
 end
 
-local function wep_tbl(str)
-	for line in str:gmatch('([^\n]*)\n') do
-		weapons[ line:match('([^\n]*)=') ] = line:gsub('([^\n]*)=', '')
-		_weapons[ line:gsub('([^\n]*)=', '') ] = line:match('([^\n]*)=')
-		weapon_keys[#weapon_keys + 1] = line:match('([^\n]*)=')
-	end
-end
+http_Get(git..dir..'master/skins.txt', function(cnt)
+	local p = json_parse(cnt)
 
-local function skin_tbl(str)
-	local N = 0
+	-- Setup weapon tables
+	local y,a=p.item_names,''for i=1,#y do a=a..y[i]..'\n' end
+	for l in a:gmatch('([^\n]*)\n')do weapons[l:match('([^\n]*)=')]=l:gsub('([^\n]*)=','')_weapons[l:gsub('([^\n]*)=','')]=l:match('([^\n]*)=')weapon_keys[#weapon_keys+1]=l:match('([^\n]*)=')end
 
-	for line in str:gmatch('([^\n]*)\n') do
-		skin_keys[N], skins[N] = {}, {}
-		for skin in line:gmatch('([^,]*),') do
-			table_insert(skins[N], {skin:match('([^=]*)='), skin:gsub('([^=]*)=', '')})
-			table_insert(skin_keys[N], skin:match('([^=]*)='))
-			_skins[skin:gsub('([^=]*)=', '')] = skin:match('([^=]*)=')
-		end
-		N = N + 1
-	end
+	-- Setup skin tables
+	local s,t,N=p.paintkit_names,{},0
+	for k,v in pairs(p.weapon_skins)do local r=tonumber(k)if not t[r]then t[r]={}end for _,b in pairs(v)do table_insert(t[r],s[b]..'='..b)end end
+	local s=''for i=1,#t do s=s..table_concat(t[i],',')..',\n'end
+	for l in s:gmatch('([^\n]*)\n')do skin_keys[N],skins[N]={},{}for o in l:gmatch('([^,]*),')do table_insert(skins[N],{o:match('([^=]*)='),o:gsub('([^=]*)=','')})table_insert(skin_keys[N],o:match('([^=]*)='))_skins[o:gsub('([^=]*)=','')]=o:match('([^=]*)=')end N=N+1 end
 
 	__init__()
-end
-
-if files['weapon_list.txt'] then
-	local f = file_Open(dir..'weapon_list.txt', 'r')
-	local info = f:Read()f:Close()
-	wep_tbl(info)
-else
-	http_Get(git..dir..'master/weapon_list.txt', function(c)
-		local f = file_Open(dir..'weapon_list.txt','w')f:Write(c)f:Close()
-		wep_tbl(c)
-	end)
-end
-
-if files['skin_list.txt'] then
-	local f = file_Open(dir..'skin_list.txt', 'r')
-	local info = f:Read()f:Close()
-	skin_tbl(info)
-else
-	http_Get(git..dir..'master/skin_list.txt', function(c)
-		local f = file_Open(dir..'skin_list.txt','w')f:Write(c)f:Close()
-		skin_tbl(c)
-	end)
-end
+end)
