@@ -281,14 +281,13 @@ http_Get(git..dir..'master/skins.txt', function(cnt)
 	local p = json.parse(cnt)
 
 	-- Setup weapon tables
-	local y,a=p.item_names,''for i=1,#y do a=a..y[i]..'\n' end
-	for l in a:gmatch('([^\n]*)\n')do weapons[l:match('([^\n]*)=')]=l:gsub('([^\n]*)=','')_weapons[l:gsub('([^\n]*)=','')]=l:match('([^\n]*)=')weapon_keys[#weapon_keys+1]=l:match('([^\n]*)=')end
+	for l in p.item_names:gmatch('([^\n]*)\n')do local n,a=l:match('([^\n]*)='),l:gsub('([^\n]*)=','')weapons[n]=a _weapons[a]=n weapon_keys[#weapon_keys+1]=n end
 
 	-- Setup skin tables
 	local s,t,N=p.paintkit_names,{},0
 	for k,v in pairs(p.weapon_skins)do local r=tonumber(k)if not t[r]then t[r]={}end for _,b in pairs(v)do table_insert(t[r],s[b]..'='..b)end end
 	local s=''for i=1,#t do s=s..table_concat(t[i],',')..',\n'end
-	for l in s:gmatch('([^\n]*)\n')do skin_keys[N],skins[N]={},{}for o in l:gmatch('([^,]*),')do table_insert(skins[N],{o:match('([^=]*)='),o:gsub('([^=]*)=','')})table_insert(skin_keys[N],o:match('([^=]*)='))_skins[o:gsub('([^=]*)=','')]=o:match('([^=]*)=')end N=N+1 end
+	for l in s:gmatch('([^\n]*)\n')do skin_keys[N],skins[N]={},{}for o in l:gmatch('([^,]*),')do local n,b=o:match('([^=]*)='),o:gsub('([^=]*)=','')table_insert(skins[N],{n,b})table_insert(skin_keys[N],n)_skins[b]=n end N=N+1 end
 
 	__init__()
 end)
