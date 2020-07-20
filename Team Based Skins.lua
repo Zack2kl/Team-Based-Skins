@@ -12,7 +12,7 @@ do
 	end
 
 	local n = {'json.txt', 'skins.txt'}
-	for i=1,2 do n[i+2]=(function()local c if not pcall(function()c=file_Read(dir..n[i])end)then c=http_Get('https://raw.githubusercontent.com/Zack2kl/'..dir..'master/'..n[i])file_Write(dir..n[i],c)end return c end)() end
+	for i=1,2 do n[i+2]=(function()return http_Get('https://raw.githubusercontent.com/Zack2kl/'..dir..'master/'..n[i])end)()end
 
 	local json = loadstring(n[3])()
 	local parsed = json.parse(n[4])
