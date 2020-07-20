@@ -1,8 +1,8 @@
--- Run this lua to Update Team Based Skins lua
+-- Run this lua to automatically download/update Team Based Skins lua.
 
 local dir = 'Team-Based-Skins/'
 local url = 'https://raw.githubusercontent.com/Zack2kl/'..dir..'master/'
-local lua, skins, json = { 'Team Based Skins.lua', 'skins.txt', 'json.txt' }
+local lua, skins, json = 'Team Based Skins.lua', 'skins.txt', 'json.txt'
 
 gui.Command( 'lua.unload ' .. dir..lua )
 
