@@ -285,6 +285,8 @@ callbacks_Register('Unload', function()
 	if allow_temp_file then
 		save_to_file('temp')
 	end
+
+	tab:Remove()
 end)
 
 load_from_file('default')
