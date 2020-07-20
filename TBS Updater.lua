@@ -8,4 +8,4 @@ file.Write( dir..json, http.Get(url..json) )
 file.Write( dir..skins, http.Get(url..skins) )
 file.Write( dir..lua, http.Get(url..lua) )
 
-gui.Command('lua.run '.. dir .. lua )
+LoadScript( dir .. lua )
