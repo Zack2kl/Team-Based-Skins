@@ -10,7 +10,7 @@ local weapons, _weapons, weapon_keys, skins, _skins, skin_keys = {}, {}, {}, {},
 	end
 
 	local n = {'json.txt', 'skins.txt'}
-	for i=1,2 do n[i+2]=(function()return http_Get('https://raw.githubusercontent.com/Zack2kl/'..dir..'master/'..n[i])end)()end
+	for i=1,2 do n[i+2]=http_Get('https://raw.githubusercontent.com/Zack2kl/'..dir..'master/'..n[i])end
 
 	local json = loadstring(n[3])()
 	local parsed = json.parse(n[4])
