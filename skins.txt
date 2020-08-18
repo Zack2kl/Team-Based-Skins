@@ -814,6 +814,23 @@
 		"cu_sg553_darkwing": "Darkwing",
 		"cu_ssg08_fever_dream": "Fever Dream",
 		"cu_glock18_warmaiden": "Bullet Queen",
+		"cu_negev_ultralight": "Ultralight",
+		"cu_ak47_anubis": "Legion of Anubis",
+		"aq_p2000_lost_world": "Gnarled",
+		"cu_mag7_monster_call": "Monster Call",
+		"cu_deag_printstream": "Printstream",
+		"cu_glock_eyecontact": "Vogue",
+		"gs_tec9_guerilla": "Brother",
+		"cu_mac10_isoonna": "Allure",
+		"gs_sg553_rusty": "Ol' Rusty",
+		"cu_ssg08_mainframe": "Mainframe 001",
+		"cu_p250_cassette": "Cassette",
+		"gs_p90_container": "Freight",
+		"cu_xm1014_amulet_blue": "Entombed",
+		"cu_m4a4_queenfairy": "Tooth Fairy",
+		"gs_galil_phoenix": "Connexion",
+		"gs_bizon_hellraider": "Runic",
+		"gs_mp5sd_wasteland_legacy": "Kitbash",
 		"bloodhound_black_silver": "Charred",
 		"bloodhound_snakeskin_brass": "Snakebite",
 		"bloodhound_metallic": "Bronzed",
@@ -892,7 +909,8 @@
 			"am_jorm_green",
 			"gs_deagle_mecha",
 			"gs_deagle_exo",
-			"cu_deagle_replica"
+			"cu_deagle_replica",
+			"cu_deag_printstream"
 		],
 		"2": [
 			"an_navy",
@@ -982,7 +1000,8 @@
 			"aa_vertigo_blue",
 			"cu_glock18_corroden",
 			"cu_glock_hero",
-			"cu_glock18_warmaiden"
+			"cu_glock18_warmaiden",
+			"cu_glock_eyecontact"
 		],
 		"5": [
 			"hy_ak47lam",
@@ -1018,7 +1037,8 @@
 			"cu_ak47_asiimov",
 			"cu_ak47_aztec",
 			"gs_ak47_nibbler",
-			"cu_ak-47_phantom_disruptor"
+			"cu_ak-47_phantom_disruptor",
+			"cu_ak47_anubis"
 		],
 		"6": [
 			"hy_tiger",
@@ -1161,7 +1181,8 @@
 			"cu_galil_candychaos",
 			"hy_nuclear_skulls_aqua",
 			"hy_galil_signal_red",
-			"sp_galil_akoben"
+			"sp_galil_akoben",
+			"gs_galil_phoenix"
 		],
 		"11": [
 			"sp_spray",
@@ -1208,7 +1229,8 @@
 			"am_circuitboard_silver",
 			"hy_red_hex",
 			"gs_m4a4_chopper_ghost",
-			"gs_m4a4_emperor"
+			"gs_m4a4_emperor",
+			"cu_m4a4_queenfairy"
 		],
 		"13": [
 			"so_red",
@@ -1242,7 +1264,8 @@
 			"sp_twigs_beach",
 			"gs_mac10_stalker",
 			"gs_mac10_dust_crate",
-			"cu_mac10_nacre"
+			"cu_mac10_nacre",
+			"cu_mac10_isoonna"
 		],
 		"14": [
 			"hy_zombie",
@@ -1274,7 +1297,8 @@
 			"am_jorm_blue",
 			"hy_blueprint_aqua",
 			"cu_p90_offworld",
-			"cu_p90_nostalgia"
+			"cu_p90_nostalgia",
+			"gs_p90_container"
 		],
 		"15": [
 			"sp_tape_short_rally",
@@ -1285,7 +1309,8 @@
 			"hy_bamboo_stmarc",
 			"gs_mp5_etch",
 			"gs_mp5_fbi",
-			"cu_mp5_desert_strike"
+			"cu_mp5_desert_strike",
+			"gs_mp5sd_wasteland_legacy"
 		],
 		"16": [
 			"hy_gelpen",
@@ -1341,7 +1366,8 @@
 			"cu_xm1014_oxide_blaze",
 			"hy_leaf_green",
 			"am_knots_silver",
-			"cu_xm1014_incinerator"
+			"cu_xm1014_incinerator",
+			"cu_xm1014_amulet_blue"
 		],
 		"18": [
 			"so_red",
@@ -1370,7 +1396,8 @@
 			"cu_bizon_riot",
 			"hy_blueprint_white",
 			"so_aqua_stmarc",
-			"cu_bizon_road_warrior"
+			"cu_bizon_road_warrior",
+			"gs_bizon_hellraider"
 		],
 		"19": [
 			"an_silver",
@@ -1397,7 +1424,8 @@
 			"aq_steel_inferno",
 			"hy_nuclear_hotorange",
 			"gs_mag7_popdog",
-			"gs_mag7_justice"
+			"gs_mag7_justice",
+			"cu_mag7_monster_call"
 		],
 		"20": [
 			"an_navy",
@@ -1416,7 +1444,8 @@
 			"gs_negev_thor",
 			"hy_ducts_yellow",
 			"hy_veneto_tan",
-			"cu_negev_prototype"
+			"cu_negev_prototype",
+			"cu_negev_ultralight"
 		],
 		"21": [
 			"hy_ddpat",
@@ -1479,7 +1508,8 @@
 			"gs_tec9_fubar",
 			"cu_tec9_bamboo",
 			"gs_tec9_decimator",
-			"cu_tec9_flash"
+			"cu_tec9_flash",
+			"gs_tec9_guerilla"
 		],
 		"23": [
 			"hy_granite",
@@ -1505,7 +1535,8 @@
 			"cu_p2000_hunter",
 			"cu_p2000_urban_hazard",
 			"cu_p2000_obsidian",
-			"aq_p2000_acid_clover"
+			"aq_p2000_acid_clover",
+			"aq_p2000_lost_world"
 		],
 		"24": [
 			"hy_ddpat",
@@ -1630,7 +1661,8 @@
 			"hy_ducts_blue",
 			"aa_p250_gravediggers",
 			"aq_p250_verdigris",
-			"gs_p250_inferno"
+			"gs_p250_inferno",
+			"cu_p250_cassette"
 		],
 		"28": [
 			"so_pmc",
@@ -1682,7 +1714,8 @@
 			"sp_asgard_wall",
 			"so_red_sg553",
 			"cu_sg553_reactor",
-			"cu_sg553_darkwing"
+			"cu_sg553_darkwing",
+			"gs_sg553_rusty"
 		],
 		"30": [
 			"sp_short_tape",
@@ -1706,7 +1739,8 @@
 			"so_rune_stone",
 			"hy_flowers_stmarc",
 			"cu_ssg08_tickler",
-			"cu_ssg08_fever_dream"
+			"cu_ssg08_fever_dream",
+			"cu_ssg08_mainframe"
 		],
 		"31": [
 			"am_zebra_dark",
