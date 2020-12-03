@@ -831,6 +831,66 @@
 		"gs_galil_phoenix": "Connexion",
 		"gs_bizon_hellraider": "Runic",
 		"gs_mp5sd_wasteland_legacy": "Kitbash",
+		"gs_awp_exoskeleton": "Exoskeleton",
+		"gs_cz75_vendetta": "Vendetta",
+		"hy_p90_dino_rampage": "Cocoa Rampage",
+		"gs_dual_elites_dezastre": "Dezastre",
+		"cu_five_seven_diary": "Fairy Tale",
+		"gs_g3sg1_disrupt": "Digital Mesh",
+		"gs_galil_vandal": "Vandal",
+		"cu_p250_infect": "Contaminant",
+		"cu_m249_deep_relief": "Deep Relief",
+		"cu_m4a1s_printstream": "Printstream",
+		"cu_m4a4_cyberpunk": "Cyber Security",
+		"gs_mp5_conditionzero": "Condition Zero",
+		"cu_nova_polymer": "Clear Polymer",
+		"cu_glock_noir": "Neo-Noir",
+		"cu_ssg08_chromatic": "Parallax",
+		"gs_ump_gold_bismuth": "Gold Bismuth",
+		"cu_usp_krokos": "Monster Mashup",
+		"am_numbers_bronze": "The Bronze",
+		"cu_csgo_camo": "Global Offensive",
+		"am_authority_brown": "Charter",
+		"am_intelligence_grey": "Surveillance",
+		"am_intelligence_orange": "Threat Detected",
+		"am_numbers_red_blue": "Dispatch",
+		"hy_numbers_green": "Switch Board",
+		"am_numbers_magenta": "Prime Conspiracy",
+		"cu_jaguar_p90": "Run and Hide",
+		"cu_m4a1_snake": "Welcome to the Jungle",
+		"aa_fade_red_blue": "Berries And Cherries",
+		"cu_ump_crime_scene": "Crime Scene",
+		"cu_ak_xray": "X-Ray",
+		"am_heist_plans_green": "Heist",
+		"am_heist_plans_purple": "Night Heist",
+		"am_heist_plans_yellow": "Vault Heist",
+		"hy_houndstooth_brown": "Houndstooth",
+		"gs_mac10_snake": "Hot Snakes",
+		"hy_phoenix_tags_lilac": "Phoenix Chalk",
+		"am_phoenix_tags_blue": "Phoenix Marker",
+		"hy_phoenix_tags_red": "Phoenix Stencil",
+		"sp_phoenix_tags_purple": "Phoenix Blacklight",
+		"hy_tigers_tan": "Clay Ambush",
+		"am_tigers_brown": "Tiger Pit",
+		"cu_money_glock": "Franklin",
+		"am_m4a1s_bluesmoke": "Blue Phosphor",
+		"cu_ak_jaguar": "Panthera onca",
+		"am_black_panther": "Panther Camo",
+		"aa_ancient_brown": "Ancient Earth",
+		"am_ancient_warm": "Ancient Lore",
+		"aa_ruins_green": "Lush Ruins",
+		"hy_drywood_green": "Tall Grass",
+		"hy_ancient_tiles_peach": "Blast From the Past",
+		"am_gold_brick": "Gold Brick",
+		"aa_awp_fade": "Fade",
+		"am_intelligence_magenta": "Target Acquired",
+		"hy_authority_purple": "Magna Carta",
+		"am_tigers_blue": "Silk Tiger",
+		"hy_p250_tiger": "Bengal Tiger",
+		"sp_ancient_bright": "Ancient Visions",
+		"hy_ruins_red": "Dusk Ruins",
+		"am_jade": "Carved Jade",
+		"am_ancient_wine": "Ancient Ritual",
 		"bloodhound_black_silver": "Charred",
 		"bloodhound_snakeskin_brass": "Snakebite",
 		"bloodhound_metallic": "Bronzed",
@@ -878,7 +938,31 @@
 		"specialist_webs_red": "Crimson Web",
 		"specialist_forest_brown": "Buckshot",
 		"specialist_fade": "Fade",
-		"specialist_winterhex": "Mogul"
+		"specialist_winterhex": "Mogul",
+		"specialist_marble_fade": "Marble Fade",
+		"specialist_ricksaw_camo": "Lt. Commander",
+		"specialist_tiger_orange": "Tiger Strike",
+		"specialist_fbi": "Field Agent",
+		"slick_rezan": "Rezan the Red",
+		"slick_jaguar_white": "Snow Leopard",
+		"slick_jaguar_yellow": "Queen Jaguar",
+		"slick_stitched_black_white": "Black Tie",
+		"sporty_slingshot": "Slingshot",
+		"sporty_hunter": "Big Game",
+		"sporty_houndstooth_red": "Scarlet Shamagh",
+		"sporty_jaguar": "Nocts",
+		"motorcycle_checker_flag_blue_green": "Finish Line",
+		"motorcycle_smoke": "Smoke Out",
+		"motorcycle_carbonfiber_red": "Blood Pressure",
+		"motorcycle_commando_ksk": "3rd Commando Company",
+		"handwrap_fabric_houndstooth_orange": "Desert Shamagh",
+		"handwrap_leathery_fabric_giraffe": "Giraffe",
+		"handwrap_leathery_snakeskin_orange": "Constrictor",
+		"handwrap_leathery_caution": "CAUTION!",
+		"operation10_metalic_green": "Jade",
+		"operation10_poison_frog_black_yellow": "Yellow-banded",
+		"operation10_floral": "Needle Point",
+		"operation10_snakeskin_black": "Unhinged"
 	},
 	"weapon_skins": {
 		"1": [
@@ -910,7 +994,9 @@
 			"gs_deagle_mecha",
 			"gs_deagle_exo",
 			"cu_deagle_replica",
-			"cu_deag_printstream"
+			"cu_deag_printstream",
+			"am_numbers_bronze",
+			"am_heist_plans_purple"
 		],
 		"2": [
 			"an_navy",
@@ -938,7 +1024,10 @@
 			"cu_dual_elites_rally",
 			"hy_gelpen_dark",
 			"gs_dual_elites_rose",
-			"gs_dual_elites_classic"
+			"gs_dual_elites_classic",
+			"gs_dual_elites_dezastre",
+			"hy_numbers_green",
+			"am_heist_plans_green"
 		],
 		"3": [
 			"so_red",
@@ -968,7 +1057,9 @@
 			"hy_bud_red",
 			"hy_ducts_green",
 			"cu_five_seven_angry",
-			"cu_fiveseven_gsg9"
+			"cu_fiveseven_gsg9",
+			"cu_five_seven_diary",
+			"aa_fade_red_blue"
 		],
 		"4": [
 			"so_olive",
@@ -1001,7 +1092,9 @@
 			"cu_glock18_corroden",
 			"cu_glock_hero",
 			"cu_glock18_warmaiden",
-			"cu_glock_eyecontact"
+			"cu_glock_eyecontact",
+			"cu_glock_noir",
+			"cu_money_glock"
 		],
 		"5": [
 			"hy_ak47lam",
@@ -1038,7 +1131,9 @@
 			"cu_ak47_aztec",
 			"gs_ak47_nibbler",
 			"cu_ak-47_phantom_disruptor",
-			"cu_ak47_anubis"
+			"cu_ak47_anubis",
+			"cu_ak_xray",
+			"cu_ak_jaguar"
 		],
 		"6": [
 			"hy_tiger",
@@ -1070,7 +1165,9 @@
 			"cu_aug_momentum",
 			"cu_aug_whitefang",
 			"am_aug_death_by_doggy",
-			"gs_aug_thunderstorm"
+			"gs_aug_thunderstorm",
+			"am_intelligence_grey",
+			"am_jade"
 		],
 		"7": [
 			"sp_snake",
@@ -1103,11 +1200,15 @@
 			"cu_awp_viper",
 			"cu_awp_virus",
 			"cu_awp_wildfire",
-			"cu_awp_vein"
+			"cu_awp_vein",
+			"gs_awp_exoskeleton",
+			"aa_awp_fade",
+			"am_tigers_blue"
 		],
 		"8": [
 			"sp_spray",
 			"so_space_marine",
+			"am_zebra_dark",
 			"hy_reef",
 			"cu_broken_path_famas",
 			"hy_doomkitty",
@@ -1129,7 +1230,8 @@
 			"sp_knots_blue",
 			"sp_palm_sunset",
 			"cu_famas_nuke_tension",
-			"gs_famas_legacy_gold"
+			"gs_famas_legacy_gold",
+			"am_numbers_magenta"
 		],
 		"9": [
 			"hy_arctic",
@@ -1154,7 +1256,9 @@
 			"gs_g3sg1_buccaneer",
 			"am_murano_violet",
 			"gs_g3sg1_savage",
-			"cu_g3sg1_blacksand"
+			"cu_g3sg1_blacksand",
+			"gs_g3sg1_disrupt",
+			"am_ancient_wine"
 		],
 		"10": [
 			"hy_forest_winter",
@@ -1182,12 +1286,16 @@
 			"hy_nuclear_skulls_aqua",
 			"hy_galil_signal_red",
 			"sp_galil_akoben",
-			"gs_galil_phoenix"
+			"gs_galil_phoenix",
+			"gs_galil_vandal",
+			"sp_phoenix_tags_purple",
+			"hy_ruins_red"
 		],
 		"11": [
 			"sp_spray",
 			"hy_blizzard",
 			"so_jungle",
+			"sp_zebracam",
 			"hy_ddpat_jungle_bravo",
 			"sp_mesh_python",
 			"aq_obsidian",
@@ -1198,7 +1306,8 @@
 			"cu_m249_spectre",
 			"sp_m249_frog_original",
 			"gs_m249_warbird_veteran",
-			"aq_m249_aztec"
+			"aq_m249_aztec",
+			"cu_m249_deep_relief"
 		],
 		"12": [
 			"hy_desert",
@@ -1230,7 +1339,9 @@
 			"hy_red_hex",
 			"gs_m4a4_chopper_ghost",
 			"gs_m4a4_emperor",
-			"cu_m4a4_queenfairy"
+			"cu_m4a4_queenfairy",
+			"cu_m4a4_cyberpunk",
+			"cu_csgo_camo"
 		],
 		"13": [
 			"so_red",
@@ -1265,7 +1376,9 @@
 			"gs_mac10_stalker",
 			"gs_mac10_dust_crate",
 			"cu_mac10_nacre",
-			"cu_mac10_isoonna"
+			"cu_mac10_isoonna",
+			"gs_mac10_snake",
+			"am_gold_brick"
 		],
 		"14": [
 			"hy_zombie",
@@ -1298,11 +1411,16 @@
 			"hy_blueprint_aqua",
 			"cu_p90_offworld",
 			"cu_p90_nostalgia",
-			"gs_p90_container"
+			"gs_p90_container",
+			"hy_p90_dino_rampage",
+			"cu_jaguar_p90",
+			"am_tigers_brown",
+			"aa_ancient_brown"
 		],
 		"15": [
 			"sp_tape_short_rally",
 			"am_circuitboard_aqua",
+			"so_orange_accents3",
 			"hy_labrat_mp5",
 			"gs_mp5_festival_drip",
 			"gs_mp5sd_astromatic",
@@ -1310,7 +1428,8 @@
 			"gs_mp5_etch",
 			"gs_mp5_fbi",
 			"cu_mp5_desert_strike",
-			"gs_mp5sd_wasteland_legacy"
+			"gs_mp5sd_wasteland_legacy",
+			"gs_mp5_conditionzero"
 		],
 		"16": [
 			"hy_gelpen",
@@ -1339,7 +1458,10 @@
 			"hy_blueprint_bluered",
 			"cu_ump_arrows",
 			"aa_ump45_moonrise_sunset",
-			"cu_ump_bomb"
+			"cu_ump_bomb",
+			"gs_ump_gold_bismuth",
+			"cu_ump_crime_scene",
+			"hy_houndstooth_brown"
 		],
 		"17": [
 			"aq_blued",
@@ -1367,7 +1489,9 @@
 			"hy_leaf_green",
 			"am_knots_silver",
 			"cu_xm1014_incinerator",
-			"cu_xm1014_amulet_blue"
+			"cu_xm1014_amulet_blue",
+			"am_authority_brown",
+			"am_ancient_warm"
 		],
 		"18": [
 			"so_red",
@@ -1383,6 +1507,7 @@
 			"hy_water_crest",
 			"hy_varicamo_night",
 			"am_turqoise_halftone",
+			"hy_nerodia",
 			"cu_bizon_antique",
 			"cu_bizon-osiris",
 			"so_grey_nuclear_green_bizon",
@@ -1403,6 +1528,7 @@
 			"an_silver",
 			"am_urban",
 			"so_yellow",
+			"am_carbon_fiber",
 			"so_sand",
 			"so_stormfront",
 			"sp_nukestripe_brown",
@@ -1445,7 +1571,8 @@
 			"hy_ducts_yellow",
 			"hy_veneto_tan",
 			"cu_negev_prototype",
-			"cu_negev_ultralight"
+			"cu_negev_ultralight",
+			"hy_phoenix_tags_red"
 		],
 		"21": [
 			"hy_ddpat",
@@ -1474,7 +1601,8 @@
 			"aa_vertigo_red",
 			"cu_sawedoff_black_sand",
 			"sp_palm_green",
-			"cu_sawedoff_apocalypto"
+			"cu_sawedoff_apocalypto",
+			"hy_tigers_tan"
 		],
 		"22": [
 			"so_olive",
@@ -1509,7 +1637,9 @@
 			"cu_tec9_bamboo",
 			"gs_tec9_decimator",
 			"cu_tec9_flash",
-			"gs_tec9_guerilla"
+			"gs_tec9_guerilla",
+			"hy_phoenix_tags_lilac",
+			"hy_ancient_tiles_peach"
 		],
 		"23": [
 			"hy_granite",
@@ -1536,7 +1666,9 @@
 			"cu_p2000_urban_hazard",
 			"cu_p2000_obsidian",
 			"aq_p2000_acid_clover",
-			"aq_p2000_lost_world"
+			"aq_p2000_lost_world",
+			"am_numbers_red_blue",
+			"am_black_panther"
 		],
 		"24": [
 			"hy_ddpat",
@@ -1565,7 +1697,9 @@
 			"aa_fade_mp7",
 			"am_circuitboard_green",
 			"cu_mp7_racketeer",
-			"cu_mp7_replica"
+			"cu_mp7_replica",
+			"am_heist_plans_yellow",
+			"hy_drywood_green"
 		],
 		"25": [
 			"an_red",
@@ -1576,6 +1710,7 @@
 			"sp_tape_short_sand",
 			"sp_tape_dots_bravo",
 			"am_thorny_rose_mp9",
+			"am_army_shine",
 			"am_metal_inlay",
 			"hy_plaid2",
 			"hy_nuclear_pattern2_mp9",
@@ -1611,7 +1746,9 @@
 			"cu_skull_nova",
 			"cu_nova_antique",
 			"so_green",
+			"am_army_shine",
 			"am_oval_hex",
+			"aq_steel",
 			"cu_nova_koi",
 			"hy_zodiac1",
 			"cu_nova_ranger",
@@ -1623,13 +1760,15 @@
 			"am_veneto2",
 			"hy_ducts_grey",
 			"gs_nova_hunter_brute",
-			"cu_nova_featherswing"
+			"cu_nova_featherswing",
+			"cu_nova_polymer"
 		],
 		"27": [
 			"hy_gelpen",
 			"sp_tape",
 			"am_urban",
 			"hy_forest_boreal",
+			"hy_forest_night",
 			"so_sand",
 			"so_whiteout",
 			"cu_xray_p250",
@@ -1662,7 +1801,9 @@
 			"aa_p250_gravediggers",
 			"aq_p250_verdigris",
 			"gs_p250_inferno",
-			"cu_p250_cassette"
+			"cu_p250_cassette",
+			"cu_p250_infect",
+			"hy_p250_tiger"
 		],
 		"28": [
 			"so_pmc",
@@ -1687,11 +1828,13 @@
 			"hy_canals_tile",
 			"sp_scar20_striker_dust",
 			"cu_scar_assault",
-			"gs_scar20_enforcer"
+			"gs_scar20_enforcer",
+			"hy_authority_purple"
 		],
 		"29": [
 			"an_navy",
 			"so_yellow",
+			"aa_vertigo",
 			"so_purple",
 			"so_tornado",
 			"sp_tape_dots_waves",
@@ -1715,13 +1858,15 @@
 			"so_red_sg553",
 			"cu_sg553_reactor",
 			"cu_sg553_darkwing",
-			"gs_sg553_rusty"
+			"gs_sg553_rusty",
+			"aa_ruins_green"
 		],
 		"30": [
 			"sp_short_tape",
 			"am_zebra_dark",
 			"so_moss",
 			"so_sand",
+			"sp_tape_short_jungle",
 			"hy_mayan_dreams_bravo",
 			"cu_shark",
 			"sp_palm_shadow",
@@ -1740,7 +1885,9 @@
 			"hy_flowers_stmarc",
 			"cu_ssg08_tickler",
 			"cu_ssg08_fever_dream",
-			"cu_ssg08_mainframe"
+			"cu_ssg08_mainframe",
+			"cu_ssg08_chromatic",
+			"am_intelligence_orange"
 		],
 		"31": [
 			"am_zebra_dark",
@@ -1768,7 +1915,10 @@
 			"cu_m4a1s_nightmare",
 			"gs_m4a1s_operator",
 			"am_crystallized_dark_green",
-			"cu_m4a1s_csgo2048"
+			"cu_m4a1s_csgo2048",
+			"cu_m4a1s_printstream",
+			"cu_m4a1_snake",
+			"am_m4a1s_bluesmoke"
 		],
 		"32": [
 			"sp_leaves",
@@ -1794,10 +1944,15 @@
 			"cu_usps_blueprint",
 			"cu_usp_cut",
 			"sp_mesh_safetyred",
-			"cu_usp_flashback"
+			"cu_usp_flashback",
+			"cu_usp_krokos",
+			"am_intelligence_magenta",
+			"sp_ancient_bright"
 		],
 		"33": [
 			"hy_webs",
+			"an_silver",
+			"sp_tape_short_jungle",
 			"hy_bluehex",
 			"am_diamond_plate",
 			"am_fuschia",
@@ -1821,11 +1976,13 @@
 			"gs_cz75_tacticat",
 			"cu_cz75_eco",
 			"am_crystallized_green",
-			"cu_cz75_cerakote"
+			"cu_cz75_cerakote",
+			"gs_cz75_vendetta"
 		],
 		"34": [
 			"hy_webs",
 			"sp_tape",
+			"so_night",
 			"aa_fade_revolver",
 			"aa_fade_metallic_revolver",
 			"cu_r8_cybersport",
@@ -1836,7 +1993,8 @@
 			"cu_revolver_oppressor",
 			"sp_spray_water",
 			"gs_r8_memento",
-			"gs_r8_leviathan"
+			"gs_r8_leviathan",
+			"am_phoenix_tags_blue"
 		],
 		"35": [
 			"hy_ddpat",
@@ -2336,7 +2494,11 @@
 			"sporty_poison_frog_blue_white",
 			"sporty_poison_frog_red_green",
 			"sporty_black_webbing_yellow",
-			"sporty_blue_pink"
+			"sporty_blue_pink",
+			"sporty_slingshot",
+			"sporty_hunter",
+			"sporty_houndstooth_red",
+			"sporty_jaguar"
 		],
 		"56": [
 			"slick_black",
@@ -2346,7 +2508,11 @@
 			"slick_snakeskin_white",
 			"slick_plaid_purple",
 			"slick_stitched_black_orange",
-			"slick_stitched_green_grey"
+			"slick_stitched_green_grey",
+			"slick_rezan",
+			"slick_jaguar_white",
+			"slick_jaguar_yellow",
+			"slick_stitched_black_white"
 		],
 		"57": [
 			"handwrap_leathery",
@@ -2356,7 +2522,11 @@
 			"handwrap_leathery_fabric_blue_skulls",
 			"handwrap_leathery_fabric_geometric_blue",
 			"handwrap_leathery_ducttape",
-			"handwrap_leathery_fabric_green_camo"
+			"handwrap_leathery_fabric_green_camo",
+			"handwrap_fabric_houndstooth_orange",
+			"handwrap_leathery_fabric_giraffe",
+			"handwrap_leathery_snakeskin_orange",
+			"handwrap_leathery_caution"
 		],
 		"58": [
 			"motorcycle_basic_black",
@@ -2366,7 +2536,11 @@
 			"motorcycle_choco_boom",
 			"motorcycle_basic_green_orange",
 			"motorcycle_yellow_camo",
-			"motorcycle_trigrid_blue"
+			"motorcycle_trigrid_blue",
+			"motorcycle_checker_flag_blue_green",
+			"motorcycle_smoke",
+			"motorcycle_carbonfiber_red",
+			"motorcycle_commando_ksk"
 		],
 		"59": [
 			"specialist_ddpat_green_camo",
@@ -2376,7 +2550,11 @@
 			"specialist_webs_red",
 			"specialist_forest_brown",
 			"specialist_fade",
-			"specialist_winterhex"
+			"specialist_winterhex",
+			"specialist_marble_fade",
+			"specialist_ricksaw_camo",
+			"specialist_tiger_orange",
+			"specialist_fbi"
 		],
 		"60": [
 			"bloodhound_hydra_black_green",
@@ -2385,5 +2563,5 @@
 			"bloodhound_hydra_case_hardened"
 		]
 	},
-	"item_names": "Desert Eagle=weapon_deagle\nDual Berettas=weapon_elite\nFive-Seven=weapon_fiveseven\nGlock-18=weapon_glock\nAK-47=weapon_ak47\nAUG=weapon_aug\nAWP=weapon_awp\nFamas=weapon_famas\nG3SG1=weapon_g3sg1\nGalil AR=weapon_galilar\nM249=weapon_m249\nM4A4=weapon_m4a1\nMAC-10=weapon_mac10\nP90=weapon_p90\nMP5-SD=weapon_mp5sd\nUMP-45=weapon_ump45\nXM1014=weapon_xm1014\nPP-Bizon=weapon_bizon\nMag-7=weapon_mag7\nNegev=weapon_negev\nSawed-Off=weapon_sawedoff\nTec-9=weapon_tec9\nP2000=weapon_hkp2000\nMP7=weapon_mp7\nMP9=weapon_mp9\nNova=weapon_nova\nP250=weapon_p250\nSCAR-20=weapon_scar20\nSG556=weapon_sg556\nSSG 08=weapon_ssg08\nM4A1-S=weapon_m4a1_silencer\nUSP-S=weapon_usp_silencer\nCZ75-Auto=weapon_cz75a\nR8 Revolver=weapon_revolver\nBayonet=weapon_bayonet\nClassic Knife=weapon_knife_css\nFlip Knife=weapon_knife_flip\nGut Knife=weapon_knife_gut\nKarambit=weapon_knife_karambit\nM9 Bayonet=weapon_knife_m9_bayonet\nHuntsman Knife=weapon_knife_tactical\nFalchion Knife=weapon_knife_falchion\nBowie Knife=weapon_knife_survival_bowie\nButterfly Knife=weapon_knife_butterfly\nShadow Daggers=weapon_knife_push\nParacord Knife=weapon_knife_cord\nSurvival Knife=weapon_knife_canis\nUrsus Knife=weapon_knife_ursus\nNavaja knife=weapon_knife_gypsy_jackknife\nNomad Knife=weapon_knife_outdoor\nStiletto Knife=weapon_knife_stiletto\nTalon Knife=weapon_knife_widowmaker\nSkeleton Knife=weapon_knife_skeleton\nBloodhound Gloves=studded_bloodhound_gloves\nSport Gloves=sporty_gloves\nDriver Gloves=slick_gloves\nHand Wraps=leather_handwraps\nMoto Gloves=motorcycle_gloves\nSpecialist Gloves=specialist_gloves\nHydra Gloves=studded_hydra_gloves\nGround Rebel  | Elite Crew=customplayer_tm_leet_variantg\nOsiris | Elite Crew=customplayer_tm_leet_varianth\nProf. Shahmat | Elite Crew=customplayer_tm_leet_varianti\nThe Elite Mr. Muhlik | Elite Crew=customplayer_tm_leet_variantf\nSoldier | Phoenix=customplayer_tm_phoenix_varianth\nEnforcer | Phoenix=customplayer_tm_phoenix_variantf\nSlingshot | Phoenix=customplayer_tm_phoenix_variantg\nOperator | FBI SWAT=customplayer_ctm_fbi_variantf\nMarkus Delrow | FBI HRT=customplayer_ctm_fbi_variantg\nMichael Syfers  | FBI Sniper=customplayer_ctm_fbi_varianth\nSpecial Agent Ava | FBI=customplayer_ctm_fbi_variantb\n3rd Commando Company | KSK=customplayer_ctm_st6_variantk\nSeal Team 6 Soldier | NSWC SEAL=customplayer_ctm_st6_variante\nBuckshot | NSWC SEAL=customplayer_ctm_st6_variantg\n'Two Times' McCoy | USAF TACP=customplayer_ctm_st6_variantm\nLt. Commander Ricksaw | NSWC SEAL=customplayer_ctm_st6_varianti\nDragomir | Sabre=customplayer_tm_balkan_variantf\nMaximus | Sabre=customplayer_tm_balkan_varianti\nRezan The Ready | Sabre=customplayer_tm_balkan_variantg\nBlackwolf | Sabre=customplayer_tm_balkan_variantj\n'The Doctor' Romanov | Sabre=customplayer_tm_balkan_varianth\nB Squadron Officer | SAS=customplayer_ctm_sas_variantf"
+	"item_names": "Desert Eagle=weapon_deagle\nDual Berettas=weapon_elite\nFive-Seven=weapon_fiveseven\nGlock-18=weapon_glock\nAK-47=weapon_ak47\nAUG=weapon_aug\nAWP=weapon_awp\nFamas=weapon_famas\nG3SG1=weapon_g3sg1\nGalil AR=weapon_galilar\nM249=weapon_m249\nM4A4=weapon_m4a1\nMAC-10=weapon_mac10\nP90=weapon_p90\nMP5-SD=weapon_mp5sd\nUMP-45=weapon_ump45\nXM1014=weapon_xm1014\nPP-Bizon=weapon_bizon\nMag-7=weapon_mag7\nNegev=weapon_negev\nSawed-Off=weapon_sawedoff\nTec-9=weapon_tec9\nP2000=weapon_hkp2000\nMP7=weapon_mp7\nMP9=weapon_mp9\nNova=weapon_nova\nP250=weapon_p250\nSCAR-20=weapon_scar20\nSG556=weapon_sg556\nSSG 08=weapon_ssg08\nM4A1-S=weapon_m4a1_silencer\nUSP-S=weapon_usp_silencer\nCZ75-Auto=weapon_cz75a\nR8 Revolver=weapon_revolver\nBayonet=weapon_bayonet\nClassic Knife=weapon_knife_css\nFlip Knife=weapon_knife_flip\nGut Knife=weapon_knife_gut\nKarambit=weapon_knife_karambit\nM9 Bayonet=weapon_knife_m9_bayonet\nHuntsman Knife=weapon_knife_tactical\nFalchion Knife=weapon_knife_falchion\nBowie Knife=weapon_knife_survival_bowie\nButterfly Knife=weapon_knife_butterfly\nShadow Daggers=weapon_knife_push\nParacord Knife=weapon_knife_cord\nSurvival Knife=weapon_knife_canis\nUrsus Knife=weapon_knife_ursus\nNavaja knife=weapon_knife_gypsy_jackknife\nNomad Knife=weapon_knife_outdoor\nStiletto Knife=weapon_knife_stiletto\nTalon Knife=weapon_knife_widowmaker\nSkeleton Knife=weapon_knife_skeleton\nBloodhound Gloves=studded_bloodhound_gloves\nSport Gloves=sporty_gloves\nDriver Gloves=slick_gloves\nHand Wraps=leather_handwraps\nMoto Gloves=motorcycle_gloves\nSpecialist Gloves=specialist_gloves\nHydra Gloves=studded_hydra_gloves\n'Blueberries' Buckshot | NSWC SEAL=customplayer_ctm_st6_variantj\n'Two Times' McCoy | TACP Cavalry=customplayer_ctm_st6_variantl\nCmdr. Mae 'Dead Cold' Jamison | SWAT=customplayer_ctm_swat_variante\n1st Lieutenant Farlow | SWAT=customplayer_ctm_swat_variantf\nJohn 'Van Healen' Kask | SWAT=customplayer_ctm_swat_variantg\nBio-Haz Specialist | SWAT=customplayer_ctm_swat_varianth\nSergeant Bombson | SWAT=customplayer_ctm_swat_varianti\nChem-Haz Specialist | SWAT=customplayer_ctm_swat_variantj\nRezan the Redshirt | Sabre=customplayer_tm_balkan_variantk\ntm_professional_varf=customplayer_tm_professional_varf\ntm_professional_varg=customplayer_tm_professional_varg\ntm_professional_varh=customplayer_tm_professional_varh\ntm_professional_varj=customplayer_tm_professional_varj\ntm_professional_vari=customplayer_tm_professional_vari\ntm_professional_varf1=customplayer_tm_professional_varf1\ntm_professional_varf2=customplayer_tm_professional_varf2\ntm_professional_varf3=customplayer_tm_professional_varf3\ntm_professional_varf4=customplayer_tm_professional_varf4\nGround Rebel  | Elite Crew=customplayer_tm_leet_variantg\nOsiris | Elite Crew=customplayer_tm_leet_varianth\nProf. Shahmat | Elite Crew=customplayer_tm_leet_varianti\nThe Elite Mr. Muhlik | Elite Crew=customplayer_tm_leet_variantf\nSoldier | Phoenix=customplayer_tm_phoenix_varianth\nEnforcer | Phoenix=customplayer_tm_phoenix_variantf\nSlingshot | Phoenix=customplayer_tm_phoenix_variantg\nStreet Soldier | Phoenix=customplayer_tm_phoenix_varianti\nOperator | FBI SWAT=customplayer_ctm_fbi_variantf\nMarkus Delrow | FBI HRT=customplayer_ctm_fbi_variantg\nMichael Syfers  | FBI Sniper=customplayer_ctm_fbi_varianth\nSpecial Agent Ava | FBI=customplayer_ctm_fbi_variantb\n3rd Commando Company | KSK=customplayer_ctm_st6_variantk\nSeal Team 6 Soldier | NSWC SEAL=customplayer_ctm_st6_variante\nBuckshot | NSWC SEAL=customplayer_ctm_st6_variantg\n'Two Times' McCoy | USAF TACP=customplayer_ctm_st6_variantm\nLt. Commander Ricksaw | NSWC SEAL=customplayer_ctm_st6_varianti\nDragomir | Sabre=customplayer_tm_balkan_variantf\nMaximus | Sabre=customplayer_tm_balkan_varianti\nRezan The Ready | Sabre=customplayer_tm_balkan_variantg\nBlackwolf | Sabre=customplayer_tm_balkan_variantj\n'The Doctor' Romanov | Sabre=customplayer_tm_balkan_varianth\nDragomir | Sabre Footsoldier=customplayer_tm_balkan_variantl\nB Squadron Officer | SAS=customplayer_ctm_sas_variantf"
 }
