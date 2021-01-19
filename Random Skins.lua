@@ -55,6 +55,11 @@ local function set_disabled(tbl, v)
 	end
 end
 
+local function math_random(...)
+	math.randomseed()
+	return math.random(...)
+end
+
 for i, v in next, weapon_keys do
 	if v == 'Bayonet' then
 		break
@@ -111,7 +116,7 @@ local max_wear = gui.Slider(group, 'random.max_wear', 'Worst Wear', 0, 0, 1, 0.0
 local function get_wear()
 	local a = min_wear:GetValue() * 1000
 	local b = max_wear:GetValue() * 1000
-	return math.random( b, a ) / 1000
+	return math_random( b, a ) / 1000
 end
 
 local last_val, last_global, last_global2, last_w, last_k
@@ -151,15 +156,15 @@ local function add_skin(index, tbl, vanilla)
 
 	local ss = vanilla == 1 and 0 or 1
 	local a = skins[index - 1]
-	local r = math.random(ss, #skins[index-1])
+	local r = math_random(ss, #skins[index-1])
 	local s = a[r] and a[r][2]
 
 	local str = ('skin.add "%s" "%s" "%s" "%s" "%s" ""'):format(
 		weapon_wep,
 		random_skin and s or '',
 		random_wear and get_wear() or '',
-		random_seed and math.random(0, 1000) or '',
-		random_stat and math.random(0, 10000) or ''
+		random_seed and math_random(0, 1000) or '',
+		random_stat and math_random(0, 10000) or ''
 	)
 
 	gui.Command(str)
@@ -185,15 +190,15 @@ local function on_event(e)
 	end
 
 	if on_knife[1]:GetValue() then
-		add_skin(math.random(35, 53), on_knife, 1)
+		add_skin(math_random(35, 53), on_knife, 1)
 	end
 
 	if on_glove[1]:GetValue() then
-		add_skin(math.random(54, 60), on_glove)
+		add_skin(math_random(54, 60), on_glove)
 	end
 
 	if on_agent:GetValue() then
-		local name = weapon_keys[ math.random(61, 101) ]
+		local name = weapon_keys[ math_random(61, 101) ]
 		gui.Command( ('skin.add "%s"'):format(weapons[name]) )
 	end
 
