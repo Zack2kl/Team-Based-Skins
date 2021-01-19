@@ -56,7 +56,8 @@ local function set_disabled(tbl, v)
 end
 
 local function math_random(...)
-	math.randomseed()
+	local seed = math.random(common.Time() * 1000)
+	math.randomseed( seed )
 	return math.random(...)
 end
 
