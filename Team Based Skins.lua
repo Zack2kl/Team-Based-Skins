@@ -82,12 +82,12 @@ local function list_update(_load, _team)
 
 	if not _load then
 		local item = item:GetValue()
-		local skin = (item > 33 and item < 53 and skin:GetValue()) or skin:GetValue() + 1
+		local skin = (item >= 35 and item <= 53 and skin:GetValue()) or skin:GetValue() + 1
 		local new_i = tostring(item)
 
 		local tbl = {
 			weapons[weapon_keys[item + 1]],
-			skins[new_i] and skins[new_i][skin] and skins[new_i][skin][2] or '',
+			skins[new_i] and skins[new_i][skin] or '',
 			string_format('%.2f', wear:GetValue()),
 			seed:GetValue() == '' and 0 or seed:GetValue(),
 			stattrak:GetValue() == '' and 0 or stattrak:GetValue(),
@@ -218,7 +218,7 @@ local function update()
 		stattrak:SetDisabled(a)
 		name:SetDisabled(a)
 
-		if val > 33 and val < 53 then
+		if val >= 35 and val <= 53 then
 			skin:SetOptions( 'Vanilla', unpack(skins or {}) )
 		else
 			skin:SetOptions( unpack(skins or {}) )
