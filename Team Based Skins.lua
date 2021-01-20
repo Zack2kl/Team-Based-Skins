@@ -1,28 +1,25 @@
-local callbacks_Register, client_AllowListener, client_GetLocalPlayerIndex, client_GetPlayerIndexByUserID, draw_GetScreenSize, entities_GetLocalPlayer, file_Enumerate, file_Read, file_Write, gui_Button, gui_Combobox, gui_Command, gui_Editbox, gui_Groupbox, gui_Listbox, gui_Reference, gui_Slider, gui_Tab, gui_Window, http_Get, string_format, table_concat, table_insert, table_remove, table_sort, unpack, pairs, tonumber, loadstring = callbacks.Register, client.AllowListener, client.GetLocalPlayerIndex, client.GetPlayerIndexByUserID, draw.GetScreenSize, entities.GetLocalPlayer, file.Enumerate, file.Read, file.Write, gui.Button, gui.Combobox, gui.Command, gui.Editbox, gui.Groupbox, gui.Listbox, gui.Reference, gui.Slider, gui.Tab, gui.Window, http.Get, string.format, table.concat, table.insert, table.remove, table.sort, unpack, pairs, tonumber, loadstring
+local callbacks_Register, client_AllowListener, client_GetLocalPlayerIndex, client_GetPlayerIndexByUserID, draw_GetScreenSize, entities_GetLocalPlayer, file_Enumerate, file_Read, file_Write, gui_Button, gui_Combobox, gui_Command, gui_Editbox, gui_Groupbox, gui_Listbox, gui_Reference, gui_Slider, gui_Tab, gui_Window, http_Get, loadstring, string_format, table_insert, table_remove, table_sort, unpack, tostring, tonumber = callbacks.Register, client.AllowListener, client.GetLocalPlayerIndex, client.GetPlayerIndexByUserID, draw.GetScreenSize, entities.GetLocalPlayer, file.Enumerate, file.Read, file.Write, gui.Button, gui.Combobox, gui.Command, gui.Editbox, gui.Groupbox, gui.Listbox, gui.Reference, gui.Slider, gui.Tab, gui.Window, http.Get, loadstring, string.format, table.insert, table.remove, table.sort, unpack, tostring, tonumber
 local dir = 'Team-Based-Skins/'
-local weapons, _weapons, weapon_keys, skins, _skins, skin_keys = {}, {}, {}, {}, {}, {} do
+local allow_temp_file = false
+
+local weapons, _weapons, weapon_keys, skins, _skins, skin_keys, json do
 	local def_cfg
-	file_Enumerate(function(c)if c==dir..'default/T.dat'then def_cfg=1 end end)
+
+	file_Enumerate(function(c)
+		if c == dir..'default.dat' then
+			def_cfg = 1
+		end
+	end)
 
 	if not def_cfg then
-		file_Write(dir..'default/T.dat', '')
-		file_Write(dir..'default/CT.dat', '')
+		file_Write(dir..'default.dat', '{"T":[],"CT":[]}')
 	end
 
-	local n = {'json.txt', 'skins.txt'}
-	for i=1,2 do n[i+2]=http_Get('https://raw.githubusercontent.com/Zack2kl/'..dir..'master/'..n[i])end
+	json = loadstring([[--[==[ credit: https://gist.github.com/tylerneylon/59f4bcf316be525b30ab ]==] local a={}local function b(c)if type(c)~='table'then return type(c)end;local d=1;for e in pairs(c)do if c[d]~=nil then d=d+1 else return'table'end end;if d==1 then return'table'else return'array'end end;local function f(g)local h={'\\','"','/','\b','\f','\n','\r','\t'}local i={'\\','"','/','b','f','n','r','t'}for d,j in ipairs(h)do g=g:gsub(j,'\\'..i[d])end;return g end;local function k(l,m,n,o)m=m+#l:match('^%s*',m)if l:sub(m,m)~=n then if o then error('Expected '..n..' near position '..m)end;return m,false end;return m+1,true end;local function p(l,m,q)q=q or''local r='End of input found while parsing string.'if m>#l then error(r)end;local j=l:sub(m,m)if j=='"'then return q,m+1 end;if j~='\\'then return p(l,m+1,q..j)end;local s={b='\b',f='\f',n='\n',r='\r',t='\t'}local t=l:sub(m+1,m+1)if not t then error(r)end;return p(l,m+2,q..(s[t]or t))end;local function u(l,m)local v=l:match('^-?%d+%.?%d*[eE]?[+-]?%d*',m)local q=tonumber(v)if not q then error('Error parsing number at position '..m..'.')end;return q,m+#v end;function a.stringify(c,w)local g={}local x=b(c)if x=='array'then if w then error('Can\'t encode array as key.')end;g[#g+1]='['for d,q in ipairs(c)do if d>1 then g[#g+1]=', 'end;g[#g+1]=a.stringify(q)end;g[#g+1]=']'elseif x=='table'then if w then error('Can\'t encode table as key.')end;g[#g+1]='{'for y,z in pairs(c)do if#g>1 then g[#g+1]=', 'end;g[#g+1]=a.stringify(y,true)g[#g+1]=':'g[#g+1]=a.stringify(z)end;g[#g+1]='}'elseif x=='string'then return'"'..f(c)..'"'elseif x=='number'then if w then return'"'..tostring(c)..'"'end;return tostring(c)elseif x=='boolean'then return tostring(c)elseif x=='nil'then return'null'else error('Unjsonifiable type: '..x..'.')end;return table.concat(g)end;a.null={}function a.parse(l,m,A)m=m or 1;if m>#l then error('Reached unexpected end of input.')end;local m=m+#l:match('^%s*',m)local B=l:sub(m,m)if B=='{'then local c,C,D={},true,true;m=m+1;while true do C,m=a.parse(l,m,'}')if C==nil then return c,m end;if not D then error('Comma missing between object items.')end;m=k(l,m,':',true)c[C],m=a.parse(l,m)m,D=k(l,m,',')end elseif B=='['then local E,q,D={},true,true;m=m+1;while true do q,m=a.parse(l,m,']')if q==nil then return E,m end;if not D then error('Comma missing between array items.')end;E[#E+1]=q;m,D=k(l,m,',')end elseif B=='"'then return p(l,m+1)elseif B=='-'or B:match('%d')then return u(l,m)elseif B==A then return nil,m+1 else local F={['true']=true,['false']=false,['null']=a.null}for G,H in pairs(F)do local I=m+#G-1;if l:sub(m,I)==G then return H,I+1 end end;local J='position '..m..': '..l:sub(m,m+10)error('Invalid json syntax starting at '..J)end end;return a]])()
+	local data = http_Get('https://raw.githubusercontent.com/Zack2kl/'..dir..'master/skins.txt')
+	local parsed = json.parse(data)
 
-	local json = loadstring(n[3])()
-	local parsed = json.parse(n[4])
-
-	-- Setup weapon tables
-	for l in parsed.item_names:gmatch('([^\n]*)\n')do local n,a=l:match('([^\n]*)='),l:gsub('([^\n]*)=','')weapons[n]=a _weapons[a]=n weapon_keys[#weapon_keys+1]=n end
-
-	-- Setup skin tables
-	local s,t,N=parsed.paintkit_names,{},0
-	for k,v in pairs(parsed.weapon_skins)do local r=tonumber(k)if not t[r]then t[r]={}end for _,b in pairs(v)do table_insert(t[r],s[b]..'='..b)end end
-	local s=''for i=1,#t do s=s..table_concat(t[i],',')..',\n'end
-	for l in s:gmatch('([^\n]*)\n')do skin_keys[N],skins[N]={},{}for o in l:gmatch('([^,]*),')do local n,b=o:match('([^=]*)='),o:gsub('([^=]*)=','')table_insert(skins[N],{n,b})table_insert(skin_keys[N],n)_skins[b]=n end N=N+1 end
+	weapons, _weapons, weapon_keys, skins, _skins, skin_keys = unpack(parsed)
 end
 
 local MENU = gui_Reference('MENU')
@@ -81,10 +78,11 @@ local function list_update(_load, _team)
 	if not _load then
 		local item = item:GetValue()
 		local skin = (item > 33 and item < 53 and skin:GetValue()) or skin:GetValue() + 1
+		local new_i = tostring(item)
 
 		local tbl = {
 			weapons[weapon_keys[item + 1]],
-			skins[item] and skins[item][skin] and skins[item][skin][2] or '',
+			skins[new_i] and skins[new_i][skin] and skins[new_i][skin][2] or '',
 			string_format('%.2f', wear:GetValue()),
 			seed:GetValue() == '' and 0 or seed:GetValue(),
 			stattrak:GetValue() == '' and 0 or stattrak:GetValue(),
@@ -116,72 +114,74 @@ local function remove_from_list(team)
 end
 
 local gather_configs = function()
-	local cfgs, new = {}, {}
-	file_Enumerate(function(name) if name:find('.dat$') then new[ name:sub(18):gsub('/CT.dat', ''):gsub('/T.dat', '') ] = '' end end)
-	for k in pairs(new) do cfgs[#cfgs + 1] = k end
-	table_sort(cfgs, function(a)return a=='default'end)
+	local cfgs = {}
+
+	file_Enumerate(function(name)
+		if name:sub(1, #dir) == dir then
+			cfgs[#cfgs + 1] = name:match('/(.*).dat$')
+		end
+	end)
+
+	table_sort(cfgs, function(a)
+		return a == 'default'
+	end)
+
 	return cfgs
 end
 
-local function config_system(f, t)
+local function config_system(func, _type)
 	local x, y = MENU:GetValue()
 	local X, Y = draw_GetScreenSize()
 	MENU:SetValue(X, Y)
 
-	local window = gui_Window('temp_window', 'Config System', (X * 0.5) - 85, (Y * 0.5) - 130, 170, 260)
+	local window = gui_Window('', 'Config System', (X * 0.5) - 85, (Y * 0.5) - 130, 170, 260)
 	local group = gui_Groupbox(window, t, 16, 16)
-	local function back() MENU:SetValue(x, y) window:Remove() end
+
+	local function back()
+		MENU:SetValue(x, y)
+		window:Remove()
+	end
 
 	local cfgs = gather_configs()
-	local config = gui_Combobox(group, 'temp_combo', 'Configs', unpack(cfgs)) 
-	local new = t == 'Save' and gui_Editbox(group, 'temp_editbox', 'New Config')
+	local config = gui_Combobox(group, '', 'Configs', unpack(cfgs)) 
+	local new = _type == 'Save' and gui_Editbox(group, '', 'New Config')
 
-	if t == 'Save' then
+	if _type == 'Save' then
 		new:SetDescription('Creates new config')
 		window:SetHeight(330)
 		window:SetPosY( (Y * 0.5) - 165 )
 	end
 
-	local co = gui_Button(group, 'Confirm', function() back() f( t == 'Load' and cfgs[config:GetValue() + 1] or (new:GetValue():find('[a-zA-Z0-9]') and new:GetValue() or cfgs[config:GetValue() + 1])) end)
+	local co = gui_Button(group, 'Confirm', function()
+		if _type == 'Load' then
+			func( cfgs[config:GetValue() + 1] )
+		else
+			local v = new:GetValue()
+
+			if v:find('[a-zA-Z0-9]') then
+				func( v )
+			else
+				func( cfgs[config:GetValue() + 1] )
+			end
+		end
+
+		back()
+	end)
+
 	local ca = gui_Button(group, 'Cancel', back) 
 		co:SetWidth(106) ca:SetWidth(106)
 end
 
 local function save_to_file(name)
-	for t=1, #TEAMS do
-		local team = TEAMS[t]
-		local opts = {}
-
-		for i=1, #team_skins[team] do
-			opts[i] = string_format('"%s" "%s" "%s" "%s" "%s" "%s"', unpack( team_skins[team][i] ))
-		end
-
-		file_Write(dir..name:lower()..'/'..team..'.dat', table_concat(opts, '\n').. '\n')
-	end
+	file_Write( dir..name:lower()..'.dat', json.stringify(team_skins) )
 end
 
 local function load_from_file(name)
-	for t=1, #TEAMS do
-		local team, N = TEAMS[t], 1
-		team_skins[team] = {}
-		local info = file_Read(dir..name:lower()..'/'..team..'.dat')
+	local info = file_Read(dir..name:lower()..'.dat')
+	team_skins = json.parse(info)
 
-		for line in info:gmatch('([^\n]*)\n') do
-			local A = 1
-			for var in line:gmatch('("[^ ]*)') do
-				if not team_skins[team][N] then
-					team_skins[team][N] = {}
-				end
-
-				team_skins[team][N][A] = var:gsub('"', '')
-				A = A + 1
-			end
-
-			N = N + 1
-		end
-
-		list_update(true, team)
-	end
+	list_update(true, 'T')
+	list_update(true, 'CT')
 end
 
 local add = gui_Button(group, 'Add', list_update)
@@ -201,35 +201,43 @@ local _load = gui_Button(group, 'Load from File',  function() config_system(load
 
 local last_item, last_team
 local function update()
-	local val = item:GetValue()
+	local val = item:GetValue() + 1
+
 	if last_item ~= val then
 		local skins = skin_keys[val]
 		local a = not skins
-		skin:SetDisabled(a) wear:SetDisabled(a) seed:SetDisabled(a) stattrak:SetDisabled(a) name:SetDisabled(a)
+
+		skin:SetDisabled(a)
+		wear:SetDisabled(a)
+		seed:SetDisabled(a)
+		stattrak:SetDisabled(a)
+		name:SetDisabled(a)
+
 		if val > 33 and val < 53 then
 			skin:SetOptions( 'Vanilla', unpack(skins or {}) )
 		else
 			skin:SetOptions( unpack(skins or {}) )
 		end
+
 		skin:SetValue(0)
 		last_item = val
 	end
 
 	local local_player = entities_GetLocalPlayer()
-	if not local_player then
-		return
-	end
+	if local_player then
+		local current_team = TEAMS[local_player:GetTeamNumber() - 1]
 
-	local current_team = TEAMS[local_player:GetTeamNumber() - 1]
-	if current_team and last_team ~= current_team then
-		changer_update( current_team )
-		last_team = current_team
+		if current_team and last_team ~= current_team then
+			changer_update( current_team )
+			last_team = current_team
+		end
 	end
 end
 
 local knife_name = function(a)
 	for i=1, #a do
 		local s = a[i]
+
 		if s[1]:find('knife') or s[1] == 'weapon_bayonet' then
 			return s[1]
 		end
@@ -239,6 +247,7 @@ end
 local need_update
 local function on_event(e)
 	local event = e:GetName()
+
 	if event ~= 'round_prestart' and event ~= 'player_death' then
 		return
 	end
@@ -249,6 +258,7 @@ local function on_event(e)
 			changer_update( cur_team )
 			need_update = false
 		end
+
 		return
 	end
 
@@ -263,12 +273,15 @@ local function on_event(e)
 
 	for i=1, #tbl do
 		local s = tbl[i]
+
 		if s[1] == weapon then
 			local v = tonumber(s[5])
+
 			if v > 0 then
 				team_skins[cur_team][i][5] = v + 1
 				need_update = true
 			end
+
 			break
 		end
 	end
