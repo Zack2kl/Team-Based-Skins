@@ -158,7 +158,7 @@ local function add_skin(index, tbl, vanilla)
 	local ss = vanilla == 1 and 0 or 1
 	local a = skins[ii]
 	local r = m_random(ss, #skins[ii])
-	local s = a[r] and a[r][2]
+	local s = a[r] or ''
 
 	local str = ('skin.add "%s" "%s" "%s" "%s" "%s" ""'):format(
 		weapon_wep,
