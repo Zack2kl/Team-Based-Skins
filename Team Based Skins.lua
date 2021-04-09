@@ -1,8 +1,9 @@
-local callbacks_Register, client_AllowListener, client_GetLocalPlayerIndex, client_GetPlayerIndexByUserID, draw_GetScreenSize, entities_GetLocalPlayer, file_Enumerate, file_Read, file_Write, gui_Button, gui_Combobox, gui_Command, gui_Editbox, gui_Groupbox, gui_Listbox, gui_Reference, gui_Slider, gui_Tab, gui_Window, http_Get, loadstring, string_format, table_insert, table_remove, table_sort, unpack, tostring, tonumber = callbacks.Register, client.AllowListener, client.GetLocalPlayerIndex, client.GetPlayerIndexByUserID, draw.GetScreenSize, entities.GetLocalPlayer, file.Enumerate, file.Read, file.Write, gui.Button, gui.Combobox, gui.Command, gui.Editbox, gui.Groupbox, gui.Listbox, gui.Reference, gui.Slider, gui.Tab, gui.Window, http.Get, loadstring, string.format, table.insert, table.remove, table.sort, unpack, tostring, tonumber
+local callbacks_Register, client_AllowListener, client_GetLocalPlayerIndex, client_GetPlayerIndexByUserID, client_Command, draw_GetScreenSize, entities_GetLocalPlayer, file_Enumerate, file_Read, file_Write, gui_Button, gui_Combobox, gui_Text, gui_GetValue, gui_Command, gui_Editbox, gui_Groupbox, gui_Listbox, gui_Reference, gui_Slider, gui_Tab, gui_Window, http_Get, loadstring, string_format, table_insert, table_remove, table_sort, unpack, tostring, tonumber = callbacks.Register, client.AllowListener, client.GetLocalPlayerIndex, client.GetPlayerIndexByUserID, client.Command, draw.GetScreenSize, entities.GetLocalPlayer, file.Enumerate, file.Read, file.Write, gui.Button, gui.Combobox, gui.Text, gui.GetValue, gui.Command, gui.Editbox, gui.Groupbox, gui.Listbox, gui.Reference, gui.Slider, gui.Tab, gui.Window, http.Get, loadstring, string.format, table.insert, table.remove, table.sort, unpack, tostring, tonumber
 local dir = 'Team-Based-Skins/'
 local allow_temp_file = false
+local dev = false
 
-local weapons, _weapons, weapon_keys, skins, _skins, skin_keys, json do
+local weapons, _weapons, weapon_keys, skins, _skins, skin_keys, stickers, _stickers, sticker_keys, json do
 	local def_cfg
 
 	file_Enumerate(function(c)
@@ -18,13 +19,78 @@ local weapons, _weapons, weapon_keys, skins, _skins, skin_keys, json do
 	local n = {'json.txt', 'skins.txt'}
 
 	for i=1, 2 do
-		n[i+2] = http.Get('https://raw.githubusercontent.com/Zack2kl/'..dir..'master/'..n[i])
+		n[i+2] = dev and file.Read(dir..n[i]) or http.Get('https://raw.githubusercontent.com/Zack2kl/'..dir..'master/'..n[i])
 	end
 
 	json = loadstring(n[3])()
 	local parsed = json.parse(n[4])
 
-	weapons, _weapons, weapon_keys, skins, _skins, skin_keys = unpack(parsed)
+	local function separate_info(tbl)
+		local normal, reversed, indexed = {}, {}, {}
+		local o, a = tbl['1'], tbl['2']
+		local i = 0
+
+		repeat
+			local FullName = o[i]
+			local item_name = a[i]
+
+			if FullName then
+				normal[FullName] = item_name
+				reversed[item_name] = FullName
+				indexed[i] = FullName
+			end
+
+			i = i + 1
+		until o[i] == nil
+
+		return normal, reversed, indexed
+	end
+
+	weapons, _weapons, weapon_keys = separate_info(parsed.weapon_keys)
+	_stickers, stickers, sticker_keys = separate_info(parsed.sticker_keys)
+	skins, _skins, skin_keys = {}, {}, {}
+
+	local function getn(tbl)
+		local n = 0
+
+		for _ in pairs(tbl) do
+			n = n + 1
+		end
+
+		return n
+	end
+
+	for wep_index=0, getn(parsed.skin_keys) - 1 do
+		local wep_skins = parsed.skin_keys[ tostring(wep_index) ]
+
+		skins[wep_index] = {}
+		skin_keys[wep_index] = {}
+
+		local n, last = 0, 1
+		repeat
+			local SkinName = wep_skins[n + 1]
+			local skin_name = wep_skins[n + 2]
+
+			if SkinName and skin_name then
+				skins[wep_index][last] = skin_name
+				skin_keys[wep_index][last] = SkinName
+				_skins[skin_name] = SkinName
+				last = last + 1
+			end
+
+			n = n + 2
+		until wep_skins[n] == nil
+	end
+end
+
+local set_pos = function(t)
+	t.obj = t.obj or t[1]
+	if not t.obj then error('Missing GUI Object', 2) end
+	if t.x then t.obj:SetPosX(t.x) end
+	if t.y then t.obj:SetPosY(t.y) end
+	if t.w then t.obj:SetWidth(t.w) end
+	if t.h then t.obj:SetHeight(t.h) end
+	if t.desc then t.obj:SetDescription(t.desc) end
 end
 
 local MENU = gui_Reference('MENU')
@@ -33,9 +99,9 @@ local group = gui_Groupbox(tab, 'Change visual items', 16, 16)
 local TEAMS, team_skins = {'T', 'CT'}, {T = {}, CT = {}}
 
 local list = gui_Listbox(group, 'T.skins', 194)
-	list:SetWidth(280) list:SetPosY(0)
+	set_pos{list, w=280, y=0}
 local list2 = gui_Listbox(group, 'CT.skins', 194)
-	list2:SetWidth(280) list2:SetPosY(218)
+	set_pos{list2, w=280, y=218}
 
 local menu_items = {
 	gui_Combobox(group, 'team', 'Team', unpack(TEAMS)),
@@ -44,34 +110,66 @@ local menu_items = {
 	gui_Slider(group, 'wear', 'Wear', 0, 0, 1, 0.01),
 	gui_Editbox(group, 'seed', 'Seed'),
 	gui_Editbox(group, 'stattrak', 'Stattrak'),
-	gui_Editbox(group, 'name', 'Name')
+	gui_Editbox(group, 'name', 'Name'),
+	gui_Combobox(group, 'sticker_location', 'Sticker Position', 'A', 'B', 'C', 'D', 'E')
 }
+local selected_stickers = {
+	gui_Text(group, 'A) No Sticker Selected'),
+	gui_Text(group, 'B) No Sticker Selected'),
+	gui_Text(group, 'C) No Sticker Selected'),
+	gui_Text(group, 'D) No Sticker Selected'),
+	gui_Text(group, 'E) No Sticker Selected')
+}
+
+local menu_descs = {
+	'Team you wish to have the skin on.',
+	'Select weapon or model',
+	'Select skin of model',
+	'Quality of item texture.',
+	'Seed of texture generation.',
+	'Kill counter of weapon.',
+	'Custom name of item.',
+	'Position of sticker.'
+}
+
+local stickers_pos = {'A', 'B', 'C', 'D', 'E'}
+local temp_sticker_list = {}
+local temp_stickers = {}
 
 local s = 0
 for i=1, #menu_items do
-	local a = menu_items[i]
-	a:SetPosX(296)
-	a:SetPosY(s)
-	a:SetWidth(280)
-	a:SetHeight(35)
+	set_pos{menu_items[i], x=296, y=s, w=280, h=35, desc=menu_descs[i]}
 	s = 60 + s
 end
 
-local team, item, skin, wear, seed, stattrak, name = unpack(menu_items)
-	team:SetDescription('Team you wish to have the skin on.')
-	item:SetDescription('Select weapon or model')
-	skin:SetDescription('Select skin of model')
-	wear:SetDescription('Quality of item texture.')
-	seed:SetDescription('Seed of texture generation.')
-	stattrak:SetDescription('Kill counter of weapon.')
-	name:SetDescription('Custom name of item.')
+local s = 0
+for i=1, #selected_stickers do
+	set_pos{selected_stickers[i], x=296, y=516+s, w=280}
+	s = 16 + s
+end
+
+local team, item, skin, wear, seed, stattrak, name, sticker_pos = unpack(menu_items)
+local sticker_search, sticker_list = gui_Editbox(group, 'sticker_search', 'Sticker Search Bar'), gui_Listbox(group, 'sticker_list', 194)
+	set_pos{sticker_search, y=450, w=280}
+	set_pos{sticker_list, y=502, w=280}
+	sticker_list:SetOptions( unpack(sticker_keys) )
 
 local function changer_update(team)
 	gui_Command('skin.clear')
 
 	local tbl = team_skins[team]
 	for i=1, #tbl do
-		gui_Command( string_format('skin.add "%s" "%s" "%s" "%s" "%s" "%s"', unpack(tbl[i])) )
+		local v = tbl[i]
+		gui_Command( string_format('skin.add "%s" "%s" "%s" "%s" "%s" "%s" "%s" "%s" "%s" "%s" "%s"',
+			v[1] or '', v[2] or '', v[3] or '', v[4] or '', v[5] or '', v[6] or '', -- dumb checks just incase
+			v[7] or '', v[8] or '', v[9] or '', v[10] or '', v[11] or ''
+		))
+	end
+
+	if client.GetConVar('sv_cheats') == '1' then
+		client_Command('cl_fullupdate', true) -- Doesn't work if sv_cheats isn't 1
+	else
+		client_Command('record a; stop;', true) -- Might work idk
 	end
 end
 
@@ -82,24 +180,33 @@ local function list_update(_load, _team)
 
 	if not _load then
 		local item = item:GetValue()
-		local skin = (item >= 35 and item <= 53 and skin:GetValue()) or skin:GetValue() + 1
-		local new_i = tostring(item)
+		local skin = (item >= 34 and item <= 52 and skin:GetValue()) or skin:GetValue() + 1
 
 		local tbl = {
 			weapons[weapon_keys[item + 1]],
-			skins[new_i] and skins[new_i][skin] or '',
+			skins[item] and skins[item][skin] or '',
 			string_format('%.2f', wear:GetValue()),
 			seed:GetValue() == '' and 0 or seed:GetValue(),
 			stattrak:GetValue() == '' and 0 or stattrak:GetValue(),
-			name:GetValue()
+			name:GetValue(),
+			temp_stickers[1] or '',
+			temp_stickers[2] or '',
+			temp_stickers[3] or '',
+			temp_stickers[4] or '',
+			temp_stickers[5] or '',
 		}
+
+		temp_stickers = {}
+		for i=1, 5 do
+			selected_stickers[i]:SetText( stickers_pos[i] .. ') No Sticker Selected' )
+		end
 
 		table_insert(team_skins[team], tbl)
 	end
 
 	for i=1, #team_skins[team] do
 		local v = team_skins[team][i]
-		options[1 + (#team_skins[team] - i)] = string_format('%s %s', _weapons[v[1]], v[2] == '' and '' or '- '.. _skins[v[2]] )
+		options[1 + (#team_skins[team] - i)] = string_format('%s %s', _weapons[v[1]], v[2] == '' and '' or '- ' .. _skins[v[2]])
 	end
 
 	list:SetOptions( unpack(options) )
@@ -153,8 +260,7 @@ local function config_system(func, _type)
 
 	if _type == 'Save' then
 		new:SetDescription('Creates new config')
-		window:SetHeight(330)
-		window:SetPosY( (Y * 0.5) - 165 )
+		set_pos{window, h=330, y=(Y * 0.5) - 165}
 	end
 
 	local co = gui_Button(group, 'Confirm', function()
@@ -190,24 +296,71 @@ local function load_from_file(name)
 end
 
 local add = gui_Button(group, 'Add', list_update)
-	add:SetPosX(296) add:SetPosY(416) add:SetWidth(280) add:SetHeight(16)
+	set_pos{add, x=296, y=482, w=280, h=16}
 
 local rem = gui_Button(group, 'Remove from T', function() remove_from_list('T') end)
-	rem:SetPosY(198) rem:SetWidth(280) rem:SetHeight(16)
+	set_pos{rem, y=198, w=280, h=16}
 
 local rem2 = gui_Button(group, 'Remove from CT',  function() remove_from_list('CT') end)
-	rem2:SetPosY(416) rem2:SetWidth(280) rem2:SetHeight(16)
+	set_pos{rem2, y=416, w=280, h=16}
 
 local save = gui_Button(group, 'Save to File',  function() config_system(save_to_file, 'Save') end)
-	save:SetPosX(360) save:SetPosY(-43) save:SetWidth(100) save:SetHeight(18)
+	set_pos{save, x=360, y=-43, w=100, h=18}
 
 local _load = gui_Button(group, 'Load from File',  function() config_system(load_from_file, 'Load') end)
-	_load:SetPosX(476) _load:SetPosY(-43) _load:SetWidth(100) _load:SetHeight(18)
+	set_pos{_load, x=476, y=-43, w=100, h=18}
 
-local last_item, last_team
+local last_item, last_team, last_search, last_sticker_list
 local function update()
-	local val = item:GetValue() + 1
+	tab:SetDisabled( not gui_GetValue('esp.skins.enabled') )
 
+	local search = sticker_search:GetString()
+	if search ~= last_search then
+		local s = search:lower()
+		local results = {}
+		local keywords = {}
+
+		if #s ~= 0 then
+			for word in s:gmatch('([^%s]+)') do
+				keywords[#keywords + 1] = word
+			end
+
+			for i=1, #sticker_keys do
+				local sticker = sticker_keys[i]
+				local s2 = sticker:lower()
+				local found = 0
+
+				for k=1, #keywords do
+					if s2:find(keywords[k]) then
+						found = found + 1
+					end
+				end
+
+				if found == #keywords then
+					results[#results + 1] = sticker
+				end
+			end
+		end
+
+		temp_sticker_list = #s == 0 and sticker_keys or results
+		sticker_list:SetOptions( unpack(temp_sticker_list) )
+		last_search = s
+	end
+
+	local sticker_l = sticker_list:GetValue() + 1
+	if sticker_l ~= last_sticker_list then
+		local sticker_sel = sticker_pos:GetValue() + 1
+		local _sticker_ = temp_sticker_list[sticker_l]
+
+		if _sticker_ then
+			selected_stickers[sticker_sel]:SetText( sticker_pos:GetString() .. ') ' .. _sticker_ )
+			temp_stickers[sticker_sel] = _stickers[_sticker_]
+		end
+
+		last_sticker_list = sticker_l
+	end
+
+	local val = item:GetValue()
 	if last_item ~= val then
 		local skins = skin_keys[val]
 		local a = not skins
@@ -217,8 +370,11 @@ local function update()
 		seed:SetDisabled(a)
 		stattrak:SetDisabled(a)
 		name:SetDisabled(a)
+		sticker_search:SetDisabled(a)
+		sticker_pos:SetDisabled(a)
+		sticker_list:SetDisabled(a)
 
-		if val >= 35 and val <= 53 then
+		if val >= 34 and val <= 52 then
 			skin:SetOptions( 'Vanilla', unpack(skins or {}) )
 		else
 			skin:SetOptions( unpack(skins or {}) )
