@@ -7,10 +7,52 @@ local weapons, weapon_keys, skins, json do
 		n[i+2] = http_Get('https://raw.githubusercontent.com/Zack2kl/Team-Based-Skins/master/'..n[i])
 	end
 
-	json = loadstring( n[3] )()
+	json = loadstring(n[3])()
 	local parsed = json.parse(n[4])
+	weapons, weapon_keys, skins = {}, {}, {}
 
-	weapons, weapon_keys, skins = parsed[1], parsed[3], parsed[4]
+	local o, a = parsed.weapon_keys['1'], parsed.weapon_keys['2']
+	local i = 0
+
+	repeat
+		local FullName = o[i]
+		local item_name = a[i]
+
+		if FullName then
+			weapons[FullName] = item_name
+			weapon_keys[i] = FullName
+		end
+
+		i = i + 1
+	until o[i] == nil
+
+	local function getn(tbl)
+		local n = 0
+
+		for _ in pairs(tbl) do
+			n = n + 1
+		end
+
+		return n
+	end
+
+	for wep_index=0, getn(parsed.skin_keys) - 1 do
+		local wep_skins = parsed.skin_keys[ tostring(wep_index) ]
+		skins[wep_index] = {}
+
+		local n, last = 0, 1
+		repeat
+			local SkinName = wep_skins[n + 1]
+			local skin_name = wep_skins[n + 2]
+
+			if SkinName and skin_name then
+				skins[wep_index][last] = skin_name
+				last = last + 1
+			end
+
+			n = n + 2
+		until wep_skins[n] == nil
+	end
 end
 
 local ref = gui_Reference('Visuals', 'Skins')
