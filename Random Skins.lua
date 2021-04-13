@@ -57,10 +57,10 @@ end
 
 local ref = gui_Reference('Visuals', 'Skins')
 local group = gui_Groupbox(ref, 'Randomize Skins')
-	group:SetPosX(16) group:SetPosY(528)
+	group:SetPosX(16) group:SetPosY(824)
 
 local enable = gui_Checkbox(ref, 'random.enable', '', 0)
-	enable:SetPosX(590) enable:SetPosY(544)
+	enable:SetPosX(590) enable:SetPosY(836)
 
 local opts = {}
 local opts_l = {}
@@ -162,7 +162,7 @@ end
 
 local last_val, last_global, last_global2, last_w, last_k
 local function to_update()
-	local global = gui_GetValue('esp.skins.enable')
+	local global = gui_GetValue('esp.skins.enabled')
 	local global_2 = enable:GetValue()
 
 	if global ~= last_global or global_2 ~= last_global2 then
