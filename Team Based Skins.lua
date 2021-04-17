@@ -323,6 +323,18 @@ local function update()
 		if #s ~= 0 then
 			for word in s:gmatch('([^%s]+)') do
 				keywords[#keywords + 1] = word
+					:gsub('%%', '%%%%')
+					:gsub('^%^', '%%^')
+					:gsub('%$$', '%%$')
+					:gsub('%(', '%%(')
+					:gsub('%)', '%%)')
+					:gsub('%.', '%%.')
+					:gsub('%[', '%%[')
+					:gsub('%]', '%%]')
+					:gsub('%*', '%%*')
+					:gsub('%+', '%%+')
+					:gsub('%-', '%%-')
+					:gsub('%?', '%%?')
 			end
 
 			for i=1, #sticker_keys do
