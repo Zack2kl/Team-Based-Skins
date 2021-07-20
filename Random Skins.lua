@@ -1,6 +1,6 @@
 local callbacks_Register, client_AllowListener, client_Command, common_Time, file_Read, file_Write, gui_Checkbox, gui_Command, gui_GetValue, gui_Groupbox, gui_Listbox, gui_Multibox, gui_Reference, gui_Slider, http_Get, loadstring, math_random, math_randomseed, unpack, tostring, pcall = callbacks.Register, client.AllowListener, client.Command, common.Time, file.Read, file.Write, gui.Checkbox, gui.Command, gui.GetValue, gui.Groupbox, gui.Listbox, gui.Multibox, gui.Reference, gui.Slider, http.Get, loadstring, math.random, math.randomseed, unpack, tostring, pcall
 
-local weapons, weapon_keys, skins, json do
+local weapons, weapon_keys, stickers, sticker_keys, skins, json do
 	local n = {'json.txt', 'skins.txt'}
 
 	for i=1, 2 do
@@ -10,6 +10,7 @@ local weapons, weapon_keys, skins, json do
 	json = loadstring(n[3])()
 	local parsed = json.parse(n[4])
 	weapons, weapon_keys, skins = {}, {}, {}
+	stickers, sticker_keys = {}, {}
 
 	local o, a = parsed.weapon_keys['1'], parsed.weapon_keys['2']
 	local i = 0
@@ -25,6 +26,21 @@ local weapons, weapon_keys, skins, json do
 
 		i = i + 1
 	until o[i] == nil
+
+	local b, c = parsed.sticker_keys['1'], parsed.sticker_keys['2']
+	local f = 0
+
+	repeat
+		local StickerName = b[f]
+		local sticker_name = c[f]
+
+		if StickerName then
+			stickers[StickerName] = sticker_name
+			sticker_keys[f] = StickerName
+		end
+
+		f = f + 1
+	until b[f] == nil
 
 	local function getn(tbl)
 		local n = 0
@@ -57,14 +73,14 @@ end
 
 local ref = gui_Reference('Visuals', 'Skins')
 local group = gui_Groupbox(ref, 'Randomize Skins')
-	group:SetPosX(16) group:SetPosY(824)
+	group:SetPosX(16) group:SetPosY(880)
 
 local enable = gui_Checkbox(ref, 'random.enable', '', 0)
-	enable:SetPosX(590) enable:SetPosY(836)
+	enable:SetPosX(590) enable:SetPosY(892)
 
 local opts = {}
 local opts_l = {}
-local list = gui_Listbox(group, 'random.to_randomize', 200, '')
+local list = gui_Listbox(group, 'random.to_randomize', 250, '')
 	list:SetPosY( 0 )
 	list:SetWidth( 200 )
 
@@ -96,8 +112,7 @@ local function set_disabled(tbl, v)
 end
 
 local function m_random(...)
-	local seed = math_random(common_Time() * 1000)
-	math_randomseed( seed )
+	math_randomseed(math_random(common_Time() * 1000))
 	return math_random(...)
 end
 
@@ -112,12 +127,13 @@ for i, v in next, weapon_keys do
 		gui_Checkbox(group, '', 'Random Skin', 0),
 		gui_Checkbox(group, '', 'Random Wear', 0),
 		gui_Checkbox(group, '', 'Random Seed', 0),
-		gui_Checkbox(group, '', 'Random Stattrak', 0)
+		gui_Checkbox(group, '', 'Random Stattrak', 0),
+		gui_Checkbox(group, '', 'Randomize Stickers', 0)
 	}
 
 	set_visible(opts[i], false)
 	local last = 0
-	for a=1, 5 do
+	for a=1, 6 do
 		opts[i][a]:SetPosX(216)
 		opts[i][a]:SetPosY(last)
 		last = a * 34
@@ -150,8 +166,8 @@ local on_agent = gui_Checkbox(group, '', 'Random Agent Models', 0)
 
 local min_wear = gui_Slider(group, 'random.min_wear', 'Best Wear', 1, 0, 1, 0.001 )
 local max_wear = gui_Slider(group, 'random.max_wear', 'Worst Wear', 0, 0, 1, 0.001 )
-	min_wear:SetDescription('0 is factory-new.') min_wear:SetPosX(216) min_wear:SetPosY(166) min_wear:SetWidth(180)
-	max_wear:SetDescription('1 is battle-scarred.') max_wear:SetPosX(400) max_wear:SetPosY(166) max_wear:SetWidth(180)
+	min_wear:SetDescription('0 is factory-new.') min_wear:SetPosX(216) min_wear:SetPosY(200) min_wear:SetWidth(180)
+	max_wear:SetDescription('1 is battle-scarred.') max_wear:SetPosX(400) max_wear:SetPosY(200) max_wear:SetWidth(180)
 
 
 local function get_wear()
@@ -192,22 +208,27 @@ end
 local function add_skin(index, tbl, vanilla)
 	local actual_wep = weapon_keys[index]
 	local weapon_wep = weapons[actual_wep]
-	local ii = tostring(index - 1)
 
 	local vals = get_vals(tbl, true)
-	local random_skin, random_wear, random_seed, random_stat = unpack(vals)
+	local random_skin, random_wear, random_seed, random_stat, random_sticker = unpack(vals)
 
 	local ss = vanilla == 1 and 0 or 1
-	local a = skins[ii]
-	local r = m_random(ss, #skins[ii])
+	local a = skins[index - 1]
+
+	local r = m_random(ss, #a)
 	local s = a[r] or ''
 
-	local str = ('skin.add "%s" "%s" "%s" "%s" "%s" ""'):format(
+	local str = ('skin.add "%s" "%s" "%s" "%s" "%s" "" "%s" "%s" "%s" "%s" "%s"'):format(
 		weapon_wep,
 		random_skin and s or '',
 		random_wear and get_wear() or '',
 		random_seed and m_random(0, 1000) or '',
-		random_stat and m_random(0, 10000) or ''
+		random_stat and m_random(0, 10000) or '',
+		random_sticker and stickers[sticker_keys[m_random(0, #sticker_keys)]] or '',
+		random_sticker and stickers[sticker_keys[m_random(0, #sticker_keys)]] or '',
+		random_sticker and stickers[sticker_keys[m_random(0, #sticker_keys)]] or '',
+		random_sticker and stickers[sticker_keys[m_random(0, #sticker_keys)]] or '',
+		random_sticker and stickers[sticker_keys[m_random(0, #sticker_keys)]] or ''
 	)
 
 	gui_Command(str)
