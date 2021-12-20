@@ -97,26 +97,28 @@ local FFI = (function()
 		if PaintKits[index] then
 			return PaintKits[index]
 		else
-			if type(index) == 'string' then
+			if index == nil or type(index) == 'string' then
 				return
 			end
 		end
 
 		local item_schema = native_GetItemSchemaPointer()
-		if item_schema ~= ffi_NULL then
-			local this = ffi_cast(voidp, item_schema + 4)
-			local paint_kit = native_GetPaintKitDefinitionPointer(this, index)
+		if item_schema == 0 then
+			return
+		end
 
-			if paint_kit ~= ffi_NULL then
-				local info = {
-					index = paint_kit.index,
-					console_name = ffi_string(paint_kit.name.buffer, paint_kit.name.length - 1),
-					name = FFI.Localize(paint_kit.tag.buffer)
-				}
+		local this = ffi_cast(voidp, item_schema + 4)
+		local paint_kit = native_GetPaintKitDefinitionPointer(this, index)
 
-				PaintKits[info.console_name] = info
-				return info
-			end
+		if paint_kit ~= ffi_NULL then
+			local info = {
+				index = paint_kit.index,
+				console_name = ffi_string(paint_kit.name.buffer, paint_kit.name.length - 1),
+				name = FFI.Localize(paint_kit.tag.buffer)
+			}
+
+			PaintKits[info.console_name] = info
+			return info
 		end
 	end
 
@@ -125,30 +127,13 @@ local FFI = (function()
 			return ffi_cast(c, ffi_cast(voidppp, ins)[0][i])
 		end
 
-		local bindOverload = function(ins, i, c)
-			local t = ffi_typeof(c)
-			local fn = entry(ins, i, t)
-
-			return function(...)
-				return fn(ins, ...)
-			end
-		end
-
-		local bindOverload_1 = function(mod, name, i, c)
+		local bind = function(mod, name, i, c)
 			local ins = FFI.CreateInterface(mod, name)
 			local t = ffi_typeof(c)
 			local fn = entry(ins, i, t)
 
 			return function(...)
 				return fn(ins, ...)
-			end
-		end
-
-		local bind = function(...)
-			if #{...} == 3 then
-				return bindOverload(...)
-			elseif #{...} == 4 then
-				return bindOverload_1(...)
 			end
 		end
 
@@ -160,62 +145,62 @@ local FFI = (function()
 			end
 		end
 
-		if not pcall(function() return ffi_C.VirtualProtect end) then
-			ffi_cdef('int VirtualProtect(void*, unsigned long, unsigned long, unsigned long*)')
+		return {entry=entry, bind=bind, thunk=thunk}
+	end)()
+
+	FFI.Hook = (function()
+		assert(mem.GetModuleBase('gameoverlayrenderer.dll') ~= nil, 'gameoverlayrenderer.dll not found, do you have GameOverlay enabled?')
+
+		local sig = '55 8B EC 64 A1 ?? ?? ?? ?? 6A FF 68 ?? ?? ?? ?? 50 64 89 25 ?? ?? ?? ?? 81 EC '
+		local Unhook_match = mem_FindPattern("gameoverlayrenderer.dll", sig .. "?? ?? ?? ?? 56 8B 75") or error("UnhookFunc could not be found.")
+		local Hook_match = mem_FindPattern("gameoverlayrenderer.dll", sig .. "?? ?? ?? ?? 53 8B 5D") or error("HookFunc could not be found.")
+		local Unhook_fn = ffi_cast('void(__cdecl*)(void*, bool bLog)', Unhook_match)
+		local Hook_fn = ffi_cast('int(__cdecl*)(void*, void*, uintptr_t*, int*, int)', Hook_match)
+		local trampoline_t, success_t = ffi_typeof('uintptr_t[1]'), ffi_typeof('int[1]')
+
+		return function(typestring, real_address, new_function)
+			local real_function = ffi_cast(typestring, real_address)
+			local hook_function = ffi_cast(typestring, new_function)
+			local trampoline, success = trampoline_t(), success_t()
+			local hook = {
+				started = false,
+				trampoline = function() error('This should not be seen.', 2) end
+			}
+
+			function hook.start()
+				if not hook.started and Hook_fn(real_function, hook_function, trampoline, success, 0) ~= 0 then
+					hook.trampoline = ffi_cast(typestring, trampoline[0])
+					hook.started = true
+				end
+			end
+
+			function hook.stop(self)
+				if hook.started then
+					Unhook_fn(real_function, false)
+					hook.started = false
+				end
+			end
+
+			return setmetatable({ start=hook.start, stop=hook.stop }, {
+				__call = function(self, ...)
+					return hook.trampoline(...)
+				end
+			})
 		end
-
-		-- Credit: 2878713023
-		local ui_ptr = ffi_typeof('uintptr_t**')
-		local in_ptr = ffi_typeof('intptr_t')
-		local ul_ptr = ffi_typeof('unsigned long[1]')
-		local hook = {hooks = {}}
-		function hook.new(instance, i, ct, callback)
-			local t = ffi_typeof(ct)
-			local old_prot = ul_ptr()
-
-			local instance_ptr = ffi_cast(ui_ptr, instance)[0]
-			local instance_void = ffi_cast(voidp, instance_ptr + i)
-
-			hook.hooks[i] = instance_ptr[i]
-			ffi_C.VirtualProtect(instance_void, 4, 4, old_prot)
-			instance_ptr[i] = ffi_cast(in_ptr, ffi_cast(voidp, ffi_cast(t, callback)))
-			ffi_C.VirtualProtect(instance_void, 4, old_prot[0], old_prot)
-
-			return setmetatable(
-				{
-					call = ffi_cast(t, hook.hooks[i]),
-					uninstall = function()
-						ffi_C.VirtualProtect(instance_void, 4, 4, old_prot)
-						instance_ptr[i] = hook.hooks[i]
-						ffi_C.VirtualProtect(instance_void, 4, old_prot[0], old_prot)
-						hook.hooks[i] = nil
-					end
-				},
-				{
-					__call = function(self, ...)
-						return self.call(...)
-					end
-				}
-			)
-		end
-
-		return {entry=entry, bind=bind, thunk=thunk, hook=hook.new}
 	end)()
 
 	FFI.InitPostDataUpdateHook = function(callback)
-		local hook = nil
+		local iface = FFI.CreateInterface('client.dll', 'VClient018')
+		local vtbl = ffi_cast(voidppp, iface)[0]--cast iface to class pointer then dereference to vtbl
+		local hook = nil;
 
-		hook = FFI.VMT.hook(FFI.CreateInterface('client.dll', 'VClient018'), 37, 'void(__stdcall*)(int)', function(stage)
-			if stage == 2 then
-				callback()
-			end
-
+		hook = FFI.Hook('void(__stdcall*)(int)', vtbl[37], function(stage)
+			callback(stage)
 			return hook(stage)
 		end)
 
-		callbacks_Register('Unload', function()
-			hook.uninstall()
-		end)
+		hook.start()
+		callbacks_Register('Unload', hook.stop)
 	end
 
 	FFI.FileSystemEnumerate = (function()
@@ -363,7 +348,6 @@ local FFI = (function()
 			info.index = native_getWeaponIndex(ptr)
 			info.name = FFI.Localize(native_getItemBaseNameTag(ptr))
 			info.type = FFI.Localize(native_getItemTypeNameTag(ptr))
-			--info.desc = FFI.Localize(descriptionTag) -- Why would I ever need the description of an item?
 			info.rarity = native_getRarity(ptr)
 			info.numberOfSupportedStickerSlots = native_getNumberOfSupportedStickerSlots(ptr)
 
@@ -384,40 +368,44 @@ local FFI = (function()
 	end
 
 	FFI.FullUpdate = (function()
-		local engineDll = mem.GetModuleBase('engine.dll')
-		local client_state = ffi_cast('intptr_t*', engineDll + 0x589FCC)
+		local match = mem_FindPattern('engine.dll', 'A1 ?? ?? ?? ?? B9 ?? ?? ?? ?? 56 FF 50 14 8B 34 85') or print('FullUpdate not found. Setting delta manually.')
 
-		return function()
-			ffi_cast('int*', client_state[0] + 0x174)[0] = -1
+		if match then
+			return ffi_cast('void(__cdecl*)()', match)
+		else
+			local engineDll = mem.GetModuleBase('engine.dll')
+			local client_state = ffi_cast('intptr_t*', engineDll + 0x589FC4)
+
+			return function()
+				ffi_cast('int*', client_state[0] + 0x174)[0] = -1
+			end
 		end
 	end)()
 
 	FFI.UpdateHudIcons = (function()
 		local find_hud_element = ffi.cast("intptr_t(__thiscall*)(void*, const char*)",
-			mem_FindPattern("client.dll", "55 8B EC 53 8B 5D 08 56 57 8B F9 33 F6 39 77 28"))
-		local this = ffi.cast("void**", mem_FindPattern("client.dll", "B9 ?? ?? ?? ?? E8 ?? ?? ?? ?? 8B 5D 08") + 1)[0]
+			mem_FindPattern("client.dll", "55 8B EC 53 8B 5D 08 56 57 8B F9 33 F6 39"))
+		local this = ffi_cast("void**", mem_FindPattern("client.dll", "B9 ?? ?? ?? ?? E8 ?? ?? ?? ?? 8B 5D 08") + 1)[0]
 
 		local hud = find_hud_element(this, 'CCSGO_HudWeaponSelection')
 		local hud_this = ffi_cast(charp, hud - 0xA0)
 		local wep_count = ffi_cast('int32_t*', hud_this + 0x80)
 		local clear_f = ffi_cast('int32_t(__thiscall*)(void*, int32_t)',
-			mem_FindPattern("client.dll", "55 8B EC 51 53 56 8B 75 08 8B D9 57 6B FE 2C 89 5D FC"))
+			mem_FindPattern("client.dll", "55 8B EC 51 53 56 8B 75 08 8B D9 57 6B FE") or
+			error('ClearHudWeaponIcon signature was not found.')
+		)
 
 		return function()
 			for i=0, wep_count[0] - 1 do
-				i = clear_f(hud_this, i)
+				clear_f(hud_this, i)
 			end
 		end
 	end)()
 
 	FFI.ChangeWeaponPaintKit = (function()
 		local get_client_entity = FFI.VMT.bind('client.dll', 'VClientEntityList003', 3, 'void*(__thiscall*)(void*, int)')
-		local on_data_changed = FFI.VMT.thunk(5, 'void(__thiscall*)(void*, int)')
-		local post_data_update = FFI.VMT.thunk(7, 'void(__thiscall*)(void*, int)')
-		local ForceUpdateSkin = function(ptr)
-			post_data_update(ptr + 0x8, 0)
-			on_data_changed(ptr + 0x8, 0)
-		end
+		local on_data_changed 	= FFI.VMT.thunk(5, 'void(__thiscall*)(void*, int)')
+		local post_data_update 	= FFI.VMT.thunk(7, 'void(__thiscall*)(void*, int)')
 
 		return function(PlayerEntity, WeaponEntity, data)
 			local WeaponIndex = WeaponEntity:GetIndex()
@@ -464,13 +452,12 @@ local FFI = (function()
 			m_flFallbackWear[0] = data.wear
 			m_nFallbackSeed[0] = data.seed
 
-			if data.count_stattrak then
-				ForceUpdateSkin(ptr)
-			end
-
 			if data.name ~= '' and ffi_string(m_szCustomName) ~= data.name then
 				ffi_copy(m_szCustomName, data.name)
 			end
+
+			post_data_update(ptr + 0x8, 0)
+			on_data_changed(ptr + 0x8, 0)
 		end
 	end)()
 
@@ -796,7 +783,7 @@ local function SetupGuiMetatable(obj)
 				end
 
 				--SET
-				local args = {...}-- args[1] is supposed to be obj but its this table so dont use it
+				local args = {...}-- args[1] is supposed to be obj but its 'this' table so dont use it
 				if index == 'SetOptions' then
 					if type(args[2]) == 'table' then
 						rawset(self, 'values', args[2])
@@ -855,100 +842,77 @@ local function guiCheckbox(...)return SetupGuiMetatable(gui_Checkbox(...))end
 local function guiCombobox(...)return SetupGuiMetatable(gui_Combobox(...))end
 local function guiEditbox(...) return SetupGuiMetatable( gui_Editbox(...))end
 local function guiListbox(...) return SetupGuiMetatable( gui_Listbox(...))end
-
 local GUI = {}
-local function PopulateAimwareSkins(team)
-	if type(team) == 'number' then
-		if team == 2 or team == 3 then
-			team = team == 2 and 'T' or 'CT'
-		else
-			team = nil
-		end
-	elseif type(team) == 'string' then
-		if team ~= 'T' and team ~= 'CT' then
-			team = nil
+
+local UpdateHud = false
+local UpdateIcons = false
+local function AddItemIntoSkins(data)
+	local w_skins = FFI.GetWeaponKits(data.item.console_name)
+	local found_normal_skin = false
+
+	for i=1, #w_skins do
+		if w_skins[i] == data.skin.console_name then
+			found_normal_skin = true
+			break
 		end
 	end
 
-	if team == nil then
+	local s = ('skin.add "%s" "%s" "%s" "%s" "%s" "%s" "default" "default" "default" "default" "default"'):format(
+		data.item.console_name,
+		found_normal_skin and data.skin.console_name or '',
+		data.wear,
+		data.seed,
+		data.stattrak,
+		data.name
+	)
+
+	gui.Command(s)
+end
+
+local function PopulateAimwareSkins(team)
+	if team ~= 'T' and team ~= 'CT' then
 		local LP = entities_GetLocalPlayer()
 
 		if LP then
 			local team_num = LP:GetTeamNumber()
 			if team_num == 2 or team_num == 3 then
 				team = team_num == 2 and 'T' or 'CT'
+			else
+				return
 			end
+		else
+			return
 		end
 	end
 
-	if not team then
-		return
-	end
+	local haveknife, haveglove, haveagent = false, false, false
+	gui.Command('skin.clear')--Why doesn't this force update like pressing the "Add" or "Remove" button?
 
-	local items = {}
-	local haveknife = false
-	local haveglove = false
-	local haveagent = false
-
-	for k, v in pairs(GUI.Group3Item.List[team].raw_values) do
-		if v.item.type == 'Knife' and not haveknife then
-			items[v.item.index] = v
-			haveknife = true
-		end
-
-		if v.item.type == 'Gloves' and not haveglove then
-			items[v.item.index] = v
-			haveglove = true
-		end
-
-		if v.item.type == 'Agent' and not haveagent then
-			items[v.item.index] = v
-			haveagent = true
-		end
-
-		--[[if v.item.type ~= 'Knife' and v.item.type ~= 'Gloves' and v.item.type ~= 'Agent' then
-			items[v.item.index] = v
-		end]]
-	end
-
-	for k, v in pairs(GUI.Group3Item.List.Both.raw_values) do
-		if not items[v.item.index] then
+	for _, team in ipairs{team, 'Both'} do--Check ""team"" first then "Both" and add each item them into the list
+		for k, v in pairs(GUI.Group3Item.List[team].raw_values) do
 			if v.item.type == 'Knife' and not haveknife then
-				items[v.item.index] = v
+				AddItemIntoSkins(v)
 				haveknife = true
 			end
 
 			if v.item.type == 'Gloves' and not haveglove then
-				items[v.item.index] = v
+				AddItemIntoSkins(v)
 				haveglove = true
 			end
 
 			if v.item.type == 'Agent' and not haveagent then
-				items[v.item.index] = v
+				AddItemIntoSkins(v)
 				haveagent = true
 			end
 
-			--[[if v.item.type ~= 'Knife' and v.item.type ~= 'Gloves' and v.item.type ~= 'Agent' then
-				items[v.item.index] = v
-			end]]
+			if v.item.type ~= 'Knife' and v.item.type ~= 'Gloves' and v.item.type ~= 'Agent' then
+				AddItemIntoSkins(v)
+			end
 		end
 	end
 
-	--Why doesn't this force update like pressing the "Add" or "Remove" button?
-	gui.Command('skin.clear')
-	for i, data in pairs(items) do
-		--('skin.add "weapon_name" "skin_name" "wear" "seed" "stattrak" "name" "A" "B" "C" "D" "E"')
-		gui.Command(
-			('skin.add "%s" "%s" "%s" "%s" "%s" "%s"'):format(
-				data.item.console_name,
-				data.skin.console_name,
-				data.wear,
-				data.seed,
-				data.stattrak,
-				data.name
-			)
-		)
-	end
+	UpdateHud = true
+	UpdateIcons = true
 end
 
 local function SaveSettings()
@@ -986,7 +950,11 @@ local function LoadSettings()
 	end
 end
 
-FFI.InitPostDataUpdateHook(function()
+FFI.InitPostDataUpdateHook(function(stage)
+	if stage ~= 2 then --FRAME_NET_UPDATE_POSTDATAUPDATE_START
+		return
+	end
+
 	if not GUI.TabItem.Enabled:GetValue() then
 		return
 	end
@@ -1017,6 +985,14 @@ FFI.InitPostDataUpdateHook(function()
 			end
 		end
 	end
+
+	if UpdateHud then
+		FFI.FullUpdate()
+		UpdateHud = false
+	elseif UpdateIcons and not LocalPlayer:IsDormant() then
+		FFI.UpdateHudIcons()
+		UpdateIcons = false
+	end
 end)
 
 local need_to_save = false
@@ -1031,9 +1007,9 @@ callbacks_Register('FireGameEvent', function(event)
 	local event_name = event:GetName()
 	if event_name == 'player_team' then
 		if client_GetPlayerIndexByUserID(event:GetInt('userid')) == client_GetLocalPlayerIndex() then
-			PopulateAimwareSkins(event:GetInt('team'))
+			local t = event:GetInt('team')
+			PopulateAimwareSkins(t == 2 and 'T' or t == 3 and 'CT')
 		end
-
 	elseif event_name == 'round_start' and need_to_save then
 		SaveSettings()
 		need_to_save = false
@@ -1046,11 +1022,11 @@ callbacks_Register('FireGameEvent', function(event)
 
 		local Team = entities_GetLocalPlayer():GetTeamNumber() == 2 and 'T' or 'CT'
 		local weapon = 'weapon_' .. event:GetString('weapon')
-		local Item = GUI.Group3Item.List[Team].raw_values[weapon] or
+		local data = GUI.Group3Item.List[Team].raw_values[weapon] or
 					 GUI.Group3Item.List.Both.raw_values[weapon] or {}
 
-		if Item.count_stattrak then
-			Item.stattrak = Item.stattrak + 1
+		if data.count_stattrak then
+			data.stattrak = data.stattrak + 1
 			need_to_save = true
 		end
 	end
@@ -1071,21 +1047,11 @@ GUI.TabItem.Enabled = guiCheckbox(GUI.TabItem.Group, '', '', 0)
 	GUI.TabItem.Enabled:SetPosY(-37)
 
 GUI.TabItem.EnabledCallback = GUI.TabItem.Enabled:SetCallback(function(value)
-	for k, v in pairs(GUI.GroupItem) do
-		if type(v) ~= 'function' and type(v) ~= 'table' then
-			v:SetDisabled(not value)
-		end
-	end
-
-	for k, v in pairs(GUI.Group2Item) do
-		if type(v) ~= 'function' and type(v) ~= 'table' then
-			v:SetDisabled(not value)
-		end
-	end
-
-	for k, v in pairs(GUI.Group3Item) do
-		if type(v) ~= 'function' and type(v) ~= 'table' then
-			v:SetDisabled(not value)
+	for _, group in ipairs{GUI.GroupItem, GUI.Group2Item, GUI.Group3Item} do
+		for k, v in pairs(group) do
+			if type(v) ~= 'function' and type(v) ~= 'table' then
+				v:SetDisabled(not value)
+			end
 		end
 	end
 
@@ -1208,7 +1174,7 @@ GUI.GroupItem.Group = gui_Groupbox(GUI.Tab, 'Options', 16, 80, 607/2, 300)
 
 GUI.Group2Item.Group = gui_Groupbox(GUI.Tab, 'Item Options', 607/2 + 32, 80, 607/2.115, 300)
 	GUI.Group2Item.Team = guiCombobox(GUI.Group2Item.Group, '', 'Team', 'Both', 'CT', 'T')
-	GUI.Group2Item.Wear = guiEditbox(GUI.Group2Item.Group, '', 'Wear')
+	GUI.Group2Item.Wear = gui.Slider(GUI.Group2Item.Group, '', 'Wear', 0, 0, 1, 0.0001)
 	GUI.Group2Item.Seed = guiEditbox(GUI.Group2Item.Group, '', 'Seed')
 	GUI.Group2Item.Stattrak = guiEditbox(GUI.Group2Item.Group, '', 'Stattrak')
 	GUI.Group2Item.CountStattrak = guiCheckbox(GUI.Group2Item.Group, '', 'Count Stattrak', 0)
@@ -1228,15 +1194,14 @@ GUI.Group2Item.Group = gui_Groupbox(GUI.Tab, 'Item Options', 607/2 + 32, 80, 607
 		end
 
 		local team = GUI.Group2Item.Team:GetString()
-		local wear = GUI.Group2Item.Wear:GetString()
+		local wear = GUI.Group2Item.Wear:GetValue()
 		local seed = GUI.Group2Item.Seed:GetString()
 		local stattrak = GUI.Group2Item.Stattrak:GetString()
 		local countStatTrak = GUI.Group2Item.CountStattrak:GetValue()
 		local name = GUI.Group2Item.Name:GetString()
-			wear = tonumber(wear:match('%.%d+') or '0.' .. (wear:match('%d+') or 0))
+			wear = wear == 0 and 0.0001 or wear == 1 and 0.9999 or wear
 			seed = tonumber(seed:match('%d+') or 0)
 			stattrak = tonumber(stattrak:match('%d+') or -1)
-			wear = (wear > 0 and wear < 1) and wear or 0.00000001
 
 		if stattrak == -1 and countStatTrak then
 			stattrak = 0
